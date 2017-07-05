@@ -1,0 +1,16 @@
+<!-- vertical nav -->
+<div class="col-4 col-sm-5 col-lg-2 col-md-4">
+  <nav class="navbar navbar-light {{navClassList}}">
+    <div class="flex-md-column flex-lg-column mt-md-0 mt-4 pt-md-0 pt-4 text-center tk-museo-slab" id="navbar">
+      <a href="/" class="nav-link">
+        <img src="/images/logo2x.png" alt="{{logo_alt}}" class="img-fluid" style="width: 240px;">
+      </a>
+      {{#each nav}}
+        <a class="nav-link {{active}}" href="{{url}}" {{disabled}}>{{title}}</a>
+      {{/each}}
+      <a class="btn btn-outline-success nav-link" href="/sign_in">
+        {{sign_in}}
+      </a>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,27 @@
+<div class="col-8 col-sm-7 col-lg-10">
+  <div class="container-fluid">
+    <div class="row">
+      <h3>Events</h3>
+      <div class="card-deck">
+        {{#each events}}
+          <div class="card">
+            <img class="card-img-top" src="{{this.imageUrl}}" alt="{{this.imageAlt}}">
+            <div class="card-block">
+              <h4 class="card-title">{{this.title}}</h4>
+              <p class="card-text">{{this.description}}</p>
+            </div>
+            <div class="card-footer">
+              <form action="{{event_form_url}}" method="post">
+                <input type="hidden" name="order[event][id]" value="{{this.id}}">
+                <input type="hidden" value="{{this.id}}">
+                <button type="submit">
+                  {{this.submit_button}}
+                </button>
+              </form>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>

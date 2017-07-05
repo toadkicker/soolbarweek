@@ -1,0 +1,15 @@
+{
+  "title": "Sool Bar Week",
+  "home": "Home",
+  "logo_alt": "Sool Bar Week",
+  "events": "Events",
+  "sponsors": "Sponsors",
+  "locations": "Locations",
+  "registration": "Registration",
+  "error.title": "Drink Not Found",
+  "error.content": "We're sorry but it looks like we don't have that drink at this site. Maybe you need to ",
+  "error.back_url": "/",
+  "error.back_url_text": "go home?",
+  "error.server_message_title": "The server said:",
+  "sign_in": "Sign In"
+}
