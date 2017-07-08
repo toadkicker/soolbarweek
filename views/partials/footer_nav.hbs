@@ -1,0 +1,15 @@
+{{{text}}}
+<ul class="nav flex-column">
+  {{#footer_links}}
+    <li class="nav-item"><a href="{{url}}" class="nav-link">
+      <a class="nav-link pr-0" href="{{url}}">
+        {{#if icon}}
+          <i class="{{icon}}"></i>
+        {{/if}}
+        {{#if title}}
+          {{title}}
+        {{/if}}
+      </a>
+    </li>
+  {{/footer_links}}
+</ul>

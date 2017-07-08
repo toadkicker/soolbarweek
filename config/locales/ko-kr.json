@@ -1,3 +1,9 @@
 {
-  "title": "바 주"
+	"title": "바 주",
+	"events": "events",
+	"sponsors": "sponsors",
+	"locations": "locations",
+	"registration": "registration",
+	"logo_alt": "logo_alt",
+	"sign_in": "sign_in"
 }

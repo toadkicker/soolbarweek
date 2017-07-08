@@ -1,0 +1,5 @@
+@include media-breakpoint-between(md, lg) {
+  .brand > img {
+    width: 120px;
+  }
+}

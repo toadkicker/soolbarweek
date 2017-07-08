@@ -6,6 +6,10 @@ module.exports = function (req, items) {
       url: "/events"
     },
     {
+      title: req.t("members"),
+      url: "/members"
+    },
+    {
       title: req.t("sponsors"),
       url: "/sponsors"
     },

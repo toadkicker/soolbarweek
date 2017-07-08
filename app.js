@@ -12,6 +12,7 @@ let express = require('express'),
   sponsors = require('./routes/sponsors'),
   locations = require('./routes/locations'),
   registration = require('./routes/registration'),
+  login = require('./routes/events'),
   events = require('./routes/events'),
   nav = require(path.join(__dirname, 'helpers', 'nav'));
 
@@ -69,8 +70,6 @@ app.use(function (err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
   if (err.status === 404) {
     res.render('404', {
       error_message: err,
@@ -88,7 +87,9 @@ app.use(function (err, req, res, next) {
       sign_in: req.t('sign_in')
     });
   } else {
-    res.render('error');
+    res.render('error', {
+      message: res.locals.message
+    });
   }
 });
 
