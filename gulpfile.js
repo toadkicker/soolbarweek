@@ -10,6 +10,10 @@ let sourcemaps = require('gulp-sourcemaps');
 let assign = require('lodash.assign');
 let path = require('path');
 let gls = require('gulp-live-server');
+let wrap = require('gulp-wrap');
+let concat = require('gulp-concat');
+let declare = require('gulp-declare');
+let handlebars = require('gulp-handlebars');
 
 // add custom browserify options here
 let browserifyOpts = {
@@ -66,4 +70,39 @@ gulp.task('serve', function() {
   // gulp.watch('myapp.js', function() {
   //   server.start.bind(server)()
   // });
+});
+
+gulp.task('templates', function() {
+  // Load templates from the templates/ folder relative to where gulp was executed
+  gulp.src('views/**/*.hbs')
+    // Compile each Handlebars template source file to a template function
+    .pipe(handlebars())
+    // Wrap each template function in a call to Handlebars.template
+    .pipe(wrap('Handlebars.template(<%= contents %>)'))
+    // Declare template functions as properties and sub-properties of exports
+    .pipe(declare({
+      root: 'exports',
+      noRedeclare: true, // Avoid duplicate declarations
+      processName: function(filePath) {
+        // Allow nesting based on path using gulp-declare's processNameByPath()
+        // You can remove this option completely if you aren't using nested folders
+        // Drop the templates/ folder from the namespace path by removing it from the filePath
+        return declare.processNameByPath(filePath.replace('templates/', ''));
+      }
+    }))
+    .pipe(wrap('Handlebars.registerPartial(<%= processPartialName(file.relative) %>, Handlebars.template(<%= contents %>));', {}, {
+      imports: {
+        processPartialName: function(fileName) {
+          // Strip the extension and the underscore
+          // Escape the output with JSON.stringify
+          return JSON.stringify(path.basename(fileName, '.js').substr(1));
+        }
+      }
+    }))
+    // Concatenate down to a single file
+    .pipe(concat('index.js'))
+    // Add the Handlebars module in the final output
+    .pipe(wrap('var Handlebars = require("handlebars");\n <%= contents %>'))
+    // WRite the output into the templates folder
+    .pipe(gulp.dest('dist/'));
 });

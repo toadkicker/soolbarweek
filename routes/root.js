@@ -11,8 +11,8 @@ exports.index = function (req, res) {
     header: {
       title: req.t('title'),
       date: req.t('date'),
-      learn_more: req.t('learn_more')
     },
+    learn_more: req.t('learn_more'),
     nav: nav(req),
     title: req.t('title'),
     lang: i18n.getLocale(req),
