@@ -62,6 +62,7 @@ app.get('/sponsors', sponsors.index);
 app.get('/contact', contact.index);
 app.get('/thankyou', thankyou.index);
 app.post('/contact', contact.post);
+app.get('/about', about.index);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
