@@ -17,7 +17,8 @@ let express = require('express'),
   about = require('./routes/about'),
   contact = require('./routes/contact'),
   thankyou = require('./routes/thankyou'),
-  nav = require(path.join(__dirname, 'helpers', 'nav'));
+  nav = require(path.join(__dirname, 'helpers', 'nav')),
+  footer = require(path.join(__dirname, 'helpers', 'footer'));
 
 let app = express();
 
@@ -88,10 +89,12 @@ app.use(function (err, req, res, next) {
         server_message_title: req.t('error.server_message_title'),
       },
       nav: nav(req),
+      footer: footer(req),
       logo_alt: req.t("logo_alt"),
       title: req.t('title'),
       lang: i18n.getLocale(req),
-      sign_in: req.t('sign_in')
+      sign_in: req.t('sign_in'),
+      register: req.t('register'),
     });
   } else {
     res.render('error', {
