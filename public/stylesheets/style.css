@@ -6104,4 +6104,8 @@ footer a:focus {
 h1, h2, h3, h4, h5, h6 {
   font-family: "museo-slab"; }
 
+.card-outline-none {
+  background-color: transparent;
+  border-color: transparent; }
+
 /*# sourceMappingURL=style.css.map */

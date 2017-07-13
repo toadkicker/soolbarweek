@@ -14,7 +14,7 @@
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
   <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -27,6 +27,38 @@
 {{#if header}}
   {{> header }}
 {{/if}}
+{{> nav }}
+<div class="container h-10" id="content">
+  <div class="row h-100 mt-3">
+    {{>aside}}
+    <main class="col py-5">
+      <div class="row">
+        <div class="col">
+          {{#if tabs}}
+            {{> tabs }}
+            {{> tab_content}}
+          {{/if}}
+          {{{body}}}
+        </div>
+        {{#if right_column}}
+          {{>right_column}}
+        {{/if}}
+      </div>
+    </main>
+  </div>
+</div>
+<footer class="bg-inverse text-white py-4">
+  <div class="container">
+    <div class="row">
+      {{#footer}}
+        {{>footer_column}}
+      {{/footer}}
+      <div class="col-12 text-right small">
+        &copy;{{current_year}} {{title}}
+      </div>
+    </div>
+  </div>
+</footer>
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
         integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
         crossorigin="anonymous"></script>
@@ -66,33 +98,43 @@
 </script>
 
 <script>
-  $learnMore = document.querySelector('#learn-more');
-  $learnMore.addEventListener('click', function (event) {
-    event.preventDefault();
-    document.querySelector('nav').scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
+  function sbw_affix() {
+    let $header = $('#header');
+    let $footer = $('footer');
+    let $navbar = $('.navbar');
 
-</script>
+    if ($header.outerHeight() === undefined) {
+      $navbar.affix({
+        top: $header.outerHeight()
+      });
 
-<script>
-  let $header = $('#header');
-  let $footer = $('footer');
+      $('#sidemenu').affix({
+        offset: {
+          top: $navbar.outerHeight(),
+          bottom: $footer.outerHeight() - 200
+        }
+      });
 
-  $('.navbar').affix({
-    offset: {
-      top: $header.outerHeight(),
-      bottom: $header.outerHeight() - 50
+    } else {
+
+      $navbar.affix({
+        offset: {
+          top: $header.outerHeight(),
+          bottom: $header.outerHeight() - 50
+        }
+      });
+
+      $('#sidemenu').affix({
+        offset: {
+          top: $header.outerHeight(),
+          bottom: $footer.outerHeight() + 50
+        }
+      });
     }
-  });
+  }
 
-  $('#sidemenu').affix({
-    offset: {
-      top: $header.outerHeight(),
-      bottom: $footer.outerHeight() + 50
-    }
-  });
+  $(document).on('ready', sbw_affix());
+
 </script>
 </body>
 </html>

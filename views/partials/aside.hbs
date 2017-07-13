@@ -4,6 +4,7 @@
     <a class="brand" href="/">
       <img src="/images/logo2x.png" alt="{{logo_alt}}">
     </a>
+    {{#if aside_links}}
     <ul class="nav flex-md-column flex-row justify-content-between">
       {{#aside_links}}
         <li class="nav-item">
@@ -18,5 +19,6 @@
         </li>
       {{/aside_links}}
     </ul>
+    {{/if}}
   </div>
 </aside>

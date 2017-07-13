@@ -30,3 +30,15 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  $learnMore = document.querySelector('#learn-more');
+  $learnMore.addEventListener('click', function (event) {
+    event.preventDefault();
+    document.querySelector('nav').scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+
+</script>

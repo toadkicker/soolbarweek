@@ -5,6 +5,7 @@
 @import "breakpoints/lg";
 @import "breakpoints/md";
 @import "breakpoints/sm";
+//@import "sponsors";
 
 body {
   color: $brand-primary;
@@ -125,4 +126,9 @@ footer a:focus {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "museo-slab";
+}
+
+
+.card-outline-none {
+  @include card-outline-variant(transparent);
 }

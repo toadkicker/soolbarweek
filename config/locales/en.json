@@ -2,8 +2,14 @@
   "title": "Sool Bar Week",
   "home": "Home",
   "logo_alt": "Sool Bar Week",
+  "name": "Name",
+  "name_help": "Please tell us who you are",
+  "message": "Message",
+  "message_sent_text": "A message has been sent and we will respond to your email as soon as possible. Thank you!",
+  "email": "Email",
+  "email_help": "We'll never share your email with anyone else.",
   "date": "September 11th – 17th",
-  "learn_more": "Coming Soon",
+  "learn_more": "Learn More",
   "events": "Events",
   "members": "Members",
   "sponsors": "Sponsors",
@@ -17,5 +23,7 @@
   "sign_in": "Log In",
   "register": "Sign Up",
   "contact_us": "Contact Us",
-  "won": "&#8361;"
+  "won": "&#8361;",
+  "about": "About",
+  "profile_text": "Bob is awesome and needs to send his web developer a biography. It needs to be in Korean and any other language we need to support. I made this text long so we can see how it wraps around an image. Isn't that just lovely? What do you think about Game of Thrones? I think dragons are awesome. Bob is awesome and needs to send his web developer a biography. It needs to be in Korean and any other language we need to support. I made this text long so we can see how it wraps around an image. Isn't that just lovely? What do you think about Game of Thrones? I think dragons are awesome.Bob is awesome and needs to send his web developer a biography. It needs to be in Korean and any other language we need to support. I made this text long so we can see how it wraps around an image. Isn't that just lovely? What do you think about Game of Thrones? I think dragons are awesome."
 }

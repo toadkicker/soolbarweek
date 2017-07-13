@@ -14,6 +14,9 @@ let express = require('express'),
   registration = require('./routes/registration'),
   login = require('./routes/events'),
   events = require('./routes/events'),
+  about = require('./routes/about'),
+  contact = require('./routes/contact'),
+  thankyou = require('./routes/thankyou'),
   nav = require(path.join(__dirname, 'helpers', 'nav'));
 
 let app = express();
@@ -56,6 +59,9 @@ app.get('/locations', locations.index);
 app.get('/registration', registration.index);
 app.get('/login', login.index);
 app.get('/sponsors', sponsors.index);
+app.get('/contact', contact.index);
+app.get('/thankyou', thankyou.index);
+app.post('/contact', contact.post);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
