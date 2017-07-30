@@ -96,8 +96,8 @@ module.exports = function (req) {
     },
     {
       name: "Yumi Takekoshi",
-      id: "yuma_takekoshi",
-      description: req.t('yuma_takekoshi_desc'),
+      id: "yumi_takekoshi",
+      description: req.t('yumi_takekoshi_desc'),
       type: 'speaker'
     },
     {
@@ -110,12 +110,6 @@ module.exports = function (req) {
       name: "Guilhem Grosperrin",
       id: "guilhem_grosperrin",
       description: req.t('guilhem_grosperrin_desc'),
-      type: 'speaker'
-    },
-    {
-      name: "Thierry Daniel",
-      id: "thierry_daniel",
-      description: req.t('thierry_daniel_desc'),
       type: 'speaker'
     },
     {
