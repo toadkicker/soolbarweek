@@ -7,6 +7,7 @@ EXPOSE 3000
 ADD . /app
 
 WORKDIR '/app'
+RUN npm install -g node-gyp
 RUN npm install
 RUN npm rebuild node-sass
 CMD ["npm","start"]
