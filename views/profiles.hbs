@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="card-columns">
+    {{#profiles}}
+      <div class="card card-outline-none">
+        <h3><a href="/profiles/{{id}}">{{name}}</a></h3>
+        <p><a href="/profiles/{{id}}"><img class="rounded img-fluid mx-auto" src="/images/profiles/{{id}}.jpg"></a></p>
+      </div>
+    {{/profiles}}
+  </div>
+</div>

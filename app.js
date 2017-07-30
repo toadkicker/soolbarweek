@@ -9,6 +9,7 @@ let express = require('express'),
   hbs = require('hbs'),
   hbsutils = require('hbs-utils')(hbs),
   root_url = require('./routes/root'),
+  legal = require('./routes/legal'),
   sponsors = require('./routes/sponsors'),
   locations = require('./routes/locations'),
   registration = require('./routes/registration'),
@@ -17,6 +18,7 @@ let express = require('express'),
   about = require('./routes/about'),
   contact = require('./routes/contact'),
   thankyou = require('./routes/thankyou'),
+  profiles = require('./routes/profiles'),
   nav = require(path.join(__dirname, 'helpers', 'nav')),
   footer = require(path.join(__dirname, 'helpers', 'footer'));
 
@@ -55,10 +57,16 @@ i18n.configure({
 app.use(i18n.init);
 
 app.get('/', root_url.index);
+app.get('/privacy', legal.privacy);
+app.get('/terms-of-service', legal.tos);
 app.get('/events', events.index);
+app.get('/events/:id', events.show);
+app.post('/events/:id', events.order);
 app.get('/locations', locations.index);
 app.get('/registration', registration.index);
 app.get('/login', login.index);
+app.get('/profiles', profiles.index);
+app.get('/profiles/:id', profiles.show);
 app.get('/sponsors', sponsors.index);
 app.get('/contact', contact.index);
 app.get('/thankyou', thankyou.index);

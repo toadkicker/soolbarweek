@@ -1,6 +1,6 @@
 //This is just so we dont have footer items in every route file
-let nav = require('./nav');
-
+let nav = require('./nav'),
+  sponsorsList = require('../helpers/sponsors');
 module.exports = function (req) {
   return [
     {
@@ -17,6 +17,14 @@ module.exports = function (req) {
         {
           title: req.t('about'),
           url: "/about"
+        },
+        {
+          title: req.t('privacy'),
+          url: "/privacy"
+        },
+        {
+          title: req.t('tos'),
+          url: "/terms-of-service"
         }
       ],
       nav_class: 'flex-column',
@@ -25,25 +33,13 @@ module.exports = function (req) {
     {
       footer_links: [
         {
-          icon: 'fa fa-pinterest fa-lg',
-          url: "https://pinterest.com"
-        },
-        {
-          icon: 'fa fa-twitter fa-lg',
-          url: "https://twitter.com"
-        },
-        {
           icon: 'fa fa-instagram fa-lg',
-          url: "https://instagram.com"
+          url: "https://instagram.com/soolbarweek"
         },
         {
           icon: 'fa fa-facebook fa-lg',
-          url: "https://facebook.com"
-        },
-        {
-          icon: 'fa fa-skype fa-lg',
-          url: "https://skype.com"
-        },
+          url: "https://facebook.com/soolbarweek"
+        }
       ],
       nav_class: 'flex-row justify-content-end',
       column_class: 'col-md-4 ml-auto text-right'

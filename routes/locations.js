@@ -21,11 +21,6 @@ exports.index = function (req, res) {
         "name":"B28 Seoul",
         "lat": "37.5178873",
         "lng": "126.8925626"
-      },
-      {
-        "name":"B28 Seoul",
-        "lat": "37.5178873",
-        "lng": "126.8925626"
       }
     ]
   });

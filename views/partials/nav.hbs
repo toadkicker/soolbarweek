@@ -1,13 +1,15 @@
-<nav class="navbar navbar-light navbar-toggleable-md">
+<nav class="navbar navbar-light navbar-toggleable-md affix-top">
   <div class="container">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="navbar-collapse collapse" id="navbarNav">
-      {{#each nav}}
-        <a class="nav-item nav-link {{active}}" href="{{url}}" {{disabled}}>{{title}}</a>
-      {{/each}}
+      <div class="navbar-nav">
+        {{#each nav}}
+          <a class="nav-item nav-link {{active}}" href="{{url}}" {{disabled}}>{{title}}</a>
+        {{/each}}
+      </div>
     </div>
     <a class="btn btn-success" href="/sign_in" role="button">
       {{sign_in}}

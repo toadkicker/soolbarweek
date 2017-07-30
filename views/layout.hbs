@@ -22,8 +22,9 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 </head>
-<body data-spy="scroll" data-target="#sidemenu" data-offset="15">
+<body data-spy="scroll" data-target="#sidemenu">
 {{#if header}}
   {{> header }}
 {{/if}}
@@ -53,6 +54,8 @@
       {{#footer}}
         {{>footer_column}}
       {{/footer}}
+    </div>
+    <div class="row">
       <div class="col-12 text-right small">
         &copy;{{current_year}} {{title}}
       </div>
@@ -85,7 +88,7 @@
     tk.async = true;
     tk.onload = tk.onreadystatechange = function () {
       a = this.readyState;
-      if (f || a && a !== "complete" && a !== "loaded")return;
+      if (f || a && a !== "complete" && a !== "loaded") return;
       f = true;
       clearTimeout(t);
       try {

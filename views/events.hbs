@@ -3,16 +3,11 @@
   <h3>Events</h3>
 
 
-  <nav class="nav nav-fill">
-    <a class="nav-item nav-link active" href="#">Tasting Rooms</a>
-    <a class="nav-item nav-link" href="#">Pop Up Bars</a>
-    <a class="nav-item nav-link" href="#">Dinner Pairings</a>
-    <a class="nav-item nav-link" href="#">Master Classes</a>
-  </nav>
-
-  <div class="card-columns">
-    {{#each events}}
-      <div class="card">
+  <div class="flex-column">
+    {{#events}}
+      <div id="{{this.id}}">
+        <h3 href="#{{this.id}}">{{this.title}}</h3>
+        <h4>{{this.subtitle}}</h4>
         {{#if this.video_url}}
           <video class="card-img-top mw-100" loop muted autoplay preload="auto">
             <source src="{{this.video_url}}" type="video/quicktime">
@@ -21,38 +16,27 @@
         {{#if this.image_url}}
           <img class="card-img-top" src="{{this.image_url}}" alt="{{this.image_alt}}">
         {{/if}}
-        <div class="card-block">
-          <h4 class="card-title">{{this.title}}</h4>
-          <p class="card-text">{{this.description}}</p>
-          <p class="card-text">
-            {{this.location}}
-          </p>
-          <p class="card-text">{{this.start_time}}</p>
-          <p class="card-text">{{this.end_time}}</p>
-          <p class="lead"><span class="won"></span>{{this.price}}</p>
-        </div>
-        <div class="card-footer">
-          <form action="{{event_form_url}}" method="post">
-            <input type="hidden" name="order[event][id]" value="{{this.id}}">
-            <input type="hidden" value="{{this.id}}">
-            <b><span class="won">{{this.price}}</span></b>
-            <label for="quantity">
-              <input id="quantity" type="number" name="order[event][quantity]">
-              Quantity
-            </label>
-            <button class="btn btn-outline-primary" type="submit">
-              {{this.submit_button}}
-            </button>
-          </form>
-        </div>
+        {{#this.classes}}
+          <div class="row">
+            <div class="col">
+              <b>{{start_time}}&nbsp;&ndash;&nbsp;{{end_time}}:</b>
+            </div>
+            <div class="col">
+              {{title}}
+            </div>
+            <div class="col">{{profile.name}}</div>
+          </div>
+        {{/this.classes}}
+        {{#this.guest_shifts}}
+          <div class="row">
+            <div class="col">
+              {{start_time}}&nbsp;&ndash;&nbsp;{{end_time}}
+            </div>
+            <div class="col">{{profile.name}} @ {{location}}</div>
+          </div>
+        {{/this.guest_shifts}}
       </div>
-    {{/each}}
+    {{/events}}
   </div>
-</div>
 
-<!--todo:-->
-<!--- link to single event-->
-<!--- ellipse the description to say 200 characters or so-->
-<!--- time of event-->
-<!--- location-->
-<!--- price-->
+</div>

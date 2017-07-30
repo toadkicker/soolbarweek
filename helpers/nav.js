@@ -1,25 +1,37 @@
 //This is just so we dont have nav items in every route file
 module.exports = function (req, items) {
+
+  function isActive(path) {
+    if(req.hasOwnProperty('route') && req.route.hasOwnProperty('path')) {
+      return req.route.path.startsWith(`/${path}`) ? 'active' : ''
+    }
+  }
+
   let defaults = [
     {
       title: req.t("events"),
-      url: "/events"
+      url: "/events",
+      active: isActive('events')
     },
     {
-      title: req.t("members"),
-      url: "/members"
+      title: req.t("profiles"),
+      url: "/profiles",
+      active: isActive('profiles')
     },
     {
       title: req.t("sponsors"),
-      url: "/sponsors"
+      url: "/sponsors",
+      active: isActive('sponsors')
     },
     {
       title: req.t("locations"),
-      url: "/locations"
+      url: "/locations",
+      active: isActive('locations')
     },
     {
       title: req.t("registration"),
-      url: "/registration"
+      url: "/registration",
+      active: isActive('registration')
     }
   ];
 

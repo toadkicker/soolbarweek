@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <h1>Sponsors</h1>
+        <h1>{{sponsor_title}}</h1>
       </div>
     </div>
     <div class="row">
@@ -10,9 +10,8 @@
         {{#sponsors}}
           <div class="card card-outline-none">
             <div class="card-block text-center">
-              <h6 class="card-subtitle">{{name}}</h6>
-              <a href="{{url}}">
-                <img class="img-thumbnail sponsor-logo" src="{{logo_url}}" alt={{name}}>
+              <a href="{{url}}" target="_blank">
+                <img class="img-fluid sponsor-logo" src="{{logo_url}}" alt={{title}}>
               </a>
             </div>
           </div>

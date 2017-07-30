@@ -1,23 +1,29 @@
 <div class="col-lg-3 col-12">
   <div class="card card-danger card-inverse mb-3">
     <div class="card-block">
-      <h3 class="card-title">Next Event</h3>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-danger">Outline</a>
+      <h3 class="card-title">{{next_event_header}}</h3>
+      <p class="card-text">{{next_event_title}}</p>
+      <p class="card-text">{{next_event_start_time}}</p>
+      <p class="card-text text-center">
+        <a href="{{next_event_url}}" class="btn btn-outline-danger text-white">{{next_event_button_text}}</a>
+      </p>
+    </div>
+  </div>
+  <div class="card bg-faded border-0 mb-3 text-center">
+    <div class="card-block">
+      <h3 class="card-title">{{featured_sponsor}}</h3>
+      <p class="card-text text-center">
+        <a href="{{sponsor_url}}"><img src="{{sponsor_logo_url}}" alt="{{sponsor_title}}" style="max-width: 90px;"></a>
+      </p>
     </div>
   </div>
   <div class="card bg-faded border-0 mb-3">
     <div class="card-block">
-      <h3 class="card-title">Featured Sponsor</h3>
-      <p class="card-text">Display supporters and advertisements here.</p>
-      <a href="#" class="btn btn-outline-secondary">C-T-A</a>
-    </div>
-  </div>
-  <div class="card bg-faded border-0 mb-3">
-    <div class="card-block">
-      <h3 class="card-title">Meet Tristan Stevenson</h3>
-      <p class="card-text">Tristan is widely respected...</p>
-      <a href="#" class="btn btn-outline-secondary">C-T-A</a>
+      <h3 class="card-title">{{profile_header}}</h3>
+      <p class="card-text">{{profile_description}}</p>
+      <p class="card-text text-center">
+        <a href="{{profile_button_url}}" class="btn btn-outline-primary">{{profile_button_text}}</a>
+      </p>
     </div>
   </div>
 </div>
