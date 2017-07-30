@@ -8,8 +8,7 @@ exports.index = function (req, res) {
     logo_alt: req.t("logo_alt"),
     title: req.t('title'),
     lang: i18n.getLocale(req),
-    sign_in: req.t('sign_in'),
-    register: req.t('register'),
+    wristbands: req.t('wristbands'),
     mapbox_token: "pk.eyJ1IjoidG9hZGtpY2tlciIsImEiOiJjajUyNG50eDMwY2IyMnFwOWU3M2M1OXFnIn0.8yWFA9xzL8jAj_1l5H-Eqg",
     locations: [
       {

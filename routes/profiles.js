@@ -13,8 +13,7 @@ exports.index = function (req, res) {
     nav: nav(req),
     title: req.t('title'),
     lang: i18n.getLocale(req),
-    sign_in: req.t('sign_in'),
-    register: req.t('register'),
+    wristbands: req.t('wristbands'),
     date: req.t('date'),
     footer: footer(req),
     profiles: profiles(req)
@@ -37,8 +36,7 @@ exports.show = function (req, res) {
     nav: nav(req),
     title: req.t('title'),
     lang: i18n.getLocale(req),
-    sign_in: req.t('sign_in'),
-    register: req.t('register'),
+    wristbands: req.t('wristbands'),
     date: req.t('date'),
     footer: footer(req),
     profile: getProfile(req.params.id)

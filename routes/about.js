@@ -10,8 +10,7 @@ exports.index = function(req, res){
     logo_alt: req.t("logo_alt"),
     title: req.t('title'),
     lang: i18n.getLocale(req),
-    sign_in: req.t('sign_in'),
-    register: req.t('register'),
+    wristbands: req.t('wristbands'),
     about: {
       profile_img: "/images/bio/Bob Louison.jpg",
       profile_text: req.t('profile_text')
