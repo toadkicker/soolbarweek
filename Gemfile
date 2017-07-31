@@ -70,4 +70,5 @@ gem 'font-awesome-rails'
 gem 'handlebars'
 gem 'money'
 
+gem 'devise'
 gem 'aws-sdk'

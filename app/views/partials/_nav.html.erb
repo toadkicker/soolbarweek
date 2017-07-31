@@ -12,6 +12,11 @@
         <% end %>
       </div>
     </div>
+    <% if current_user %>
+        <%= link_to t('sign_out'), destroy_user_session_path, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-danger mr-2' %>
+    <% else %>
+        <%= link_to t('sign_in'), new_user_session_path, class: 'btn btn-info mr-2' %>
+    <% end %>
     <%= link_to t('wristbands'), '#', class: 'btn btn-success' %>
   </div>
 </nav>
