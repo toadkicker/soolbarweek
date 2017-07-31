@@ -1,0 +1,22 @@
+/* Experiemental */
+/*
+* The idea is to be able to color the <path> elements in the button using bootstrap classes
+* However using an inline background image doesn't allow that.
+*/
+
+ */
+@mixin button {
+  background-color: transparent;
+  background-image: url(../images/button_bg.svg);
+  background-size: 100% 100%;
+  border: 0;
+}
+
+.btn {
+  @include button();
+  .btn-danger {
+    path {
+      color: $red;
+    }
+  }
+}

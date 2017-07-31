@@ -1,0 +1,21 @@
+<div class="jumbotron mb-0 d-flex align-items-center flex-column justify-content-center min-100" id="header">
+  <video loop muted autoplay poster="/assets/homestill.jpg" preload="auto" class="video-bg" playsinline>
+    <source src="/assets/homepage.mov">
+    <source src="/assets/homepage.mp4">
+    <source src="/assets/homepage.webm">
+  </video>
+  <div class="blurred-bg text-center rounded">
+    <div class="p-4">
+      <%= image_tag "logo2x.png", alt: t('logo_alt'), style:"max-height: 240px" %>
+      <h1 class="text-center display-1"><%= t('title')%></h1>
+      <p class="text-center display-3"><%= t('date')%></p>
+    </div>
+    <div class="p4">
+      <p class="lead">
+        <a class="btn btn-danger btn-lg" id="learn-more" href="#content" role="button">
+          <%= t('learn_more')%>
+        </a>
+      </p>
+    </div>
+  </div>
+</div>

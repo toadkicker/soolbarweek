@@ -1,0 +1,10 @@
+<ul class="nav <%= nav_class %>">
+  <% links.each do |link| %>
+      <li class="nav-item">
+        <%= link_to link[:url], class: 'nav-link' do %>
+            <%= fa_icon link[:icon] unless link[:icon].nil? %>
+            <%= content_tag :span, link[:title] unless link[:title].nil? %>
+        <% end %>
+      </li>
+  <% end %>
+</ul>

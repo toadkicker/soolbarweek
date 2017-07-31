@@ -1,0 +1,34 @@
+<% @right_column = true %>
+<div class="col-12">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <h1><%= t('welcome') %></h1>
+        <%= t('home_copy').html_safe %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p class="lead"><%= t('masterclass').pluralize %></p>
+      </div>
+      <div class="col">
+        <p class="lead"><%= t('exclusive_dining') %></p>
+      </div>
+      <div class="col">
+        <p class="lead"><%= t('city_wide_events') %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $learnMore = document.querySelector('#learn-more');
+  $learnMore.addEventListener('click', function (event) {
+    event.preventDefault();
+    document.querySelector('nav').scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+
+</script>

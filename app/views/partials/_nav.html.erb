@@ -1,0 +1,17 @@
+<nav class="navbar navbar-light navbar-toggleable-md affix-top">
+  <div class="container">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarNav">
+      <div class="navbar-nav">
+        <% nav.each do |item| %>
+            <%= link_to item[:title], item[:url], class: "nav-item nav-link #{item[:active]}" %>
+        <% end %>
+      </div>
+    </div>
+    <%= link_to t('wristbands'), '#', class: 'btn btn-success' %>
+  </div>
+</nav>
