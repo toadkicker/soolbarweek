@@ -3,7 +3,7 @@ class CreateSponsors < ActiveRecord::Migration[5.1]
     create_table :sponsors do |t|
       t.string :name
       t.string :slug
-      t.attachment :photo
+      t.attachment :logo
 
       t.timestamps
     end

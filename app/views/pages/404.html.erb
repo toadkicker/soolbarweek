@@ -1,8 +1,9 @@
 <div class="col-8 mt-3">
-  <h1><%= t(error.title)%></h1>
+  <h1><%= t('forohfour.title')%></h1>
 
-  <p><%= t(error.content)%><a href="<%= t(error.back_url)%>"><%= t(error.back_url_text)%></a></p>
+  <p>
+    <%= t('forohfour.content')%>
+    <%= link_to t('error.back_url_text'), root_url %>
+  </p>
 
-  <h6><%= t(error.server_message_title)%></h6>
-  <blockquote><%= t(error_message)%></blockquote>
 </div>

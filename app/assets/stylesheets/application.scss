@@ -46,10 +46,10 @@ body {
     font-size: 4vw;
     color: $red;
   }
-  .display-1{
+  .display-1 {
     text-shadow: 1px 1px 2px $gray-dark;
   }
-  .display-3{
+  .display-3 {
     text-shadow: 1px 1px 2px darken($red, 20%);
   }
 }
@@ -79,6 +79,10 @@ body {
   z-index: 1;
   background: #fff;
   transition: all .35s ease;
+}
+
+.navbar .nav-item.active {
+  text-decoration: underline;
 }
 
 #sidemenu.affix-top, #sidemenu.affix {
@@ -133,7 +137,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "museo-slab", $font-family-serif;
 }
 
-
 .card-outline-none {
   @include card-outline-variant(transparent);
 }
@@ -166,4 +169,8 @@ hr {
 
 .border {
   border: 1px solid $gray-lighter;
+}
+
+nav a:hover {
+  text-decoration: none;
 }

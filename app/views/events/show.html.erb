@@ -22,22 +22,22 @@
 
 <p>
   <strong>Start time:</strong>
-  <%= @event.start_time %>
+  <%= @event.start_time.strftime("%B %d %H:%M %p") %>
 </p>
 
 <p>
   <strong>End time:</strong>
-  <%= @event.end_time %>
+  <%= @event.end_time.strftime("%B %d %H:%M %p") %>
 </p>
 
 <p>
   <strong>Type:</strong>
-  <%= @event.type %>
+  <%= @event.filter_type %>
 </p>
 
 <p>
   <strong>Price:</strong>
-  <%= @event.price %>
+  <%= humanized_money_with_symbol @event.price %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

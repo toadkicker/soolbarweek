@@ -12,7 +12,7 @@
 
 <p>
   <strong>Photo:</strong>
-  <%= @sponsor.photo %>
+  <%= image_tag @sponsor.logo.url %>
 </p>
 
 <%= link_to 'Edit', edit_sponsor_path(@sponsor) %> |

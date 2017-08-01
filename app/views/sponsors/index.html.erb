@@ -1,31 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sponsors</h1>
+<h1><%= t('sponsors') %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Slug</th>
-      <th>Photo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @sponsors.each do |sponsor| %>
-      <tr>
-        <td><%= sponsor.name %></td>
-        <td><%= sponsor.slug %></td>
-        <td><%= sponsor.photo %></td>
-        <td><%= link_to 'Show', sponsor %></td>
-        <td><%= link_to 'Edit', edit_sponsor_path(sponsor) %></td>
-        <td><%= link_to 'Destroy', sponsor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Sponsor', new_sponsor_path %>
+<div class="card-columns">
+  <% @sponsors.each do |sponsor| %>
+      <div class="card card-outline-none w-50">
+        <div class="card-block text-center">
+          <%= link_to sponsor.website, target: "_blank" do %>
+              <%= image_tag sponsor.logo.url(:thumb) %>
+          <% end %>
+          <% if user_is_admin? %>
+              <div class="flex-row">
+                <%= link_to 'Edit', edit_sponsor_path(sponsor), class: 'btn btn-sm btn-outline-primary' %>
+                <%= link_to 'Destroy', sponsor, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-outline-danger' %>
+              </div>
+          <% end %>
+        </div>
+      </div>
+  <% end %>
+</div>
+<% if user_is_admin? %>
+    <%= link_to 'New Sponsor', new_sponsor_path %>
+<% end %>

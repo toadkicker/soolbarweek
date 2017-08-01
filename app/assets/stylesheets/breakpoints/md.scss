@@ -2,4 +2,11 @@
   .brand > img {
     width: 60px;
   }
+  .navbar-toggleable-md .navbar-collapse {
+    width: 50%;
+    &.show, &.collapsing {
+      left: 6rem;
+      position: relative;
+    }
+  }
 }

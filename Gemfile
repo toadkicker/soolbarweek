@@ -63,12 +63,15 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'i18n'
 gem 'rails-i18n', '~> 5.0.0'
+gem 'i18n-active_record', :require => 'i18n/active_record'
 
 gem 'paperclip'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'font-awesome-rails'
 gem 'handlebars'
-gem 'money'
+gem 'money-rails', '~> 1.9.0'
 
 gem 'devise'
 gem 'aws-sdk'
+
+gem 'geocoder'

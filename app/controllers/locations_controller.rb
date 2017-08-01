@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
+  before_action :user_is_admin?, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /locations
   # GET /locations.json
@@ -69,6 +70,6 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:name, :description, :slug, :photo, :logo)
+      params.require(:location).permit(:name, :description, :slug, :photo, :logo, :street_address1, :street_address2, :city, :neighborhood, :country, :website, :telephone)
     end
 end

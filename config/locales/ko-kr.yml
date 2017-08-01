@@ -1,0 +1,60 @@
+ko-kr:
+  title: Sool Bar Week
+  welcome: 술 바 위크에 대해서
+  home_copy: "<p>술 바 위크는 바 문화의 열정과 품질을 홍보하는 목적을 가지고 있습니다. 고품질 브랜드, 고품질 칵테일, 열정이 있는 바텐더가
+    있는 바, 그리고 이 업계를 진심으로 사랑하는 사람들을 알리자 개최되었습니다.</p><p>다양한 국내와 국외 바텐더들과, 국내외 국외의 미디어,
+    그리고F&B 업계의 전문가들을 초청하여 세계적인 바 문화의 과학과 철학을 알려드리자 합니다. 국내와 국외의 유명한 바텐더들이 특별한 한국적인 재료를
+    찾은 후, 그 재료의 영감을 받아 칵테일을 만들어 세계적으로 대한민국 바 문화의 월등함을 알리자고 합니다. 다양한 바텐딩 스타일과 이야기를 공유
+    함으로서, 많은 사람들이 유니크한 바의 세계를 알게 될 것 입니다. 이 이벤트로 인해 사람들은 바의 지식과 이해도가 높아지며, 바에서 주문하는
+    방법, 바텐더에게 기대할 것들, 그리고 브랜드의 지식 또한 높아질 것 입니다.</p>"
+  home: Home
+  logo_alt: Sool Bar Week
+  date: 9 월 11 일 ~ 17 일
+  events: 이벤트
+  members: 회원
+  sponsors: 후원자
+  locations: 위치
+  registration: 맞춰 짜기
+  error.title: 음료를 찾을 수 없음
+  error.content: '죄송 합니다만이 사이트에서는 음료수가없는 것 같습니다. 아마 집에 갈 필요가있을거야. '
+  error.back_url: "/"
+  error.back_url_text: go home?
+  error.server_message_title: '컴퓨터가 말했다.:'
+  sign_in: Log In
+  register: Sign Up
+  contact_us: Contact Us
+  won: "&#8361;"
+  learn_more: 출시 예정
+  beckaly_franks_desc: beckaly_franks_desc
+  dustin_wessa_desc: dustin_wessa_desc
+  tristan_stephenson_desc: tristan_stephenson_desc
+  nagatomo_shuichi_desc: nagatomo_shuichi_desc
+  ryu_fuji_desc: ryu_fuji_desc
+  alli_nguyen_desc: alli_nguyen_desc
+  jacopo_rosito_desc: jacopo_rosito_desc
+  seongha_lee_desc: seongha_lee_desc
+  masahiko_endo_desc: masahiko_endo_desc
+  richard_fawcett_desc: richard_fawcett_desc
+  john_ng_desc: john_ng_desc
+  matt_solario_desc: matt_solario_desc
+  koji_esashi_desc: koji_esashi_desc
+  toshihiro_fukami_desc: toshihiro_fukami_desc
+  kunihiko_nobuhara_desc: kunihiko_nobuhara_desc
+  kiki_moka_desc: kiki_moka_desc
+  greg_boehm_desc: greg_boehm_desc
+  jisung_chun_desc: jisung_chun_desc
+  yumi_takekoshi_desc: yumi_takekoshi_desc
+  nicolas_julhes_desc: nicolas_julhes_desc
+  guilhem_grosperrin_desc: guilhem_grosperrin_desc
+  minzi_kim_wind_desc: minzi_kim_wind_desc
+  kevin_attal_desc: kevin_attal_desc
+  ioana_munteanu: ioana_munteanu
+  profiles: 옆모습
+  wristbands: wristbands
+  about: about
+  privacy: privacy
+  tos: tos
+  featured_sponsor: featured_sponsor
+  next_event_header: next_event_header
+  next_event_button_text: next_event_button_text
+  whos_who: whos_who

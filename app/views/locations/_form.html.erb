@@ -1,42 +1,78 @@
 <%= form_with(model: location, local: true) do |form| %>
-  <% if location.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
+    <% if location.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
 
-      <ul>
-      <% location.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% location.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group field">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :location_name, class: 'form-control' %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :location_name %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :description %>
+      <%= form.text_area :description, id: :location_description, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :location_description %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :slug %>
+      <%= form.text_field :slug, id: :location_slug, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :slug %>
-    <%= form.text_field :slug, id: :location_slug %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :street_address1 %>
+      <%= form.text_field :street_address1, id: :location_street_address1, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :photo %>
-    <%= form.text_field :photo, id: :location_photo %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :street_address2 %>
+      <%= form.text_field :street_address2, id: :location_street_address1, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :logo %>
-    <%= form.text_field :logo, id: :location_logo %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :city %>
+      <%= form.text_field :city, id: :location_city, class: 'form-control' %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :country %>
+      <%= form.text_field :country, id: :location_country, class: 'form-control' %>
+    </div>
+
+    <div class="form-group field">
+      <%= form.label :neighborhood %>
+      <%= form.text_field :neighborhood, id: :location_country, class: 'form-control' %>
+    </div>
+
+    <div class="form-group field">
+      <%= form.label :website %>
+      <%= form.text_field :website, id: :location_website, class: 'form-control' %>
+    </div>
+
+    <div class="form-group field">
+      <label><%= t('photo') %></label><br/>
+      <%= form.label :photo, class: "custom-file" do %>
+          <%= form.file_field :photo, id: :location_photo, class: 'custom-file-input', placeholder: t('browsefile') %>
+          <%= content_tag :span, "", class: "custom-file-control" %>
+      <% end %>
+    </div>
+
+    <div class="form-group field">
+      <label><%= t('logo') %></label><br/>
+      <%= form.label :logo, class: "custom-file" do %>
+          <%= form.file_field :logo, id: :location_logo, class: 'custom-file-input', placeholder: t('browsefile') %>
+          <%= content_tag :span, "", class: "custom-file-control" %>
+      <% end %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit class: 'btn btn-outline-primary' %>
+    </div>
 <% end %>

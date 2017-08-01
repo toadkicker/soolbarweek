@@ -1,10 +1,11 @@
 class EventsController < ApplicationController
+  before_action :authenticate_admin!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @masterclass = Event.by_type('masterclass').by_day
+    @guest_shift = Event.by_type('guest_shift').by_hour
   end
 
   # GET /events/1
@@ -63,12 +64,13 @@ class EventsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
     def set_event
       @event = Event.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :subtitle, :short_description, :description, :start_time, :end_time, :type, :price)
+      params.require(:event).permit(:title, :subtitle, :short_description, :description, :start_time, :end_time, :filter_type, :price, :profile_id, :location_id)
     end
 end

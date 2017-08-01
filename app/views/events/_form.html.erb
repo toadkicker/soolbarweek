@@ -1,57 +1,80 @@
 <%= form_with(model: event, local: true) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+    <% if event.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(event.errors.count, 'error') %> prohibited this event from being saved:</h2>
 
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% event.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group field">
+      <%= form.label :title %>
+      <%= form.text_field :title, id: :event_title, class: 'form-control' %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :event_title %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :subtitle %>
+      <%= form.text_field :subtitle, id: :event_subtitle, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :subtitle %>
-    <%= form.text_field :subtitle, id: :event_subtitle %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :short_description %>
+      <%= form.text_field :short_description, id: :event_short_description, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :short_description %>
-    <%= form.text_field :short_description, id: :event_short_description %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :description %>
+      <%= form.text_area :description, id: :event_description, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :event_description %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :start_time %><br>
+      <%= form.datetime_select :start_time, id: :event_end_time, class: 'form-control', start_year: Date.current.year, default: {year: Date.current.year, month: '09', day: '11', hour: '20', minute: '00'} %>
+    </div>
 
-  <div class="field">
-    <%= form.label :start_time %>
-    <%= form.date_select :start_time, id: :event_start_time %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :end_time %><br>
+      <%= form.datetime_select :end_time, id: :event_end_time, class: 'form-control', start_year: Date.current.year, default: {year: Date.current.year, month: '09', day: '11', hour: '20', minute: '00'} %>
+    </div>
 
-  <div class="field">
-    <%= form.label :end_time %>
-    <%= form.date_select :end_time, id: :event_end_time %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :filter_type %><br>
+      <%= form.select :filter_type, {masterclass: 'masterclass', guest_shift: 'guest_shift'} %>
+    </div>
 
-  <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type, id: :event_type %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :profile %><br>
+      <% @profiles = Profile.all %>
+      <% if @profiles.empty? %>
+          <%= link_to t('add_new_profile'), new_profile_path %>
+      <% else %>
+          <%= form.collection_select :profile_id, @profiles, :id, :name, prompt: true %>
+      <% end %>
+    </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :event_price %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :location %><br>
+      <% @locations = Location.all %>
+      <% if @locations.empty? %>
+          <%= link_to t('add_new_location'), new_location_path %>
+      <% else %>
+          <%= form.collection_select :location_id, @locations, :id, :name, prompt: true %>
+      <% end %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :price_cents %><br>
+      <div class="input-group">
+        <div class="input-group-addon"><%= currency_symbol %></div>
+        <%= form.number_field :price, id: :event_price, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= form.submit class: 'btn btn-outline-primary' %>
+    </div>
 <% end %>

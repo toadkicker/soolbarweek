@@ -1,34 +1,47 @@
+<% @event = Event.order("RANDOM()").first %>
+<% @sponsor = Sponsor.order("RANDOM()").first %>
+<% @profile = Profile.order("RANDOM()").first %>
+
 <div class="col-lg-3 col-12">
-  <div class="card card-danger card-inverse mb-3">
-    <div class="card-block">
-      <h3 class="card-title"><%= t('next_event_header')%></h3>
-      <p class="card-text"><%= t('next_event_title')%></p>
-      <p class="card-text"><%= t('next_event_start_time')%></p>
-      <p class="card-text text-center">
-        <a href="<%= t('next_event_url')%>" class="btn btn-outline-danger text-white"><%= t('next_event_button_text')%></a>
-      </p>
-    </div>
-  </div>
-  <div class="card border-0 mb-3 text-center">
-    <div class="card-block">
-      <h3 class="card-title"><%= t('featured_sponsor')%></h3>
-      <p class="card-text text-center">
-        <a href="<%= t('sponsor_url')%>"><img src="<%= t('sponsor_logo_url')%>" alt="<%= t('sponsor_title')%>" style="max-width: 90px;"></a>
-      </p>
-    </div>
-  </div>
-  <div class="card card-info card-inverse border-0 mb-3">
-    <div class="card-block">
-      <h3 class="card-title"><%= t('profile_header')%></h3>
-      <p class="lead card-text text-ellipse"><%= t('{profile_name')%></p>
-    </div>
-    <div class="card-block pt-0">
-      <div class="ellipsis multiline" style="max-height: 10rem;">
-        <p class="card-text"><b><%= t('{profile_description')%></b></p>
+  <% unless @event.nil? %>
+      <div class="card card-danger card-inverse mb-3">
+        <div class="card-block">
+          <h3 class="card-title"><%= t('next_event_header') %></h3>
+          <p class="card-text"><%= @event.title %></p>
+          <p class="card-text"><%= @event.start_time.strftime("%A %b %C %I:%M %p") %></p>
+          <p class="card-text text-center">
+            <a href="<%= event_path(@event) %>" class="btn btn-outline-danger text-white"><%= t('next_event_button_text') %></a>
+          </p>
+        </div>
       </div>
-      <p class="card-text text-center">
-        <a href="<%= t('profile_button_url')%>" class="btn btn-info"><%= t('profile_button_text')%></a>
-      </p>
-    </div>
-  </div>
+  <% end %>
+  <% unless @sponsor.nil? %>
+      <div class="card border-0 mb-3 text-center">
+        <div class="card-block">
+          <h3 class="card-title"><%= t('featured_sponsor') %></h3>
+          <p class="card-text text-center">
+            <%= link_to sponsor_path(@sponsor) do %>
+                <%= image_tag @sponsor.logo.url(:thumb), alt: @sponsor.name, style: "max-width: 90px;" %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+  <% end %>
+  <% unless @profile.nil? %>
+      <div class="card card-info card-inverse border-0 mb-3">
+        <div class="card-block">
+          <h3 class="card-title"><%= t('whos_who') %></h3>
+          <p class="lead card-text text-ellipse"><%= @profile.name %></p>
+        </div>
+        <div class="card-block pt-0">
+          <div class="ellipsis multiline" style="max-height: 10rem;">
+            <p class="card-text"><b><%= @profile.description %></b></p>
+          </div>
+          <p class="card-text text-center">
+            <%= link_to t('learn_more'), profile_path(@profile) %>
+          </p>
+        </div>
+      </div>
+  <% end %>
+
 </div>

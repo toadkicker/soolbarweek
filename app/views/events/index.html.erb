@@ -1,41 +1,65 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Events</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Subtitle</th>
-      <th>Short description</th>
-      <th>Description</th>
-      <th>Start time</th>
-      <th>End time</th>
-      <th>Type</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.subtitle %></td>
-        <td><%= event.short_description %></td>
-        <td><%= event.description %></td>
-        <td><%= event.start_time %></td>
-        <td><%= event.end_time %></td>
-        <td><%= event.type %></td>
-        <td><%= event.price %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="flex-column">
+  <div class="mb-4">
+    <% @masterclass.each do |dayz| %>
+        <h1 class="text-danger"><%= dayz[0].strftime("%A %d") %></h1>
+        <hr class="mt-0">
+        <% dayz[1].each do |event| %>
+            <% if user_is_admin? %>
+                <div class="float-right">
+                  <%= link_to t('edit'), edit_event_path(event), class: 'btn btn-sm btn-outline-primary' %>
+                  <%= link_to t('destroy'), event, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-outline-danger' %>
+                </div>
+            <% end %>
+            <% if event[:video_url] %>
+                <video class="card-img-top mw-100" loop muted autoplay preload="auto">
+                  <source src="<%= event[:video_url] %>" type="video/quicktime">
+                </video>
+            <% end %>
+            <% if event[:image_url] %>
+                <img class="card-img-top" src="<%= event[:image_url] %>" alt="<%= event[:image_alt] %>">
+            <% end %>
+            <% if event.filter_type.downcase.eql? 'masterclass' %>
+                <div class="row pb-4">
+                  <div class="col-3">
+                    <b><%= event.start_time.strftime("%I:%M %p") %>&nbsp;&ndash;&nbsp;<%= event.end_time.strftime("%I:%M %p") %></b>
+                  </div>
+                  <div class="col">
+                    <p class="my-0"><%= event.title %></p>
+                    <small><%= event.short_description %></small>
+                  </div>
+                  <div class="col"><%= link_to event.profile.name, profile_path(event.profile) %></div>
+                </div>
+            <% end %>
+        <% end %>
     <% end %>
-  </tbody>
-</table>
+    <% @guest_shift.each do |hourz| %>
+        <div class="row pb-3">
+          <div class="col-3 border border-left-0">
+            <p class="text-muted mb-0">
+              <%= t('guest_shift') %>
+            </p>
+            <p class="text-muted mb-0">
+              <%= hourz[1].first.start_time.strftime("%I:%M %p") %>&nbsp;&ndash;&nbsp;<%= hourz[1].first.end_time.strftime("%I:%M %p") %>
+            </p>
+            <!--{{#gs_times}}-->
+            <!--{{start_time}}&ndash;{{end_time}}-->
+            <!--{{/gs_times}}-->
+          </div>
+          <div class="col border border-right-0 border-left-0">
+            <% hourz[1].each do |gs| %>
+            <p class="my-0">
+              <%= link_to gs.profile.name, profile_path(gs.profile) %>
+              <%= fa_icon('at') %>
+              <%= link_to gs.location.name, location_path(gs.location) %>
+            </p>
+            <% end %>
+          </div>
+        </div>
+    <% end %>
+  </div>
 
-<br>
+</div>
 
-<%= link_to 'New Event', new_event_path %>
+<% if user_is_admin? %>
+    <%= link_to 'New Event', new_event_path, class: 'btn btn-outline-primary' %>
+<% end %>

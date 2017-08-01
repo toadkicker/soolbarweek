@@ -1,37 +1,40 @@
-<%= form_with(model: profile, local: true) do |form| %>
-  <% if profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+<%= form_with(model: profile, local: true, html: {multipart: true}) do |form| %>
+    <% if profile.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
 
-      <ul>
-      <% profile.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% profile.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group field">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :profile_name, class: 'form-control' %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :profile_name %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :slug %>
+      <%= form.text_field :slug, id: :profile_slug, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :slug %>
-    <%= form.text_field :slug, id: :profile_slug %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :description %>
+      <%= form.text_field :description, id: :profile_description, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :profile_description %>
-  </div>
+    <div class="form-group field">
+      <label><%= t('photo') %></label><br/>
+      <%= form.label :photo, class: "custom-file" do %>
+          <%= form.file_field :photo, id: :location_photo, class: 'custom-file-input', placeholder: t('browsefile') %>
+          <%= content_tag :span, "", class: "custom-file-control" %>
+      <% end %>
+    </div>
 
-  <div class="field">
-    <%= form.label :photo %>
-    <%= form.text_field :photo, id: :profile_photo %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="actions">
+      <%= form.submit class: 'btn btn-outline-primary' %>
+    </div>
 <% end %>

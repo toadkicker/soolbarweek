@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731123143) do
+ActiveRecord::Schema.define(version: 20170801112545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,12 +20,26 @@ ActiveRecord::Schema.define(version: 20170731123143) do
     t.string "subtitle"
     t.string "short_description"
     t.string "description"
-    t.date "start_time"
-    t.date "end_time"
-    t.string "type"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "filter_type"
     t.money "price", scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "video_file_name"
+    t.string "video_content_type"
+    t.integer "video_file_size"
+    t.datetime "video_updated_at"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "KRW", null: false
+    t.bigint "profile_id"
+    t.bigint "location_id"
+    t.index ["location_id"], name: "index_events_on_location_id"
+    t.index ["profile_id"], name: "index_events_on_profile_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -42,6 +56,15 @@ ActiveRecord::Schema.define(version: 20170731123143) do
     t.datetime "logo_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
+    t.string "street_address1"
+    t.string "street_address2"
+    t.string "city", default: "Seoul"
+    t.string "country", default: "South Korea"
+    t.string "neighborhood"
+    t.string "telephone"
+    t.string "website"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -65,6 +88,11 @@ ActiveRecord::Schema.define(version: 20170731123143) do
     t.datetime "photo_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "website"
+    t.string "logo_file_name"
+    t.string "logo_content_type"
+    t.integer "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "translations", force: :cascade do |t|
@@ -89,6 +117,11 @@ ActiveRecord::Schema.define(version: 20170731123143) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_admin", default: false
+    t.string "name"
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

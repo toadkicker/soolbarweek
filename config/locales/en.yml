@@ -21,7 +21,7 @@ en:
     as possible. Thank you!
   email: Email
   email_help: We'll never share your email with anyone else.
-  date: September 11th – 17th
+  sbw_date: September 11th – 17th
   masterclass: Masterclass
   opening_ceremony: Opening Ceremony
   gs: Guest Shift
@@ -429,3 +429,17 @@ en:
   city_wide_events: "City Wide Events"
   remember_me: "Remember Me"
   sign_out: "Log Out"
+  devise:
+    passwords:
+      send_instruction_button: "Send me reset password instructions"
+  forohfour:
+    title: "404 - Not Found"
+    content: "The drink you were looking for was not found at this bar."
+  error:
+    back_url_text: "Go Home?"
+  edit: "Edit"
+  destroy: "Destroy"
+  add_new_location: "Add New Location"
+  browsefile: "Browse Files..."
+  photo: "Photo"
+  logo: "Logo"
