@@ -34,8 +34,8 @@
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v5.1.2, rbenv: 2.4.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="arel (v8.0.0, rbenv: 2.4.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="autoprefixer-rails (v7.1.2.3, rbenv: 2.4.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="aws-sdk (v2.10.20, rbenv: 2.4.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="aws-sdk-core (v2.10.20, rbenv: 2.4.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-rails (v1.0.1, rbenv: 2.4.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="aws-sdk-resources (v2.10.20, rbenv: 2.4.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="aws-sigv4 (v1.0.1, rbenv: 2.4.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.11, rbenv: 2.4.1) [gem]" level="application" />
