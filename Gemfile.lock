@@ -42,11 +42,12 @@ GEM
     arel (8.0.0)
     autoprefixer-rails (7.1.2.3)
       execjs
-    aws-sdk (2.10.20)
-      aws-sdk-resources (= 2.10.20)
     aws-sdk-core (2.10.20)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
+    aws-sdk-rails (1.0.1)
+      aws-sdk-resources (~> 2)
+      railties (>= 3)
     aws-sdk-resources (2.10.20)
       aws-sdk-core (= 2.10.20)
     aws-sigv4 (1.0.1)
@@ -248,7 +249,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk
+  aws-sdk-rails
   bootstrap (~> 4.0.0.alpha6)
   byebug
   coffee-rails (~> 4.2)
