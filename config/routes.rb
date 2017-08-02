@@ -19,7 +19,5 @@ Rails.application.routes.draw do
   get '/thank-you', to: 'pages#show', page: 'thankyou', as: 'thankyou'
   root 'pages#show', page: 'index'
 
-
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
