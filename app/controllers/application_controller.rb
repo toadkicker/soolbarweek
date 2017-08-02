@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def set_locale
-    I18n.locale = read_lang_header || I18n.default_locale
+    I18n.locale = (user_signed_in? && current_user.try(:locale)) || read_lang_header || I18n.default_locale
   end
 
   def user_is_admin?
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :photo])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :photo])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :photo, :locale])
   end
 
   private

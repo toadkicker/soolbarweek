@@ -443,3 +443,8 @@ en:
   browsefile: "Browse Files..."
   photo: "Photo"
   logo: "Logo"
+  delete_account: "Cancel Account"
+  delete_account_permanent: "Cancelling your account means you will no longer be able to view your purchase history or receive updates from us. Are you sure?"
+  back: "Back"
+  waiting_confirmation: "Currently waiting confirmation for:"
+  leave_blank: "(leave blank if you don't want to change it)"

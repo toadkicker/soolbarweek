@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="flex-column">
+    <h1>Translations for <%= @locale %></h1>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Translation Key</th>
+        <th>Setting</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% translation_keys.each do |key| %>
+          <% translation = translation_for_key(@translations, key) %>
+          <tr id="<%= key %>">
+            <td><%= key %></td>
+            <td><%= translation.nil? ? I18n.t(key, locale: @locale) : translation.value %></td>
+            <td>
+              <% if translation.nil? %>
+                  <%= link_to "Edit", new_locale_translation_url(@locale, key: key) %>
+              <% else %>
+                  <%= link_to "Edit", edit_locale_translation_url(@locale, translation) %>
+                  <%= link_to "Reset", locale_translation_url(@locale, translation), method: :delete, data: {confirm: "Are you sure?"} %>
+              <% end %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= link_to t('new_translation'), new_locale_translation_url(@locale, key: @key) %>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="flex-column">
+    Switch to:
+    <ul class="list-group">
+      <% all_locales.each do |al| %>
+          <li class="list-group-item"><%= link_to al, locale_translations_url(al) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

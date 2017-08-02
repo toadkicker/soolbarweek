@@ -1,24 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @profile.name %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @profile.slug %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @profile.description %>
-</p>
-
-<p>
-  <strong>Photo:</strong>
-  <%= image_tag @profile.photo %>
-</p>
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<div class="row">
+  <div class="col">
+    <h1><%= @profile.name %></h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-4">
+    <%= image_tag @profile.photo, alt: @profile.name, class: 'rounded float-left mx-auto img-thumbnail' %>
+  </div>
+  <div class="col-8">
+    <p><%= @profile.description %>/p>
+  </div>
+</div>

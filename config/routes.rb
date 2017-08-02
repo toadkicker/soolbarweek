@@ -5,30 +5,18 @@ Rails.application.routes.draw do
   resources :profiles
   resources :events
 
-  #app.get('/', root_url.index);
-  # app.get('/privacy', legal.privacy);
-  # app.get('/terms-of-service', legal.tos);
-  # app.get('/events', events.index);
-  # app.get('/events/:id', events.show);
-  # app.post('/events/:id', events.order);
-  # app.get('/locations', locations.index);
-  # app.get('/registration', registration.index);
-  # app.get('/login', login.index);
-  # app.get('/profiles', profiles.index);
-  # app.get('/profiles/:id', profiles.show);
-  # app.get('/sponsors', sponsors.index);
-  # app.get('/contact', contact.index);
-  # app.get('/thankyou', thankyou.index);
-  # app.post('/contact', contact.post);
-  # app.get('/about', about.index);
+  resources :locales do
+    resources :translations, constraints: { :id => /[^\/]+/ }
+  end
 
   get '/privacy', to: 'pages#show', page: 'privacy'
   get '/terms-of-service', to: 'pages#show', page: 'tos'
   get '/about', to: 'pages#show', page: 'about'
 
-  get '/contact', to: 'messages#new', as: 'new_message'
-  post '/contact', to: 'messages#create', as: 'create_message'
+  get '/contact', to: 'messages#new', page: 'contact', as: 'contact'
+  post '/contact', to: 'messages#create', as: 'new_message'
 
+  get '/thank-you', to: 'pages#show', page: 'thankyou', as: 'thankyou'
   root 'pages#show', page: 'index'
 
 

@@ -1,7 +1,7 @@
 module PagesHelper
 
   def nav
-    [
+    items = [
       {
         title: t("events"),
         url: events_path,
@@ -23,6 +23,14 @@ module PagesHelper
         active: current_page?(locations_path)
       }
     ]
+    if user_is_admin?
+      items.push({
+                   title: t('translations'),
+                   url: locale_translations_path(current_user.try(:locale)),
+                   active: current_page?("/translations")
+                 })
+    end
+    items
   end
 
   def footer
@@ -36,7 +44,7 @@ module PagesHelper
         footer_links: [
           {
             title: t('contact_us'),
-            url: new_message_path
+            url: contact_path
           },
           {
             title: t('about'),

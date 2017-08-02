@@ -21,11 +21,16 @@ module BootstrapFlashHelper
       type = type.to_sym
       type = :info if type == :notice
       type = :success if type == :success
-      type = :warning  if type == :alert
-      type = :danger  if type == :error
+      type = :warning if type == :alert
+      type = :danger if type == :error
       next unless ALERT_TYPES.include?(type)
 
       Array(message).each do |msg|
+        if msg.is_a? Array
+          msg = [content_tag(:strong, msg.first.titleize),
+                 "&nbsp;",
+                 content_tag(:span, msg.second.join(','))].join(',').remove(',')
+        end
 
         text = content_tag(opts[:container_tag],
                            (opts[:show_close] ? close_button : '') +
