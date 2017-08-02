@@ -1,0 +1,18 @@
+version: '3'
+services:
+  soolbarweek:
+    build: .
+    working_dir:
+      /soolbarweek
+    environment:
+      - RACK_ENV:production
+      - RAILS_SKIP_MIGRATIONS:true
+      - RAILS_SKIP_ASSET_COMPILIATION:true
+      - BUNDLE_WITHOUT:test development
+    command: bundle exec rails s
+    ports:
+      - '3000:3000'
+    volumes:
+      - soolbarweek:/soolbarweek/public
+volumes:
+  soolbarweek:
