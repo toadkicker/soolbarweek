@@ -47,6 +47,10 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'i18n-spec'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'database_cleaner'
+  gem 'codecov', :require => false
+  gem 'rails-controller-testing'
 end
 
 group :development do
