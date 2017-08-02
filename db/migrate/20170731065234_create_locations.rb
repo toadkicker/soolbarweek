@@ -3,6 +3,7 @@ class CreateLocations < ActiveRecord::Migration[5.1]
     create_table :locations do |t|
       t.string :name
       t.string :description
+      t.string :slug, unique: true
       t.attachment :photo
       t.attachment :logo
 

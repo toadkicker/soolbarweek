@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20170802144034) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.string "filter_type"
-    t.money "price", scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "video_file_name"
@@ -94,17 +93,13 @@ ActiveRecord::Schema.define(version: 20170802144034) do
   create_table "sponsors", force: :cascade do |t|
     t.string "name"
     t.string "slug"
-    t.string "photo_file_name"
-    t.string "photo_content_type"
-    t.integer "photo_file_size"
-    t.datetime "photo_updated_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "website"
     t.string "logo_file_name"
     t.string "logo_content_type"
     t.integer "logo_file_size"
     t.datetime "logo_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "website"
   end
 
   create_table "translations", force: :cascade do |t|
@@ -134,7 +129,7 @@ ActiveRecord::Schema.define(version: 20170802144034) do
     t.string "photo_content_type"
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
-    t.string "locale"
+    t.string "locale", default: "en"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
