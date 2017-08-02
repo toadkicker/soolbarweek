@@ -1,4 +1,7 @@
 class Location < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   has_many :events
 
   has_attached_file :photo,
@@ -16,7 +19,8 @@ class Location < ApplicationRecord
                     styles: { medium: "300x300>", thumb: "100x100>", nav: "40x40>" },
                     default_url: '/images/:attachment/missing_:style.png',
                     storage: :s3,
-                    path: '/user',
+                    path: '/location/:id/:style/:basename.:extension',
+                    url: ":s3_domain_url",
                     s3_region: ENV['AWS_REGION'],
                     s3_credentials: proc { |a| a.instance.s3_credentials }
 

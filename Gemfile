@@ -79,4 +79,5 @@ gem 'devise'
 gem 'aws-sdk'
 gem 'aws-sdk-rails'
 
+gem 'friendly_id', '~> 5.1.0'
 gem 'geocoder'
