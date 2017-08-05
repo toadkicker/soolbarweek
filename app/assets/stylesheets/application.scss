@@ -180,3 +180,8 @@ nav a:hover {
   height: 15em;
   overflow-y: auto;
 }
+
+svg text {
+  font-family: $font-family-sans-serif;
+  font-size: 0.65rem;
+}

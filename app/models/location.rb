@@ -5,24 +5,24 @@ class Location < ApplicationRecord
   has_many :events
 
   has_attached_file :photo,
-                    styles: { medium: "300x300>", thumb: "100x100>", nav: "40x40>" },
+                    styles: {medium: "300x300>", thumb: "100x100>", nav: "40x40>"},
                     default_url: '/images/:attachment/missing_:style.png',
                     storage: :s3,
                     url: ":s3_domain_url",
                     path: '/location/:id/:style/:basename.:extension',
                     s3_region: ENV['AWS_REGION'],
-                    s3_credentials: proc { |a| a.instance.s3_credentials }
+                    s3_credentials: proc {|a| a.instance.s3_credentials}
 
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
 
   has_attached_file :logo,
-                    styles: { medium: "300x300>", thumb: "100x100>", nav: "40x40>" },
+                    styles: {medium: "300x300>", thumb: "100x100>", nav: "40x40>"},
                     default_url: '/images/:attachment/missing_:style.png',
                     storage: :s3,
                     path: '/location/:id/:style/:basename.:extension',
                     url: ":s3_domain_url",
                     s3_region: ENV['AWS_REGION'],
-                    s3_credentials: proc { |a| a.instance.s3_credentials }
+                    s3_credentials: proc {|a| a.instance.s3_credentials}
 
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
 
@@ -34,7 +34,11 @@ class Location < ApplicationRecord
   end
 
   def s3_credentials
-    { bucket: ENV['S3_SBW_UPLOADS'], access_key_id: ENV['S3_SBW_ACCESS_KEY'], secret_access_key: ENV['S3_SBW_SECRET_KEY'] }
+    {bucket: ENV['S3_SBW_UPLOADS'], access_key_id: ENV['S3_SBW_ACCESS_KEY'], secret_access_key: ENV['S3_SBW_SECRET_KEY']}
   end
+
+  scope :default_order, -> {order(:marker_number)}
+
+  default_scope { default_order }
 
 end

@@ -5,12 +5,12 @@ module PagesHelper
       {
         title: t("events"),
         url: events_path,
-        active: current_page?(controller: '/events')
+        active: current_page?(controller: 'events')
       },
       {
         title: t("profiles"),
         url: profiles_path,
-        active: current_page?(controller: '/profiles')
+        active: current_page?(profiles_path)
       },
       {
         title: t("sponsors"),

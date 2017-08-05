@@ -336,95 +336,6 @@ en:
     further, and in 2010 he start the process to open a distillery.</p><p><b>2015</b>&nbsp;Funding
     of La Distillierie de Paris</p><p>The Distillerie de Paris is today recognized as
     a space for creation and inspirational thoughts around the world of spirits.</p>"
-  sunday.1.title: Opening Ceremony
-  sunday.1.subtitle: Welcome drink 9:00 pm - 10:00 pm only.
-  sunday.1.description: Invitees are all participating bars, bartenders, media, bloggers,
-    magazines, guest bartenders, and guest speakers.
-  monday.2.title: monday.2.title
-  monday.2.subtitle: monday.2.subtitle
-  monday.2.description: monday.2.description
-  buy_tickets: Buy Tickets
-  monday.3.title: monday.3.title
-  monday.3.subtitle: monday.3.subtitle
-  monday.3.description: monday.3.description
-  tuesday.4.title: tuesday.4.title
-  tuesday.4.subtitle: tuesday.4.subtitle
-  tuesday.4.description: tuesday.4.description
-  tuesday.5.title: tuesday.5.title
-  tuesday.5.subtitle: tuesday.5.subtitle
-  tuesday.5.description: tuesday.5.description
-  tuesday.6.title: tuesday.6.title
-  tuesday.6.subtitle: tuesday.6.subtitle
-  tuesday.6.description: tuesday.6.description
-  tuesday.7.title: tuesday.7.title
-  tuesday.7.subtitle: tuesday.7.subtitle
-  tuesday.7.description: tuesday.7.description
-  tuesday.8.title: tuesday.8.title
-  tuesday.8.subtitle: tuesday.8.subtitle
-  tuesday.8.description: tuesday.8.description
-  tuesday.9.title: tuesday.9.title
-  tuesday.9.subtitle: tuesday.9.subtitle
-  tuesday.9.description: tuesday.9.description
-  wednesday.10.title: wednesday.10.title
-  wednesday.10.subtitle: wednesday.10.subtitle
-  wednesday.10.description: wednesday.10.description
-  wednesday.11.title: wednesday.11.title
-  wednesday.11.subtitle: wednesday.11.subtitle
-  wednesday.11.description: wednesday.11.description
-  wednesday.12.title: wednesday.12.title
-  wednesday.12.subtitle: wednesday.12.subtitle
-  wednesday.12.description: wednesday.12.description
-  wednesday.13.title: wednesday.13.title
-  wednesday.13.subtitle: wednesday.13.subtitle
-  wednesday.13.description: wednesday.13.description
-  wednesday.14.title: wednesday.14.title
-  wednesday.14.subtitle: wednesday.14.subtitle
-  wednesday.14.description: wednesday.14.description
-  thursday.15.title: thursday.15.title
-  thursday.15.subtitle: thursday.15.subtitle
-  thursday.15.description: thursday.15.description
-  thursday.16.title: thursday.16.title
-  thursday.16.subtitle: thursday.16.subtitle
-  thursday.16.description: thursday.16.description
-  thursday.17.title: thursday.17.title
-  thursday.17.subtitle: thursday.17.subtitle
-  thursday.17.description: thursday.17.description
-  thursday.18.title: thursday.18.title
-  thursday.18.subtitle: thursday.18.subtitle
-  thursday.18.description: thursday.18.description
-  thursday.19.title: thursday.19.title
-  thursday.19.subtitle: thursday.19.subtitle
-  thursday.19.description: thursday.19.description
-  thursday.20.title: thursday.20.title
-  thursday.20.subtitle: thursday.20.subtitle
-  thursday.20.description: thursday.20.description
-  thursday.21.title: thursday.21.title
-  thursday.21.subtitle: thursday.21.subtitle
-  thursday.21.description: thursday.21.description
-  friday.22.title: friday.22.title
-  friday.22.subtitle: friday.22.subtitle
-  friday.22.description: friday.22.description
-  friday.23.title: friday.23.title
-  friday.23.subtitle: friday.23.subtitle
-  friday.23.description: friday.23.description
-  friday.24.title: friday.24.title
-  friday.24.subtitle: friday.24.subtitle
-  friday.24.description: friday.24.description
-  friday.25.title: friday.25.title
-  friday.25.subtitle: friday.25.subtitle
-  friday.25.description: friday.25.description
-  friday.26.title: friday.26.title
-  friday.26.subtitle: friday.26.subtitle
-  friday.26.description: friday.26.description
-  friday.27.title: friday.27.title
-  friday.27.subtitle: friday.27.subtitle
-  friday.27.description: friday.27.description
-  friday.28.title: friday.28.title
-  friday.28.subtitle: friday.28.subtitle
-  friday.28.description: friday.28.description
-  friday.29.title: friday.29.title
-  friday.29.subtitle: friday.29.subtitle
-  friday.29.description: friday.29.description
   exclusive_dining: "Exclusive Dining"
   city_wide_events: "City Wide Events"
   remember_me: "Remember Me"
@@ -448,3 +359,5 @@ en:
   back: "Back"
   waiting_confirmation: "Currently waiting confirmation for:"
   leave_blank: "(leave blank if you don't want to change it)"
+  new_locale: "Add Language"
+  download_map: "Download Map"

@@ -7,11 +7,10 @@
 
     $(document).on('turbolinks:load', function (event) {
         let svg = d3.select("svg");
-
+        let $tbl = d3.select('.locations.table')
         //fetch markers from api
         <% @locations.each do |marker| %>
-        let popoverContent = '<%=  location_address(marker).html_safe %>';
-        makeShape(<%= marker_attrs(marker).html_safe %>, popoverContent)
+        makeShape(<%= marker_attrs(marker).html_safe %>, '<%=  location_address(marker).html_safe %>')
         <% end %>
 
         function makeShape(opts, popoverContent) {
@@ -36,13 +35,33 @@
                 .attr("id", opts.id)
                 .attr("width", opts.width)
                 .attr("height", opts.height)
+
             markerGroup.append("text")
                 .attr("x", "0")
                 .attr("text-anchor", "middle")
-                .attr("y", "15")
+                .attr("y", "13")
                 .attr("fill", "#fff")
                 .text(opts.number)
 
+        }
+
+        $tbl.selectAll('.location-row').on('mouseover', growMarker);
+        $tbl.selectAll('.location-row').on('mouseout', shrinkMarker);
+
+        function growMarker(evt) {
+//            let id = d3.select(evt.currentTarget).data('id');
+            let target = d3.event.currentTarget;
+            let id = target.dataset.id
+            let marker = svg.select("#marker-" + id).select('rect')
+            marker.attr('transform', "rotate(45) scale(1.25,1.25) translate(-1,-1)")
+        }
+
+        function shrinkMarker(evt) {
+//            let id = d3.select(evt.currentTarget).data('id');
+            let target = d3.event.currentTarget;
+            let id = target.dataset.id
+            let marker = svg.select("#marker-" + id).select('rect')
+            marker.attr('transform', 'rotate(45) scale(1,1)')
         }
 
         function dragstarted(evt) {

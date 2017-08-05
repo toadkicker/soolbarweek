@@ -1,6 +1,24 @@
 <div class="row">
   <div class="flex-column">
     <h1>Translations for <%= @locale %></h1>
+    <div class="flex-column">
+      <%= link_to new_locale_translation_url(@locale, key: @key), class: "btn btn-success" do %>
+          <%= fa_icon('plus') %>
+          <%= t('new_translation') %>
+      <% end %>
+    </div>
+    <p>
+      <i>Notes:</i>
+    <ul>
+      <li>Profile descriptions are configured as key: 'person_name_desc'. e.g. 'matt_solario_desc'</li>
+      <li>Page titles are 'pagepath_title', e.g. 'location_title'</li>
+      <li>All translations fall back to English (e.g. whatever was saved to the database) if the key is not found.</li>
+      <li>Any user-ish keys can be overridden. ("Devise")
+        See <%= link_to 'this list', 'https://github.com/tigrish/devise-i18n/tree/master/rails/locales', target: '_blank' %>.
+      </li>
+    </ul>
+    </p>
+
     <table class="table table-striped">
       <thead>
       <tr>
@@ -17,17 +35,16 @@
             <td><%= translation.nil? ? I18n.t(key, locale: @locale) : translation.value %></td>
             <td>
               <% if translation.nil? %>
-                  <%= link_to "Edit", new_locale_translation_url(@locale, key: key) %>
+                  <%= link_to "New", new_locale_translation_url(@locale, key: key) %>
               <% else %>
                   <%= link_to "Edit", edit_locale_translation_url(@locale, translation) %>
-                  <%= link_to "Reset", locale_translation_url(@locale, translation), method: :delete, data: {confirm: "Are you sure?"} %>
+                  <%= link_to "Delete", locale_translation_url(@locale, translation), method: :delete, data: {confirm: "Are you sure?"} %>
               <% end %>
             </td>
           </tr>
       <% end %>
       </tbody>
     </table>
-    <%= link_to t('new_translation'), new_locale_translation_url(@locale, key: @key) %>
 
   </div>
 </div>

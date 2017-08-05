@@ -8,6 +8,9 @@
     <%= image_tag @profile.photo, alt: @profile.name, class: 'rounded float-left mx-auto img-thumbnail' %>
   </div>
   <div class="col-8">
-    <p><%= @profile.description %></p>
+    <p><%= t(@profile.name.parameterize.underscore + '_desc').html_safe %></p>
   </div>
 </div>
+<script>
+  $(".nav-link[href='/profiles']").addClass('active');
+</script>

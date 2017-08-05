@@ -76,6 +76,7 @@ gem 'handlebars'
 gem 'money-rails', '~> 1.9.0'
 
 gem 'devise'
+gem 'devise-i18n'
 gem 'aws-sdk'
 gem 'aws-sdk-rails'
 

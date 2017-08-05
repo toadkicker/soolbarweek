@@ -36,7 +36,7 @@
 
 </head>
 <body data-spy="scroll" data-target="#sidemenu">
-<% if current_page?(root_url) %>
+<% if current_page?(root_url) && !user_signed_in? %>
     <%= render 'partials/header' %>
 <% end %>
 
@@ -45,11 +45,13 @@
   <div class="row h-100 mt-3">
     <%= render 'partials/aside' %>
     <main class="col py-5">
-      <div class="row">
-        <div class="col">
-          <%= bootstrap_flash %>
-        </div>
-      </div>
+      <% if flash.present? %>
+          <div class="row">
+            <div class="col">
+              <%= bootstrap_flash %>
+            </div>
+          </div>
+      <% end %>
       <div class="row">
         <div class="col">
           <%= yield %>

@@ -1,7 +1,5 @@
-<p id="notice"><%= notice %></p>
-<div class="flex-row">
-<% @profiles.each do |profile| %>
-    <div class="col-4">
+<div class="card-deck">
+  <% @profiles.each do |profile| %>
       <div class="card card-outline-none">
         <h3>
           <%= link_to profile.name, profile_path(profile) %>
@@ -11,15 +9,15 @@
               <%= image_tag profile.photo.url(:medium) %>
           <% end %>
         </p>
+        <% if user_is_admin? %>
+            <div class="card-footer">
+              <%= link_to 'Edit', edit_profile_path(profile), class: 'btn btn-small btn-outline-primary' %>
+              <%= link_to 'Destroy', profile, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-small btn-outline-danger' %>
+            </div>
+        <% end %>
       </div>
-      <% if user_is_admin? %>
-          <div class="card-footer">
-            <%= link_to 'Edit', edit_profile_path(profile), class: 'btn btn-small btn-outline-primary' %>
-            <%= link_to 'Destroy', profile, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-small btn-outline-primary' %>
-          </div>
-      <% end %>
-    </div>
-<% end %>
+
+  <% end %>
 </div>
 <% if user_is_admin? %>
     <%= link_to 'New Profile', new_profile_path %>

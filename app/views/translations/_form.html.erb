@@ -1,4 +1,4 @@
-<%= form_with(model: translation, url: locale_translations_path, local: true) do |form| %>
+<%= form_with(model: translation, url: locale_translation_path(id: @locale,key: @key), local: true) do |form| %>
     <% if translation.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(translation.errors.count, "error") %> prohibited this translation from being saved:</h2>
@@ -23,9 +23,9 @@
       <%= form.text_area :value, value: I18n.t(@translation.key, locale: @locale), class: 'form-control' %>
     </div>
     <div class="form-actions">
-      <%= form.submit 'Save Translation', class: 'btn btn-outline-primary' %>
+      <%= form.submit 'Save Translation', class: 'btn btn-outline-info' %>
+      <%= link_to "Cancel", locale_translations_url(@locale), class: 'btn btn-secondary' %>
     </div>
 
 
-    <%= link_to "Cancel", locale_translations_url(@locale), class: 'btn btn-outline-secondary' %>
 <% end %>

@@ -1,4 +1,6 @@
-<h1><%= t('locations') %></h1>
+<div class="flex-column text-right">
+  <%= link_to t('download_map'), asset_path('map.pdf'), download: 'soolbarweek_map.pdf', class: 'btn btn-outline-primary' %>
+</div>
 
 <div id="map">
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 478 399" style="overflow-clip: visible;">
@@ -119,9 +121,16 @@
 
     <tbody>
     <% @locations.each do |location| %>
-        <tr class="location-<%= location.id %>">
-          <td><%= link_to image_tag(location.logo.url(:thumb)), location %></td>
+        <tr class="location-row" data-id="<%= location.id %>">
+          <!--<td><%#= link_to image_tag(location.logo.url(:thumb)), location %></td>-->
+          <td class="text-center align-middle">
+            <%= location.marker_number %>
+          </td>
+          <td>
+            <%= location_address(location) %>
+          </td>
           <td><%= location.description %></td>
+
           <td>
             <ul class="list-group">
               <% location.events.each do |event| %>
