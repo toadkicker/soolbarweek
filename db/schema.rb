@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802144034) do
+ActiveRecord::Schema.define(version: 20170803104826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,12 @@ ActiveRecord::Schema.define(version: 20170802144034) do
     t.string "neighborhood"
     t.string "telephone"
     t.string "website"
+    t.decimal "marker_x", default: "0.0"
+    t.decimal "marker_y", default: "0.0"
+    t.integer "marker_number", default: 0
+    t.string "marker_color", default: "#8f1e23"
+    t.decimal "marker_height", default: "13.72"
+    t.decimal "marker_width", default: "13.72"
   end
 
   create_table "profiles", force: :cascade do |t|

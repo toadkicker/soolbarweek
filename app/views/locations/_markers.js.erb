@@ -1,0 +1,81 @@
+(function ($) {
+    $(function () {
+//        sm = new Turbolinks.ScrollManager
+        $('[data-toggle="popover"]').popover({ html : true })
+//            .on('shown.bs.popover', sm.scrollToElement(".location-" + this.data.id));
+    })
+
+    $(document).on('turbolinks:load', function (event) {
+        let svg = d3.select("svg");
+
+        //fetch markers from api
+        <% @locations.each do |marker| %>
+        let popoverContent = '<%=  location_address(marker).html_safe %>';
+        makeShape(<%= marker_attrs(marker).html_safe %>, popoverContent)
+        <% end %>
+
+        function makeShape(opts, popoverContent) {
+            let markerGroup = svg.select("g#markers").append('svg')
+                    .attr("id", 'marker-' + opts.id)
+                    .attr("x", opts.x)
+                    .attr("y", opts.y)
+                    .attr("width", opts.width * 2)
+                    .attr("height", opts.height * 2)
+                    .attr("class", "<%= user_is_admin? ? "marker draggable":"marker" %>")
+                    .attr("data-id", `${opts.id}`)
+                    .attr("data-toggle", "popover")
+                    .attr("data-placement", "top")
+                    .attr("data-content", popoverContent)
+                    .attr("data-trigger", "hover")
+                    <% if user_is_admin? %>
+                    .call(d3.drag().on("start", dragstarted).on('drag', dragged).on('end', dragend))
+                    <% end %>;
+            markerGroup.append("rect")
+                .attr("transform", opts.transform)
+                .attr("fill", opts.fill)
+                .attr("id", opts.id)
+                .attr("width", opts.width)
+                .attr("height", opts.height)
+            markerGroup.append("text")
+                .attr("x", "0")
+                .attr("text-anchor", "middle")
+                .attr("y", "15")
+                .attr("fill", "#fff")
+                .text(opts.number)
+
+        }
+
+        function dragstarted(evt) {
+            console.log("DRAGGING");
+        }
+
+        function dragged(d) {
+            d3.select(this).attr("x", d3.event.x).attr("y", d3.event.y);
+        }
+
+        function dragend(d, e, f) {
+            $.ajax({
+                url: `/locations/${f[0].id.split("-")[1]}`,
+                data: {
+                    location: {
+                        marker_x: f[0].getAttribute("x"),
+                        marker_y: f[0].getAttribute("y")
+                    }
+                },
+                method: 'put',
+                dataType: "json",
+                success: function (xhr, data, status) {
+                    //flash message
+                    console.info(xhr)
+                }
+            })
+        }
+
+
+        //save on drop of marker
+
+        //save on keypress of contenteditable field
+    })
+
+
+})(jQuery);

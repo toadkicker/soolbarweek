@@ -57,6 +57,16 @@
     </div>
 
     <div class="form-group field">
+      <%= form.label :marker_number %>
+      <%= form.text_field :marker_number, id: :location_marker_number, class: 'form-control' %>
+    </div>
+
+    <div class="form-group field">
+      <%= form.label :marker_color %>
+      <%= form.text_field :marker_color, id: :location_marker_color, class: 'form-control' %>
+    </div>
+
+    <div class="form-group field">
       <label><%= t('photo') %></label><br/>
       <%= form.label :photo, class: "custom-file" do %>
           <%= form.file_field :photo, id: :location_photo, class: 'custom-file-input', placeholder: t('browsefile') %>

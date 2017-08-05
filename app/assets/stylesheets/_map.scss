@@ -1,0 +1,7 @@
+#map svg:not(:root) {
+  overflow: visible;
+}
+
+.marker.draggable {
+  cursor: move;
+}

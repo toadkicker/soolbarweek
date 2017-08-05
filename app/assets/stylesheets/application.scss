@@ -1,6 +1,7 @@
 @import "font-awesome";
 @import "variables";
 @import "bootstrap";
+@import "map";
 @import "breakpoints/xl";
 @import "breakpoints/lg";
 @import "breakpoints/md";
@@ -173,4 +174,9 @@ hr {
 
 nav a:hover {
   text-decoration: none;
+}
+
+.scrollbox {
+  height: 15em;
+  overflow-y: auto;
 }
