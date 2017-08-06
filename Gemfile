@@ -82,3 +82,5 @@ gem 'aws-sdk-rails'
 
 gem 'friendly_id', '~> 5.1.0'
 gem 'geocoder'
+
+ruby "2.4.1"
