@@ -1,0 +1,27 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td>Photo</td>
+    <td>Name</td>
+    <td>EMail</td>
+    <td>Sign in count</td>
+    <td>Admin</td>
+    <td>Actions</td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= image_tag user.photo.url(:thumb) %></td>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.sign_in_count %></td>
+      <td><%= check_box_tag :is_admin, user.is_admin, user.is_admin, disabled: 'disabled' %></td>
+      <td>
+        <%= link_to t('edit'), edit_admin_user_path(user) %>
+        <%= link_to 'Destroy', admin_user_path(user), method: :delete, data: {confirm: 'Are you sure?'} %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

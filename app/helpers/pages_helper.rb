@@ -28,6 +28,11 @@ module PagesHelper
                    title: t('translations'),
                    url: locale_translations_path(current_user.try(:locale)),
                    active: current_page?("/translations")
+                 },
+                 {
+                   title: t('users'),
+                   url: admin_users_path,
+                   active: current_page?(controller: :admin_users)
                  })
     end
     items

@@ -1,0 +1,52 @@
+<h2>Edit <%= @user_name.to_s.humanize %></h2>
+
+<%= form_with(model: @user, url: admin_user_url(@user), html: {method: :put, multipart: true}) do |f| %>
+
+    <div class="form-group field">
+      <%= f.label :name %><br/>
+      <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group field">
+      <%= f.label :email %><br/>
+      <%= f.email_field :email, class: 'form-control' %>
+    </div>
+
+    <div class="form-group field">
+      <%= f.label :locale %><br/>
+      <%= f.select :locale, [%w(English en), %w(Korean ko-kr)], {}, class: 'form-control custom-select' %>
+    </div>
+
+    <div class="form-group field">
+      <%= f.label :password %> <i class="text-muted"><%= t('leave_blank') %></i><br/>
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+      <% if @minimum_password_length %>
+          <small class="form-text text-muted"><%= @minimum_password_length %> characters minimum</small>
+      <% end %>
+    </div>
+
+    <div class="form-group field">
+      <%= f.label :password_confirmation %><br/>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+    </div>
+
+
+    <div class="form-group field">
+      <label><%= t('photo') %></label><br/>
+      <%= f.label :photo, class: "form-control  custom-file" do %>
+          <%= f.file_field :photo, id: :photo, class: 'custom-file-input', placeholder: t('browsefile') %>
+          <%= content_tag :span, "", class: "custom-file-control" %>
+      <% end %>
+    </div>
+
+    <div class="form-group field">
+      <%= f.label :is_admin %>
+      <%= f.check_box :is_admin %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Update", class: 'btn btn-outline-primary' %>
+    </div>
+<% end %>
+
+<%= link_to t('back'), :back %>

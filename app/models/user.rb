@@ -16,7 +16,24 @@ class User < ApplicationRecord
 
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
 
+  @skip = false
+
   def s3_credentials
     { bucket: ENV['S3_SBW_UPLOADS'], access_key_id: ENV['S3_SBW_ACCESS_KEY'], secret_access_key: ENV['S3_SBW_SECRET_KEY'] }
+  end
+
+  def skip_notifications!
+    skip_confirmation_notification!
+    @skip = true
+  end
+
+  def email_changed?
+    return false if @skip
+    super
+  end
+
+  def encrypted_password_changed?
+    return false if @skip
+    super
   end
 end
