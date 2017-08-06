@@ -26,10 +26,11 @@ module MapHelper
     opts = args.first
     content_tag :div, class: "" do
       content_tag(:small, opts[:neighborhood]) +
-      tag(:br) +
-      content_tag(:b, opts[:name]) +
-      content_tag(:address, opts[:street_address1]) +
-      content_tag(:address, opts[:street_address2])
+        tag(:br) +
+        content_tag(:b, opts[:name]) +
+        content_tag(:address, opts[:street_address1]) +
+        content_tag(:address, opts[:street_address2]) +
+        content_tag(:p, opts[:telephone])
     end
   end
 

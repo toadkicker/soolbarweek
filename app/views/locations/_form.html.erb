@@ -66,6 +66,12 @@
       <%= form.text_field :marker_color, id: :location_marker_color, class: 'form-control' %>
     </div>
 
+    <% if location.id.present? %>
+        <div class="form-group field">
+          <button class="btn btn-outline-warning reset-btn" data-id="<%= location.id %>"><%= t('reset_markers') %></button>
+        </div>
+    <% end %>
+
     <div class="form-group field">
       <label><%= t('photo') %></label><br/>
       <%= form.label :photo, class: "custom-file" do %>
@@ -86,3 +92,29 @@
       <%= form.submit class: 'btn btn-outline-primary' %>
     </div>
 <% end %>
+<script>
+    (function ($) {
+        $('.reset-btn').on('click', resetMarker);
+
+        function resetMarker(event, location_id) {
+            event.preventDefault();
+            let id = event.currentTarget.dataset.id
+            $.ajax({
+                url: `/locations/${id}`,
+                data: {
+                    location: {
+                        marker_x: 0,
+                        marker_y: 0
+                    }
+                },
+                method: 'put',
+                dataType: "json",
+                success: function (xhr, data, status) {
+                    //flash message
+                    alert('Marker reset to top left of map. Please reposition as soon as possible.');
+                }
+            })
+        }
+
+    })(jQuery);
+</script>

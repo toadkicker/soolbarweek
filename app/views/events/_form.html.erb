@@ -74,6 +74,11 @@
       </div>
     </div>
 
+    <div class="form-group field">
+      <%= form.label :max_seats %><br>
+      <%= form.number_field :max_seats, id: :event_max_seats, class: 'form-control' %>
+    </div>
+
     <div class="actions">
       <%= form.submit class: 'btn btn-outline-primary' %>
     </div>

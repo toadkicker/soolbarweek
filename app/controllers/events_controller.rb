@@ -4,8 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @masterclass = Event.by_type('masterclass').by_day
-    @guest_shift = Event.by_type('guest_shift').by_hour
+    @events = Event.by_day
   end
 
   # GET /events/1

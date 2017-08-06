@@ -5,7 +5,7 @@ module PagesHelper
       {
         title: t("events"),
         url: events_path,
-        active: current_page?(controller: 'events')
+        active: current_page?(events_path)
       },
       {
         title: t("profiles"),

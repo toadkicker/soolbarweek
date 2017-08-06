@@ -50,6 +50,7 @@ en:
   contact_us: Contact Us
   won: "&#8361;"
   about: About
+  reset_markers: Reset Marker
   whos_who: Who's Who
   profile_text: Bob is awesome and needs to send his web developer a biography. It needs
     to be in Korean and any other language we need to support. I made this text long
@@ -340,6 +341,7 @@ en:
   city_wide_events: "City Wide Events"
   remember_me: "Remember Me"
   sign_out: "Log Out"
+  send: "Send"
   devise:
     passwords:
       send_instruction_button: "Send me reset password instructions"

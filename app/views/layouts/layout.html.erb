@@ -25,7 +25,6 @@
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/manifest.json">
-  <%= yield :head %>
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
   <script src="https://d3js.org/d3-selection.v1.min.js"></script>
@@ -33,6 +32,7 @@
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= yield :head %>
 
 </head>
 <body data-spy="scroll" data-target="#sidemenu">
@@ -47,7 +47,7 @@
     <main class="col py-5">
       <% if flash.present? %>
           <div class="row">
-            <div class="col">
+            <div class="col messages">
               <%= bootstrap_flash %>
             </div>
           </div>

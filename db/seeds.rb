@@ -11,20 +11,20 @@ User.create(email: 'todd@toadkicker.com',
             locale: 'en')
 
 def load_translations
-  en_seed_file = Rails.root.join('config', 'locales', 'migrated-to-db', 'en.yml')
+  en_seed_file = Rails.root.join('config', 'locales', 'en.yml')
   en_yml = YAML.load_file(en_seed_file)
 
-  en_yml.fetch('en').each { |k, v| Translation.create(key: k, value: v, locale: 'en') }
+  en_yml.fetch('en').each {|k, v| Translation.create(key: k, value: v, locale: 'en')}
 
-  devise_en_seed_file = Rails.root.join('config', 'locales', 'migrated-to-db', 'devise.en.yml')
+  devise_en_seed_file = Rails.root.join('config', 'locales', 'devise.en.yml')
   devise_yml = YAML.load_file(devise_en_seed_file)
 
-  devise_yml.fetch('en').each { |k, v| Translation.create(key: k, value: v, locale: 'en') }
+  devise_yml.fetch('en').each {|k, v| Translation.create(key: k, value: v, locale: 'en')}
 
-  kr_seed_file = Rails.root.join('config', 'locales', 'migrated-to-db', 'ko-kr.yml')
+  kr_seed_file = Rails.root.join('config', 'locales', 'ko-kr.yml')
   kr_yml = YAML.load_file(kr_seed_file)
 
-  kr_yml.fetch('ko-kr').each { |k, v| Translation.create(key: k, value: v, locale: 'ko-kr') }
+  kr_yml.fetch('ko-kr').each {|k, v| Translation.create(key: k, value: v, locale: 'ko-kr')}
 end
 
 load_translations
@@ -400,21 +400,6 @@ profiles = [
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'ioana_munteanu.jpg'))
   },
   {
-    name: 'Jisung Chun',
-    slug: 'jisung-chun',
-    description: "Jisung Chun is a Korean rice wine sommelier and a storyteller,  Having
-    spent equal halves of her life in Korea and New York, she has built a diverse palette
-    of culinary cultures, which comes through in her unique foods and drink pairings.  Rather
-    than being confined to one cuisine, she find food pairing in flavors of the ingredients
-    and texture of the dishes regardless of the style of the food. Jisung’s main goal
-    is to enrich people’s lives by sharing her stories, which are inspire by Korean
-    traditional culture and fine arts. Wearing her custom, modern hanbok and aging homemade
-    soju in bourbon barrels, she presents old world experiences through a modern lens.  These
-    experiences also offer a new path to traditional culture that is approachable and
-    relatable to today’s society.",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'jisung_chun.jpg'))
-  },
-  {
     name: 'Nicolas Julhes',
     slug: 'nicolas-julhes',
     description: "<p><b>1996</b>&nbsp;Found the Epiceries Julhes Paris with his
@@ -475,6 +460,11 @@ sponsors = [
     name: 'Bols',
     slug: '#',
     logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'BOLS_genever_grey.png'))
+  },
+  {
+    name: 'Champagne Lemarie',
+    slug: '#',
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'Marque RCL PF.jpg'))
   },
   {
     name: 'Carpano',
@@ -953,4 +943,476 @@ locations = [
 
 locations.each do |loc|
   Location.create(loc)
+end
+
+
+events = [
+  {
+    title: 'Sool Bar Week',
+    subtitle: 'Opening ceremony',
+    short_description: 'Invitees are all participating bars, bartenders, media, bloggers, magazines, guest bartenders, guest speakers.',
+    description: 'Invitees are all participating bars, bartenders, media, bloggers, magazines, guest bartenders, guest speakers.',
+    start_time: '2017-09-10T21:00:00',
+    end_time: '2017-09-11T02:00:00',
+    filter_type: '',
+    price: 0,
+    location: Location.find_by_name('B28')
+  },
+  {
+    title: 'Bar Philosophy',
+    subtitle: 'How to manage a bar',
+    short_description: 'Learn how to open and design a bar, including menu design and bartending techniques.',
+    description: 'Learn how to open and design a bar, including menu design and bartending techniques.',
+    start_time: '2017-09-11T14:00:00',
+    end_time: '2017-09-11T17:00:00',
+    filter_type: 'masterclass',
+    price: 90000,
+    profile: Profile.find_by_name('Tristan Stephenson'),
+    location: Location.find_by_name('B28'),
+    max_seats: 35
+  },
+  {
+    title: 'Chartreuse Masterclass',
+    subtitle: 'Chartreuse Masterclass',
+    short_description: 'Chartreuse Masterclass',
+    description: 'Chartreuse Masterclass.',
+    start_time: '2017-09-11T15:00:00',
+    end_time: '2017-09-11T17:00:00',
+    filter_type: 'masterclass',
+    price: 0,
+    profile: Profile.find_by_name('Eric Kim'),
+    location: Location.find_by_name('Nomad'),
+    max_seats: 50
+  },
+  {
+    title: 'Korean Rice Wine Masterclass',
+    subtitle: '',
+    short_description: 'History of Korean alcohol & brewing techniques (40 mins) and Tasting menu (80 mins)',
+    description: 'Taste Korean heritage drinks with three kinds of Makgeolli, four kinds of Takju, 5 tastings of Yakju, two of Cheongju, and three types of Soju.',
+    start_time: '2017-09-12T14:00:00',
+    end_time: '2017-09-12T16:00:00',
+    filter_type: 'masterclass',
+    price: 70000,
+    profile: Profile.find_by_name('Jinsung Chun'),
+    location: Location.find_by_name('The Sool Gallery'),
+    max_seats: 50
+  },
+  {
+    title: 'Meet the Japanese flavors',
+    subtitle: 'How to use Japanese flavors for homemade ingredients in cocktails.',
+    short_description: 'Explore rum’s remarkable history from its humble origins to its status as life-blood of the Royal Navy.',
+    description: '<p>Come discover with Ryu new cocktail flavors that uses local flavors. Japanese bartending is focused on more things than techniques, but also in using local flavors (ingredients). For example, Yuzu, Green tea, cherry blossom, Sansho pepper, wasabi, Shiso leaf…etc.</p><p>So, I will show how to use Japanese ingredients for the cocktails (how to make homemade ingredients with Japanese ingredients, and that effect for the cocktail) and which cocktails go well which Japanese ingredients in Sool bar week.</p>',
+    start_time: '2017-09-12T14:00:00',
+    end_time: '2017-09-12T17:00:00',
+    filter_type: 'masterclass',
+    price: 70000,
+    profile: Profile.find_by_name('Ryu Fuji'),
+    location: Location.find_by_name('Vatos'),
+    max_seats: 30
+  },
+  {
+    title: 'Cocktail Art Saigon',
+    subtitle: 'How to use Japanese flavors for homemade ingredients in cocktails.',
+    short_description: 'Explore rum’s remarkable history from its humble origins to its status as life-blood of the Royal Navy.',
+    description: '<p>Join artist and bartender Richie Fawcett (Shri restaurant and Lounge / The Studio Saigon)  as he showcases three signature cocktails from his Cocktail Art of Saigon drinks Manual, a unique illustrated menu that links the history of Vietnam with its national heroes, the streets of Saigon, the cocktails they represent and the art of Richie Fawcett himself.</p><p>Alongside him will be Shri Executive head chef Javier Gomez, who will recreate the moment they both made cocktails and ceviche for the local fishermen on location at the quay side in Nha Trang, Central Vietnam.  This exciting showcase will bring alive the spirit of Vietnam and is one event to be sure not to miss. </p><p>Limited spaces are available to book. Please make sure you book early to avoid disappointment.</p>',
+    start_time: '2017-09-12T16:00:00',
+    end_time: '2017-09-12T18:00:00',
+    filter_type: 'masterclass',
+    price: 40000,
+    profile: Profile.find_by_name('Richard Fawcett'),
+    location: Location.find_by_name('Wait Bar'),
+    max_seats: 50
+  },
+  {
+    title: 'Foraging Cocktails',
+    subtitle: '',
+    short_description: 'Meet Chef Dustin show you how to do foraging techniques, and learn how to make unique tinctures, bitters, incorporating local ingredients and flavors in cocktails through the eye and hands of Chef, using chef’s techniques.',
+    description: '<p>Meet Chef Dustin show you how to do foraging techniques, and learn how to make unique tinctures, bitters, incorporating local ingredients and flavors in cocktails through the eye and hands of Chef, using chef’s techniques.</p>',
+    start_time: '2017-09-13T15:00:00',
+    end_time: '2017-09-13T17:00:00',
+    filter_type: 'masterclass',
+    price: 50000,
+    profile: Profile.find_by_name('Dustin Wessa'),
+    location: Location.find_by_name('Volstead'),
+    max_seats: 50
+  },
+  {
+    title: 'Tequila Festa',
+    subtitle: '',
+    short_description: '',
+    description: '<p>3 guest bartenders from Japan will demonstrate the following points:</p><ol><li>About Tequila Market in Japan.</li><li>Activities of Tequila Festa.</li><li>Trends in Tequila cocktail. 4. Cocktail Introduction.</li></ol>',
+    start_time: '2017-09-13T13:00:00',
+    end_time: '2017-09-13T17:00:00',
+    filter_type: 'guest_shift',
+    price: 70000,
+    location: Location.find_by_name('Vatos'),
+    max_seats: 45
+  },
+  {
+    title: 'Korean Spirit Masterclass',
+    subtitle: '',
+    short_description: '',
+    description: '<p>This class will take you in the world of Korean spirits. Come discover the history of Korean alcohol and learn its distillation techniques. Then we will take you for a journey of flavors and introduce you to a large and complex comprehensive tasting of Korean spirits</p><p class="lead">Tasting List</p><ul><li>Traditional Soju (10 kinds)</li><li>Modern Soju (6 kinds)</li><li>Cocktails using traditional soju (2~3 kinds)</li></ul>',
+    start_time: '2017-09-13T14:00:00',
+    end_time: '2017-09-13T16:00:00',
+    filter_type: 'masterclass',
+    price: 70000,
+    profile: Profile.find_by_name('Jisung Chun'),
+    location: Location.find_by_name('The Sool Gallery'),
+    max_seats: 50
+  },
+  {
+    title: 'The Evolution of Japanese Bartending',
+    subtitle: '',
+    short_description: '',
+    description: '<p>Discover Japanese bartending through time: Past-Present-Future</p>',
+    start_time: '2017-09-13T14:00:00',
+    end_time: '2017-09-13T16:00:00',
+    filter_type: 'masterclass',
+    price: 80000,
+    profile: Profile.find_by_name('Nagatomo Shuichi'),
+    location: Location.find_by_name('Gatsby'),
+    max_seats: 40
+  },
+  {
+    subtitle: 'Pop up cocktail Book Shop',
+    title: 'Meet the writer',
+    short_description: '',
+    description: '<p>Richard will be at the Flower shop during few hours to sign copies of his unique book “Cocktail Art Saigon”. Come buy your book, get it signed, and have a chat with the artist behind the book.</p>',
+    start_time: '2017-09-13T14:00:00',
+    end_time: '2017-09-13T17:00:00',
+    filter_type: 'masterclass',
+    price: 40000,
+    profile: Profile.find_by_name('Richard Fawcett'),
+    location: Location.find_by_name('Flower Shop'),
+    max_seats: -1
+  },
+  {
+    subtitle: 'Discover Japanese bartending through time: Past-Present-Future.',
+    title: 'The Evolution of Japanese Bartending',
+    short_description: '',
+    description: '<p>Discover Japanese bartending through time: Past-Present-Future.</p>',
+    start_time: '2017-09-14T14:00:00',
+    end_time: '2017-09-14T17:00:00',
+    filter_type: 'masterclass',
+    price: 80000,
+    profile: Profile.find_by_name('Nagatomo Shuichi'),
+    location: Location.find_by_name('B28'),
+    max_seats: 40
+  },
+  {
+    subtitle: '',
+    title: 'Korean Rice Wine masterclass (English version)',
+    short_description: '',
+    description: '<p>History of Korean alcohol & brewing techniques (40 mins)</p><p>Tasting (80 min)</p><p class="lead">Tasting List (14~16 drinks)</p><ul><li>Makgeolli (3 kinds)</li><li>Takju (4 kinds)</li><li>Yakju (5 kinds)</li><li>Cheongju (2 kinds)</li><li>Soju (3 kinds)</li></ul>',
+    start_time: '2017-09-14T14:00:00',
+    end_time: '2017-09-14T16:00:00',
+    filter_type: 'masterclass',
+    price: 80000,
+    profile: Profile.find_by_name('Jisung Chun'),
+    location: Location.find_by_name('The Sool Gallery'),
+    max_seats: 40
+  },
+  {
+    subtitle: '',
+    title: 'From Vermouth to "Negroni": A journey through the Italian drinking culture.',
+    short_description: '',
+    description: '<p>Join Jacopo Rosito born in Florence, Italy to discover more about the history behind Negroni, the Italian cocktail that became a legend all over the world.</p>',
+    start_time: '2017-09-14T14:00:00',
+    end_time: '2017-09-14T15:30:00',
+    filter_type: 'masterclass',
+    price: 50000,
+    profile: Profile.find_by_name('Jacopo Rosito'),
+    location: Location.find_by_name('Backroom'),
+    max_seats: 50
+  },
+  {
+    subtitle: '',
+    title: 'La Distillerie de Paris',
+    short_description: '',
+    description: '<p>Come learn and discover about La Distillerie de Paris spirits with the master distiller Nicolas Julhes.</p>',
+    start_time: '2017-09-14T16:00:00',
+    end_time: '2017-09-14T17:30:00',
+    filter_type: 'masterclass',
+    price: 50000,
+    profile: Profile.find_by_name('Nicolas Julhes'),
+    location: Location.find_by_name('Gatsby'),
+    max_seats: 40
+  },
+  {
+    subtitle: 'Come learn about the vintage Cognac Grosperrin in this unique one class, one time only.',
+    title: 'Meet the maker: What is the vintage Cognac Grosperrin',
+    short_description: '',
+    description: '<p>The Cognacs GROSPERRIN are recognized for their various innovations in the universe of Cognac. The company was the first to produce vintages edition using the carbone 14, bottling vintages cognac 100% “brut de futs”. They were also the first to sell vintage cognacs from islands, using a special technique to reduce their “eau-de-vie” to the perfect balancing point without using traditional adjuvants, and systemize light filtration by slow reduction process.</p>',
+    start_time: '2017-09-14T16:00:00',
+    end_time: '2017-09-14T17:30:00',
+    filter_type: 'masterclass',
+    price: 30000,
+    profile: Profile.find_by_name('Guilhem Grosperrin'),
+    location: Location.find_by_name('Chapter One'),
+    max_seats: 30
+  },
+  {
+    subtitle: '',
+    title: 'Meet the Korean Master',
+    short_description: '<p>Talk on distillation techniques and tasting of Omynama products</p>',
+    description: '<p>Talk on distillation techniques and tasting of Omynama products</p><p>History of Omynara and brand introduction</p><p class="lead">Tasting List</p><ul><li>Omyrose still wine</li><li>Omyrose sparkling wine</li><li>Moonkyungbaram (apple brandy) un-oak & oak versions</li><li>Gowoondal (omija brandy) un-oak & oak version</li></ul>',
+    start_time: '2017-09-14T16:00:00',
+    end_time: '2017-09-14T17:30:00',
+    filter_type: 'masterclass',
+    price: 30000,
+    profile: Profile.find_by_name('Seongha Lee'),
+    location: Location.find_by_name('The Sool Gallery'),
+    max_seats: 50
+  },
+  {
+    subtitle: 'Carribean Party',
+    title: 'Rhum 3 Rivieres night!',
+    short_description: '',
+    description: '<p>Come enjoy some special cocktails made with Rhum Agricole in a fun atmosphere. Special discount cocktails all night! Food available. </p>',
+    start_time: '2017-09-14T19:00:00',
+    end_time: '2017-09-14T00:00:00',
+    filter_type: 'guest_shift',
+    price: 0,
+    location: Location.find_by_name('Le Moulin'),
+    max_seats: 50
+  },
+  {
+    subtitle: '',
+    title: 'Cocktail pairing dinner',
+    short_description: 'Come enjoy a special design menu of French food paired with unique cocktails by our Chef.',
+    description: 'Come enjoy a special design menu of French food paired with unique cocktails by our Chef.',
+    start_time: '2017-09-14T19:00:00',
+    end_time: '2017-09-14T21:00:00',
+    filter_type: 'masterclass',
+    price: 70000,
+    profile: Profile.find_by_name('Kevin Attal'),
+    location: Location.find_by_name('La Marmitte'),
+    max_seats: 40
+  },
+  {
+    subtitle: '',
+    title: "King's Men Pop up",
+    short_description: '',
+    description: 'King’s men pop up bar with unique selected cocktails for two days only! Come in this tailor suit shop, and enjoy getting a suit and cocktails at the same time, or come for the cocktails mostly! Ask for the Eggsy Martini!  “With gin of course.  Stirred for 10 seconds while glancing at an unopened bottle of vermouth.”',
+    start_time: '2017-09-15T13:00:00',
+    end_time: '2017-09-15T00:00:00',
+    filter_type: 'masterclass',
+    price: 0,
+    profile: Profile.find_by_name('Kevin Attal'),
+    location: Location.find_by_name('Knockers'),
+    max_seats: 40
+  },
+  {
+    subtitle: '',
+    title: 'Korean Rice Wine masterclass (English version)',
+    short_description: '',
+    description: '<p>History of Korean alcohol & brewing techniques (40 mins)</p><p>Tasting (80 min)</p><p class="lead">Tasting List (14~16 drinks)</p><ul><li>Makgeolli (3 kinds)</li><li>Takju (4 kinds)</li><li>Yakju (5 kinds)</li><li>Cheongju (2 kinds)</li><li>Soju (3 kinds)</li></ul>',
+    start_time: '2017-09-15T14:00:00',
+    end_time: '2017-09-15T16:00:00',
+    filter_type: 'masterclass',
+    price: 70000,
+    profile: Profile.find_by_name('Jisung Chun'),
+    location: Location.find_by_name('The Sool Gallery'),
+    max_seats: 50
+  },
+  {
+    subtitle: '',
+    title: 'The History of Cocktail Book',
+    short_description: '',
+    description: '<p>For this seminar Greg will bring an original Jerry Thomas book as well as other books from the 1800s and early 1900s.</p>',
+    start_time: '2017-09-15T14:00:00',
+    end_time: '2017-09-15T17:00:00',
+    filter_type: 'masterclass',
+    price: 70000,
+    profile: Profile.find_by_name('Greg Bohem'),
+    location: Location.find_by_name('Charles H'),
+    max_seats: 50
+  },
+  {
+    subtitle: '',
+    title: 'From Vermouth to "Negroni": a journey through the Italian drinking culture.',
+    short_description: '',
+    description: '<p>Join Jacopo Rosito born in Florence, Italy to discover more about the history behind Negroni, the Italian cocktail that became a legend all over the world.</p>',
+    start_time: '2017-09-15T14:00:00',
+    end_time: '2017-09-15T17:00:00',
+    filter_type: 'masterclass',
+    price: 50000,
+    profile: Profile.find_by_name('Jacopo Rosito'),
+    location: Location.find_by_name('Bar Code'),
+    max_seats: 24
+  },
+  {
+    subtitle: '',
+    title: 'Fernet Branca Masterclass with Lady Branca',
+    short_description: '',
+    description: '<p>Come learn from Lady Branca all secrets behind the brand and the Fernet coins!</p>',
+    start_time: '2017-09-15T15:00:00',
+    end_time: '2017-09-15T18:00:00',
+    filter_type: 'masterclass',
+    price: 30000,
+    profile: Profile.find_by_name('Beckaly Franks'),
+    location: Location.find_by_name('Honey Hole'),
+    max_seats: 20
+  },
+  {
+    subtitle: '',
+    title: 'La Distillerie de Paris',
+    short_description: '',
+    description: '<p>Come learn and discover about La Distillerie de Paris spirits with the master distiller Nicolas Julhes</p>',
+    start_time: '2017-09-15T13:00:00',
+    end_time: '2017-09-15T15:00:00',
+    filter_type: 'masterclass',
+    price: 30000,
+    profile: Profile.find_by_name('Nicolas Julhes'),
+    location: Location.find_by_name('Honey Hole'),
+    max_seats: 20
+  },
+  {
+    subtitle: '',
+    title: 'Meet the maker -Tasting and aging techniques.',
+    short_description: '',
+    description: '<p>Come learn about the vintage Cognac Grosperrin in this unique one class, one time only.</p><p>The Cognacs GROSPERRIN are recognized for their various innovations in the universe of Cognac.</p><p>The company was the first to produce vintages edition using the carbone 14, bottling vintages cognac 100% “brut de futs”. They were also the first to sell vintage cognacs from islands, using a special technique to reduce their “eau-de-vie” to the perfect balancing point without using traditional adjuvants, and systemize light filtration by slow reduction process.</p>',
+    start_time: '2017-09-15T16:00:00',
+    end_time: '2017-09-15T17:30:00',
+    filter_type: 'masterclass',
+    price: 30000,
+    profile: Profile.find_by_name('Guilhem Grosperrin'),
+    location: Location.find_by_name('Gatsby'),
+    max_seats: 20
+  },
+  {
+    subtitle: '',
+    title: 'Cocktail Pairing Dinner',
+    short_description: '',
+    description: '<p>Come enjoy a special design menu of French food paired with unique cocktails by our Chef.</p>',
+    start_time: '2017-09-15T19:00:00',
+    end_time: '2017-09-15T21:00:00',
+    filter_type: 'masterclass',
+    price: 70000,
+    profile: Profile.find_by_name('Kevin Attal'),
+    location: Location.find_by_name('La Marmitte'),
+    max_seats: 40
+  },
+  {
+    subtitle: '',
+    title: "King's Men Pop Up",
+    short_description: '',
+    description: '<p>King’s men pop up bar with unique selected cocktails for two days only! Come in this tailor suit shop, and enjoy getting a suit and cocktails at the same time, or come for the cocktails mostly!Ask for the Eggsy Martini!  “With gin of course.  Stirred for 10 seconds while glancing at an unopened bottle of vermouth.”</p>',
+    start_time: '2017-09-16T13:00:00',
+    end_time: '2017-09-16T00:00:00',
+    filter_type: 'masterclass',
+    price: 0,
+    profile: Profile.find_by_name('Kevin Attal'),
+    location: Location.find_by_name('Knockers'),
+    max_seats: -1
+  },
+  {
+    subtitle: 'Equality of gender behind the bar.',
+    title: "Masterclass with Beckaly Franks",
+    short_description: '',
+    description: 'Equality of gender behind the bar.',
+    start_time: '2017-09-16T13:30:00',
+    end_time: '2017-09-16T15:00:00',
+    filter_type: 'masterclass',
+    price: 30000,
+    profile: Profile.find_by_name('Beckaly Franks'),
+    location: Location.find_by_name('Gatsby'),
+    max_seats: 40
+  },
+  {
+    subtitle: '',
+    title: "History of Barware through patents and photos",
+    short_description: '',
+    description: 'The cocktail shaker: cobbler shakers, Boston Shakers, Parisian Shakers. The cocktail strainer: julep strainers, hawthorne strainers, Parisian strainers. Bitters bottles: from the 1860s to 1950s Jiggers, juicers and the rest… For this lecture Greg will bring the oldest cobbler shaker (1884), julep strainers from 1880s, bitters bottles from 1890s, jiggers from 1890s, juicer from 1860s and 1910.',
+    start_time: '2017-09-16T15:30:00',
+    end_time: '2017-09-16T17:30:00',
+    filter_type: 'masterclass',
+    price: 70000,
+    profile: Profile.find_by_name('Greg Bohem'),
+    location: Location.find_by_name('Gatsby'),
+    max_seats: 40
+  },
+  {
+    subtitle: '',
+    title: "La Distillerie de Paris",
+    short_description: '',
+    description: 'Come learn and discover about La Distillerie de Paris spirits with the master distiller Nicolas Julhes.',
+    start_time: '2017-09-16T15:30:00',
+    end_time: '2017-09-16T17:30:00',
+    filter_type: 'masterclass',
+    price: 30000,
+    profile: Profile.find_by_name('Nicolas Julhes'),
+    # location: Location.find_by_name('Cafe in Station'), NOT FOUND
+    max_seats: 40
+  },
+  {
+    subtitle: 'VIP Event - Seating is very limited',
+    title: 'Meet the maker - Tasting and aging techniques.',
+    short_description: 'The aging and bio-dynamic applied to cognac: Tibetan bols and dynamised water.',
+    description: '<p>Come learn about the vintage Cognac Grosperrin in this unique one class, one time only.</p><p>The Cognacs GROSPERRIN are recognized for their various innovations in the universe of Cognac.</p><p>The company was the first to produce vintages edition using the carbone 14, bottling vintages cognac 100% “brut de futs”. They were also the first to sell vintage cognacs from islands, using a special technique to reduce their “eau-de-vie” to the perfect balancing point without using traditional adjuvants, and systemize light filtration by slow reduction process.</p>',
+    start_time: '2017-09-15T15:00:00',
+    end_time: '2017-09-15T17:00:00',
+    filter_type: 'masterclass',
+    price: 70000,
+    profile: Profile.find_by_name('Guilhem Grosperrin'),
+    location: Location.find_by_name('B28'),
+    max_seats: 15
+  },
+  {
+    subtitle: '',
+    title: "Bartender's Brunch",
+    short_description: 'Come enjoy a delicious Brunch between bartenders and relax after a long week.',
+    description: '<p>Come enjoy a delicious Brunch between bartenders and relax after a long week. </p>',
+    start_time: '2017-09-15T13:00:00',
+    end_time: '2017-09-15T16:00:00',
+    filter_type: 'masterclass',
+    price: 0,
+    # profile: Profile.find_by_name('Guilhem Grosperrin'),
+    # location: Location.find_by_name('B28'),
+    max_seats: -1
+  },
+  {
+    subtitle: '',
+    title: "Tasting Room",
+    short_description: '',
+    description: '<p>Come discover and taste many spirits located in one room during an afternoon. This is the best chance to try many spirits at once.</p>',
+    start_time: '2017-09-15T13:00:00',
+    end_time: '2017-09-15T18:00:00',
+    filter_type: 'masterclass',
+    price: 0,
+    # profile: Profile.find_by_name('Guilhem Grosperrin'),
+    location: Location.find_by_name('Vatos'),
+    max_seats: -1
+  },
+  {
+    subtitle: '',
+    title: "Closing Ceremony",
+    short_description: '',
+    description: '<p>Come enjoy a special dinner to celebrate the end of the Sool Bar Week. Unique dishes will be paired with exquisite spirits.</p>',
+    start_time: '2017-09-15T19:00:00',
+    end_time: '2017-09-15T23:00:00',
+    filter_type: 'masterclass',
+    price: 100000,
+    profile: Profile.find_by_name('Minzi Kim Wind'),
+    location: Location.find_by_name('Mish Mash'),
+    max_seats: -1
+  },
+  {
+    subtitle: '',
+    title: "Closing Party",
+    short_description: '',
+    description: '<p>Come enjoy a special party to celebrate the end of the Sool Bar Week.</p>',
+    start_time: '2017-09-15T00:00:00',
+    end_time: '2017-09-16T04:00:00',
+    filter_type: 'masterclass',
+    price: 100000,
+    profile: Profile.find_by_name('Minzi Kim Wind'),
+    location: Location.find_by_name('Mish Mash'),
+    max_seats: -1
+  },
+]
+
+events.each do |event|
+  Event.create(event)
 end

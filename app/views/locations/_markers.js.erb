@@ -1,17 +1,17 @@
 (function ($) {
     $(function () {
 //        sm = new Turbolinks.ScrollManager
-        $('[data-toggle="popover"]').popover({ html : true })
+        $('[data-toggle="popover"]').popover({html: true})
 //            .on('shown.bs.popover', sm.scrollToElement(".location-" + this.data.id));
     })
 
     $(document).on('turbolinks:load', function (event) {
+        if ($('.marker').length > 0) {
+            return;
+        }
+
         let svg = d3.select("svg");
         let $tbl = d3.select('.locations.table')
-        //fetch markers from api
-        <% @locations.each do |marker| %>
-        makeShape(<%= marker_attrs(marker).html_safe %>, '<%=  location_address(marker).html_safe %>')
-        <% end %>
 
         function makeShape(opts, popoverContent) {
             let markerGroup = svg.select("g#markers").append('svg')
@@ -28,7 +28,7 @@
                     .attr("data-trigger", "hover")
                     <% if user_is_admin? %>
                     .call(d3.drag().on("start", dragstarted).on('drag', dragged).on('end', dragend))
-                    <% end %>;
+                <% end %>;
             markerGroup.append("rect")
                 .attr("transform", opts.transform)
                 .attr("fill", opts.fill)
@@ -90,10 +90,10 @@
             })
         }
 
-
-        //save on drop of marker
-
-        //save on keypress of contenteditable field
+        //fetch markers from api
+        <% @locations.each do |marker| %>
+        makeShape(<%= marker_attrs(marker).html_safe %>, '<%=  location_address(marker).html_safe %>')
+        <% end %>
     })
 
 

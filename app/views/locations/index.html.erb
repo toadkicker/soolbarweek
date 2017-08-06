@@ -1,4 +1,10 @@
 <div class="flex-column text-right">
+  <% if user_is_admin? %>
+      <%= link_to new_location_path, class: 'btn btn-outline-success' do %>
+          <%= fa_icon('plus') %>
+          New Location
+      <% end %>
+  <% end %>
   <%= link_to t('download_map'), asset_path('map.pdf'), download: 'soolbarweek_map.pdf', class: 'btn btn-outline-primary' %>
 </div>
 
@@ -135,7 +141,7 @@
             <ul class="list-group">
               <% location.events.each do |event| %>
                   <li>
-                    <%= link_to t("event.title", event.title), event_path(event) %>&ndash;<%= event.start_time.strftime("%A %d, %I:%M %p") %>
+                    <%= link_to event.title, event_path(event) %>&ndash;<%= event.start_time.strftime("%A %d, %I:%M %p") %>
                   </li>
               <% end %>
             </ul>
@@ -150,10 +156,8 @@
   </table>
 </div>
 
-<% if user_is_admin? %>
-    <%= link_to 'New Location', new_location_path %>
-<% end %>
-
-<%= content_tag :script do %>
-    <%= render 'locations/markers.js' %>
+<%= content_for :head do %>
+    <%= content_tag :script do %>
+        <%= render 'locations/markers.js' %>
+    <% end %>
 <% end %>
