@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   private
 
   def read_lang_header
-    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{5}/).first
+    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{5}/).first unless request.env['HTTP_ACCEPT_LANGUAGE'].nil?
   end
 
 end
