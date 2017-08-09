@@ -1,14 +1,18 @@
-<% if user_is_admin? %>
-    <%= link_to 'New Event', new_event_path, class: 'btn btn-outline-primary' %>
-<% end %>
 <div class="flex-column">
+  <% if user_is_admin? %>
+      <div class="flex-row text-right">
+        <%= link_to new_event_path, class: 'btn btn-outline-success' do %>
+            <%= fa_icon('plus') %>
+            New Event
+        <% end %>
+      </div>
+  <% end %>
   <div class="mb-4">
     <% @events.each do |dayz| %>
         <h1 class="text-danger"><%= dayz[0].strftime("%A %d") %></h1>
         <hr class="mt-0">
         <% dayz[1].each do |event| %>
-            <% if event.filter_type == "masterclass" %>
-
+            <% if event.filter_type == "masterclass" || event.filter_type.nil? %>
                 <% if user_is_admin? %>
                     <div class="float-right">
                       <%= link_to t('edit'), edit_event_path(event), class: 'btn btn-sm btn-outline-primary' %>
@@ -51,11 +55,13 @@
                   </div>
                   <div class="col border border-right-0 border-left-0">
                     <% dayz[1].each do |gs| %>
-                        <p class="my-0">
-                          <%= link_to gs.profile.name, profile_path(gs.profile) %>
-                          <%= fa_icon('at') %>
-                          <%= link_to gs.location.name, location_path(gs.location) %>
-                        </p>
+                        <% if gs.filter_type == "guest_shift" %>
+                            <p class="my-0">
+                              <%= link_to gs.profile.name, profile_path(gs.profile) %>
+                              <%= fa_icon('at') %>
+                              <%= link_to gs.location.name, location_path(gs.location) %>
+                            </p>
+                        <% end %>
                     <% end %>
                     <% if user_is_admin? %>
                         <div class="float-right">

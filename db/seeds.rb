@@ -58,7 +58,8 @@ profiles = [
     at Employees Only Hong Kong as an apprentice to get back to the basics and learn
     American bar culture and work style, as well as to enhance her work experience and
     ability.",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'alli_nguyen.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'alli_nguyen.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Beckaly Franks',
@@ -79,7 +80,8 @@ profiles = [
     so they become almost like a second family — albeit a slightly wild and quirky one.
     \ Beckaly Franks was also the first to win the Ada Coleman awards for leading female
     in Hong Kong’s bar industry.</p>",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'beckaly_franks.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'beckaly_franks.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Dustin Wessa',
@@ -92,7 +94,8 @@ profiles = [
     tinctures and bizarre bitters.  He’d rather be scrapin up bits of nature, creepin
     towards Valhalla and collaborating with those that cook better than breathing sanitizer
     in a stainless steel fortress.",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'dustin_wessa.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'dustin_wessa.jpg')),
+    type: 'chef'
   },
   {
     name: 'Tristan Stephenson',
@@ -107,7 +110,8 @@ profiles = [
     Evening Standard Bestseller in 2013 and was followed up by two further books covering
     the topics of Whisky and Coffee.  His fourth book, The Curious Bartender’s Gin Palace,
     was released in Spring 2016.  He’s currently working on the fifth…",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'tristan_stephenson.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'tristan_stephenson.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Nagatomo Shuichi',
@@ -119,7 +123,8 @@ profiles = [
     in numerous Japanese bartending organizations.  His many cocktail competitions victories
     stretch as far back as 1994, and he is delighted to share his passion for his country
     and his craft with us in Seoul.",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'nagatomo_shuichi.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'nagatomo_shuichi.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Jacopo Rosita',
@@ -136,7 +141,8 @@ profiles = [
     Manager and Head Mixologist. During his career he obtained several important recognitions,
     participating in national and international mixologist competitions, such as Disaronno
     Mixing Start, Bols Around the World, Road to the Hacienda Herradura.",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'jacopo_rosito.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'jacopo_rosito.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Seongha Lee',
@@ -164,7 +170,8 @@ profiles = [
     <dd>Las Vegas’ Best Bartender Competition - Winner</dd> <dt>2016</dt> <dd>Marie
     Brizard Masters - USA Winner and Global Finalist</dd> <dt>2017</dt> <dd>Bombay Sapphire
     Most Imaginative Bartender Competition - First Place, Southwest regionals</dd> </dl>",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'seongha_lee.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'seongha_lee.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Masahiko Endo',
@@ -181,7 +188,8 @@ profiles = [
     National Cocktail Competition Champion</dd><dt>2015</dt><dd>HOFEX Allworld Open
     Cup International Classical Competition</dd><dd>Reginald Champion and International
     Champion</dd></dl>",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'masahiko_endo.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'masahiko_endo.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Richard Fawcett',
@@ -198,7 +206,8 @@ profiles = [
     fast emerging bar scene in Vietnam, with many talented bartenders and an increasing
     clientele seeking discerning cocktail experiences with world-class standards.  <a
     href=\"www.richiefawcett.com\" target=\"_blank\"><i class=\"fa fa-globe\"></i>Website</a>",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'richard_fawcett.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'richard_fawcett.jpg')),
+    type: 'speaker'
   },
   {
     name: 'John Ng',
@@ -209,7 +218,8 @@ profiles = [
     life.  DWA (Drinks World Asia) named John as the top 25 bartenders in Hong Kong
     for 3 years in a row since 2014. In 2016, Michter’s and John came to a joining point,
     appointed him as Asia brand ambassador to bring Michter’s to a brighter future. ",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'john_ng.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'john_ng.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Matt Solario',
@@ -220,7 +230,8 @@ profiles = [
     at the 1930s cocktail lounge, Stookey’s Club Moderne, in San Francisco’s ritzy Nob
     Hill neighborhood where he enjoys restoring classic cocktails and preaching the
     gospel of gin.",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'matt_solario.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'matt_solario.jpg')),
+    type: 'speaker'
   },
   {
     name: 'Koji Esashi',
@@ -231,7 +242,8 @@ profiles = [
     spirits. In 2015 he won the famous Dons of Tequila competition global final! His
     bar has the best selection of the Tequila in Japan by more than 430 kinds.  He opened
     a 2nd bar “SPIRITS BAR Surface SHINJUKU” in 2016.",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'koji_esashi.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'koji_esashi.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Toshihiro Fukami',
@@ -244,7 +256,8 @@ profiles = [
     products with the spirits brand.  In the last few years he has been actively involved
     in the management of the event, he is also involved as a committee member for various
     events like a Tequila Festa.",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'toshihiro_fukami.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'toshihiro_fukami.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Kunihiko Nobuhara',
@@ -254,7 +267,8 @@ profiles = [
     to train hard. When actively participating in cocktail competitions, he won several
     prizes. Now, he has opened his bar “sloppy joe” in Kobe, which is celebrating its
     11th anniversary this year.",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'kunihiko_nobuhara.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'kunihiko_nobuhara.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Kiki Moka',
@@ -274,7 +288,8 @@ profiles = [
     competition 2003</li><li>3rd winner for bintang beer bartender competition 2003</li><li>1st
     winner of diageo world class national champion competition raising the bar 2011</li><li>Finalist
     of diageo world class competition global final new delhi 2011</li></ul>",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'kiki_moka.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'kiki_moka.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Greg Boehm',
@@ -296,7 +311,8 @@ profiles = [
     proof of the “the best book on cocktail theory every written,” *The Fine Art of
     Mixing Drinks*, by David Embury.  He keeps the collection in a working research
     library in New York, which draws bartenders and writers from around the world.</p>",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'greg_boehm.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'greg_boehm.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Jisung Chun',
@@ -311,7 +327,8 @@ profiles = [
     soju in bourbon barrels, she presents old world experiences through a modern lens.  These
     experiences also offer a new path to traditional culture that is approachable and
     relatable to today’s society.",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'jisung_chun.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'jisung_chun.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Yumi Takekoshi',
@@ -326,7 +343,8 @@ profiles = [
     kinds of spirits.  We transmit wide range of information such as the latest cocktail
     trends, high quality bars and different kinds of spirits from all over the world.
     We endorse the spirits of all kinds, especially tequila.",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'yumi_takekoshi.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'yumi_takekoshi.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Guilhem Grosperrin',
@@ -341,7 +359,8 @@ profiles = [
     cognacs from islands, using a special technique to reduce their “eau-de-vie” to
     the perfect balancing point without using traditional adjuvants, and systemize light
     filtration by slow reduction process.</p>",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'guilhem_grosperrin.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'guilhem_grosperrin.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Minzi Kim Wind',
@@ -363,7 +382,8 @@ profiles = [
     and enjoy the journey of different flavors.  At Mishmash you can delight all your
     senses, chef Minzi creates new dishes of her own by introducing the modern (contemporary)
     Korean cuisine with a European touch.</p>",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'minzi_kim_wind.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'minzi_kim_wind.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Kevin Attal',
@@ -373,7 +393,8 @@ profiles = [
     you can find in Seoul. Having grown up in his family’s kitchen in Paris and at the
     helm of his own restaurant of the same name in Montreal, Chef Kevin Attal now brings
     his exquisite talents to Seoul.",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'kevin_attal.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'kevin_attal.jpg')),
+    type: 'chef'
   },
   {
     name: 'Ryu Fuji',
@@ -383,7 +404,8 @@ profiles = [
     Japan<br>2012 Speed Challenge Winner Diageo World Class Japan<br><p>EDUCATION  &
     PROFESSIONAL QUALIFICATIONS</p>2011 The Elite Bartenders (JWC) Far East<br>2005
     Himeji Institute of technology<br>",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'ryu_fuji.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'ryu_fuji.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Ioana Munteanu',
@@ -397,7 +419,8 @@ profiles = [
     working as a bartender and after one year she became the head bartender and remained
     so for a couple of years.  She later moved into a Bar Manager position for a successful
     Asian restaurant in Dubai called Asia Asia, and run the bar until today.",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'ioana_munteanu.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'ioana_munteanu.jpg')),
+    type: 'bartender'
   },
   {
     name: 'Nicolas Julhes',
@@ -412,7 +435,8 @@ profiles = [
     further, and in 2010 he start the process to open a distillery.</p><p><b>2015</b>&nbsp;Funding
     of La Distillierie de Paris</p><p>The Distillerie de Paris is today recognized as
     a space for creation and inspirational thoughts around the world of spirits.</p>",
-    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'nicolas_julhes.jpg'))
+    photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'nicolas_julhes.jpg')),
+    type: 'bartender'
   }
 ]
 
@@ -424,123 +448,147 @@ sponsors = [
   {
     name: 'Sprit It',
     slug: 'http://spirit-it.org',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'spirit_it.png'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'spirit_it.png')),
+    ordinality: 0
   },
   {
     name: '8 Oz Magazine',
     slug: 'https://www.facebook.com/8ozmagazine/',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', '8ozmagazine.jpg'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', '8ozmagazine.jpg')),
+    ordinality: 1
   },
   {
     name: 'Nextcite!',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'nextcite.jpg'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'nextcite.jpg')),
+    ordinality: 2
   },
   {
     name: 'Aurensan Noir',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'aurensan_noir.png'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'aurensan_noir.png')),
+    ordinality: 3
   },
   {
     name: 'DA Noir',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'DA-noir.png'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'DA-noir.png')),
+    ordinality: 4
   },
   {
     name: 'Distillerie de Paris',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'DistilleriedeParis.jpg'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'DistilleriedeParis.jpg')),
+    ordinality: 5
   },
   {
     name: 'Ancho Reyes',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'ancho_reyes.png'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'ancho_reyes.png')),
+    ordinality: 6
   },
   {
     name: 'Bols',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'BOLS_genever_grey.png'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'BOLS_genever_grey.png')),
+    ordinality: 7
   },
   {
     name: 'Champagne Lemarie',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'Marque RCL PF.jpg'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'Marque RCL PF.jpg')),
+    ordinality: 8
   },
   {
     name: 'Carpano',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'carpano.png'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'carpano.png')),
+    ordinality: 9
   },
   {
     name: 'Chartreuse',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'chartreuse.png'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'chartreuse.png')),
+    ordinality: 10
   },
   {
     name: 'Cocktail Kingdom',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'cocktail_kingdom.png'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'cocktail_kingdom.png')),
+    ordinality: 11
   },
   {
     name: 'Cocktail Please',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'cocktail_please.png'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'cocktail_please.png')),
+    ordinality: 12
   },
   {
     name: 'Deanton',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'Deanton.jpg'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'Deanton.jpg')),
+    ordinality: 13
   },
 
   {
     name: 'Elemental Cocktails',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'elemental_cocktails.png'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'elemental_cocktails.png')),
+    ordinality: 14
   },
   {
     name: 'Haymans',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'haymans.png'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'haymans.png')),
+    ordinality: 15
   },
   {
     name: 'Champagne Lemarie',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'lemaire.jpg'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'lemaire.jpg')),
+    ordinality: 16
   },
   {
     name: 'Patron',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'patron.png'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'patron.png')),
+    ordinality: 17
   },
   {
     name: 'Teeling Whiskey',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'teeling_whiskey.png'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'teeling_whiskey.png')),
+    ordinality: 18
   },
   {
     name: 'Campari',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'campari.jpg'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'campari.jpg')),
+    ordinality: 19
   },
   {
     name: 'Tequila Festa',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'tequila_festa.png'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'tequila_festa.png')),
+    ordinality: 20
   },
   {
     name: 'Titos',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'titos.png'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'titos.png')),
+    ordinality: 21
   },
   {
     name: 'Trois Rivieres',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'trois_rivieres.jpg'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'trois_rivieres.jpg')),
+    ordinality: 22
   },
   {
     name: 'Wolhyang',
     slug: '#',
-    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'Wolhyang-1.png'))
+    logo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'sponsors', 'Wolhyang-1.png')),
+    ordinality: 23
   }
 ]
 
@@ -954,7 +1002,7 @@ events = [
     description: 'Invitees are all participating bars, bartenders, media, bloggers, magazines, guest bartenders, guest speakers.',
     start_time: '2017-09-10T21:00:00',
     end_time: '2017-09-11T02:00:00',
-    filter_type: '',
+    filter_type: 'masterclass',
     price: 0,
     location: Location.find_by_name('B28')
   },

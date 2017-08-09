@@ -27,6 +27,11 @@
     </div>
 
     <div class="form-group field">
+      <%= form.label :order %>
+      <%= form.number_field :ordinality, id: :sponsor_ordinality, class: 'form-control' %>
+    </div>
+
+    <div class="form-group field">
       <label><%= t('logo') %></label><br/>
       <%= form.label :logo, class: "custom-file" do %>
           <%= form.file_field :logo, id: :location_logo, class: 'custom-file-input', placeholder: t('browsefile') %>

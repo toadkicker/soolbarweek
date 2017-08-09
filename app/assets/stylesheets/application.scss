@@ -39,6 +39,13 @@ body {
     transform: translate(-50%, -50%); /* % of current element */
     z-index: -1
   }
+
+  #launch-bar {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    right: 1em;
+  }
   .display-1 {
     font-size: 6vw;
   }

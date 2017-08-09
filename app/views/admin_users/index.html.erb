@@ -18,8 +18,8 @@
       <td><%= user.sign_in_count %></td>
       <td><%= check_box_tag :is_admin, user.is_admin, user.is_admin, disabled: 'disabled' %></td>
       <td>
-        <%= link_to t('edit'), edit_admin_user_path(user) %>
-        <%= link_to 'Destroy', admin_user_path(user), method: :delete, data: {confirm: 'Are you sure?'} %>
+        <%= link_to t('edit'), edit_admin_user_path(user), class: 'btn btn-sm btn-outline-primary' %>
+        <%= link_to 'Destroy', admin_user_path(user), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-danger' %>
       </td>
     </tr>
   <% end %>

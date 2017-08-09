@@ -5,3 +5,13 @@
 .marker.draggable {
   cursor: move;
 }
+
+.marker {
+  animation: 3ms all ease-in-out;
+}
+
+.rotate {
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+}

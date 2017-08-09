@@ -1,21 +1,21 @@
 <div class="jumbotron mb-0 d-flex align-items-center flex-column justify-content-center min-100" id="header">
   <video loop muted autoplay poster="<%= asset_path 'homestill.jpg' %>" preload="auto" class="video-bg" playsinline>
-    <source src="/homepage.mov">
     <source src="/homepage.mp4">
-    <source src="/homepage.webm">
   </video>
-  <div class="blurred-bg text-center rounded">
-    <div class="p-4">
-      <%= image_tag "logo2x.png", alt: t('logo_alt'), style:"max-height: 240px" %>
-      <h1 class="text-center display-1"><%= t('title')%></h1>
-      <p class="text-center display-3"><%= t('sbw_date')%></p>
-    </div>
-    <div class="p4">
-      <p class="lead">
-        <a class="btn btn-danger btn-lg" id="learn-more" href="#content" role="button">
-          <%= t('learn_more')%>
+  <%= content_tag :div, class: "row", id: 'launch-bar' do %>
+      <div class="col-4 text-left">
+        <%= image_tag "logo2x_inverse.png", alt: t('logo_alt'), style: "max-height: 140px", id: "logo" %>
+      </div>
+      <div class="col-4 text-center text-white">
+        <h3>
+          <%= t('sbw_date') %>
+        </h3>
+      </div>
+      <div class="col-4 text-right">
+        <a id="learn-more" class="btn btn-danger btn-lg" id="learn-more" href="#content" role="button">
+          <%= t('learn_more') %>
         </a>
-      </p>
-    </div>
-  </div>
+      </div>
+
+  <% end %>
 </div>

@@ -1,4 +1,4 @@
-<% @event = Event.order("RANDOM()").first %>
+<% @event = Event.where("start_time >= ?", Date.today).first %>
 <% @sponsor = Sponsor.order("RANDOM()").first %>
 <% @profile = Profile.order("RANDOM()").first %>
 
@@ -35,7 +35,7 @@
         </div>
         <div class="card-block pt-0">
           <div class="ellipsis multiline" style="max-height: 10rem;">
-            <p class="card-text"><b><%= @profile.description.html_safe %></b></p>
+            <p class="card-text"><b><%= @profile.description.first(25).concat('...').html_safe %></b></p>
           </div>
           <p class="card-text text-center">
             <%= link_to t('learn_more'), profile_path(@profile) %>

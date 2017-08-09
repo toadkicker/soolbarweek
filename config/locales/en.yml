@@ -363,3 +363,7 @@ en:
   leave_blank: "(leave blank if you don't want to change it)"
   new_locale: "Add Language"
   download_map: "Download Map"
+  about_logo: "Logo created by Cat In A Box"
+  about_logo_store: "Check out their"
+  store: "store"
+  skip_intro: "Skip Intro"

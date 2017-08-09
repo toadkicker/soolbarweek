@@ -27,6 +27,11 @@
     </div>
 
     <div class="form-group field">
+      <%= form.label :description %>
+      <%= form.select_tag :type, ["chef", "speaker", "bartender", "ambasador"], id: :profile_description, class: 'form-control' %>
+    </div>
+
+    <div class="form-group field">
       <label><%= t('photo') %></label><br/>
       <%= form.label :photo, class: "custom-file" do %>
           <%= form.file_field :photo, id: :location_photo, class: 'custom-file-input', placeholder: t('browsefile') %>

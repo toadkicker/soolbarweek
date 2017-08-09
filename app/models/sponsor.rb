@@ -8,11 +8,15 @@ class Sponsor < ApplicationRecord
                     url: ":s3_domain_url",
                     path: '/sponsor/:id/:style/:basename.:extension',
                     s3_region: ENV['AWS_REGION'],
-                    s3_credentials: proc { |a| a.instance.s3_credentials }
+                    s3_credentials: proc {|a| a.instance.s3_credentials}
 
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
 
   def s3_credentials
-    { bucket: ENV['S3_SBW_UPLOADS'], access_key_id: ENV['S3_SBW_ACCESS_KEY'], secret_access_key: ENV['S3_SBW_SECRET_KEY'], region: ENV['AWS_REGION'] }
+    {bucket: ENV['S3_SBW_UPLOADS'], access_key_id: ENV['S3_SBW_ACCESS_KEY'], secret_access_key: ENV['S3_SBW_SECRET_KEY'], region: ENV['AWS_REGION']}
   end
+
+  scope :by_ordinality, -> {order(:ordinality)}
+
+  default_scope {by_ordinality}
 end
