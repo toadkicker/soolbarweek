@@ -20,6 +20,11 @@
               </p>
               <% if user_is_admin? %>
                   <div class="card-footer">
+                    <% if profile.is_active %>
+                        <%= content_tag :b, 'Active', class: 'badge badge-success' %>
+                    <% else %>
+                        <%= content_tag :b, 'Not Active', class: 'badge badge-danger' %>
+                    <% end %>
                     <%= link_to 'Edit', edit_profile_path(profile), class: 'btn btn-small btn-outline-primary' %>
                     <%= link_to 'Destroy', profile, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-small btn-outline-danger' %>
                   </div>
