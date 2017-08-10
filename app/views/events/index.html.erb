@@ -34,7 +34,7 @@
                       </div>
                       <div class="col">
                         <p class="my-0"><%= link_to event.title, event_path(event) %></p>
-                        <small><%= event.short_description %></small>
+                        <small><%= event.short_description.html_safe %></small>
                       </div>
                       <div class="col"><%= link_to event.profile.name, profile_path(event.profile) unless !event.profile.is_active %></div>
                     </div>

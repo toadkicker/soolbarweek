@@ -24,11 +24,13 @@
     <div class="form-group field">
       <%= form.label :short_description %>
       <%= form.text_field :short_description, id: :event_short_description, class: 'form-control' %>
+      <%= content_tag :small, t('events_short_description_help') %>
     </div>
 
     <div class="form-group field">
       <%= form.label :description %>
       <%= form.text_area :description, id: :event_description, class: 'form-control' %>
+      <%= content_tag :small, t('events_description_help') %>
     </div>
 
     <div class="form-group field">

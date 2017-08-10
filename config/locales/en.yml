@@ -372,3 +372,5 @@ en:
   slug: "A slug controls what the end of the URL will display. This should be firstname-lastname usually."
   whatareprofiletags: "Tags are used to describe a person's profile. Things like 'speaker', 'chef', anything you want."
   allow_html: "HTML is enabled here"
+  events_short_description_help: "This is displayed on the main events list. HTML is ok."
+  events_description_help: "This is used on a single event page. HTML is ok."
