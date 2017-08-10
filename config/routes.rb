@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   post '/contact', to: 'messages#create', as: 'new_message'
 
   get '/thank-you', to: 'pages#show', page: 'thankyou', as: 'thankyou'
+  get '/transit', to: 'pages#show', page: 'transit', as: 'transit'
+
   root 'pages#show', page: 'index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

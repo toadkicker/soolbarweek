@@ -76,7 +76,7 @@ module PagesHelper
           },
           {
             icon: 'coffee',
-            url: '#',
+            url: '/transit',
             title: t('please_drink_responsibly')
           }
         ],
