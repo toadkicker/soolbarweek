@@ -20,7 +20,7 @@
         <div class="card-block">
           <h3 class="card-title"><%= t('featured_sponsor') %></h3>
           <p class="card-text text-center">
-            <%= link_to sponsor_path(@sponsor) do %>
+            <%= link_to (@sponsor.website.nil? ? sponsors_path : @sponsor.website) do %>
                 <%= image_tag @sponsor.logo.url(:thumb), alt: @sponsor.name, style: "max-width: 90px;" %>
             <% end %>
           </p>

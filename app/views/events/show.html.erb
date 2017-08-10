@@ -7,17 +7,17 @@
 
 <p>
   <strong>Subtitle:</strong>
-  <%= @event.subtitle %>
+  <%= @event.subtitle.html_safe %>
 </p>
 
 <p>
   <strong>Short description:</strong>
-  <%= @event.short_description %>
+  <%= @event.short_description.html_safe %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @event.description %>
+  <%= @event.description.html_safe %>
 </p>
 
 <p>

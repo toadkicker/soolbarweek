@@ -1,24 +1,23 @@
 module PagesHelper
-
   def nav
     items = [
       {
-        title: t("events"),
+        title: t('events'),
         url: events_path,
         active: current_page?(events_path)
       },
       {
-        title: t("profiles"),
+        title: t('profiles'),
         url: profiles_path,
         active: current_page?(profiles_path)
       },
       {
-        title: t("sponsors"),
+        title: t('sponsors'),
         url: sponsors_path,
         active: current_page?(sponsors_path)
       },
       {
-        title: t("locations"),
+        title: t('locations'),
         url: locations_path,
         active: current_page?(locations_path)
       }
@@ -27,13 +26,11 @@ module PagesHelper
       items.push({
                    title: t('translations'),
                    url: locale_translations_path(current_user.try(:locale)),
-                   active: current_page?("/translations")
+                   active: current_page?('/translations')
                  },
-                 {
-                   title: t('users'),
-                   url: admin_users_path,
-                   active: current_page?(controller: :admin_users)
-                 })
+                 title: t('users'),
+                 url: admin_users_path,
+                 active: current_page?(admin_users_path))
     end
     items
   end
@@ -71,11 +68,16 @@ module PagesHelper
         footer_links: [
           {
             icon: 'instagram',
-            url: "https://instagram.com/soolbarweek"
+            url: 'https://instagram.com/soolbarweek'
           },
           {
             icon: 'facebook',
-            url: "https://facebook.com/soolbarweek"
+            url: 'https://facebook.com/soolbarweek'
+          },
+          {
+            icon: 'coffee',
+            url: '#',
+            title: t('please_drink_responsibly')
           }
         ],
         nav_class: 'flex-row justify-content-end',

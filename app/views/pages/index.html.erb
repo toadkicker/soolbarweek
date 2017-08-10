@@ -9,7 +9,9 @@
     </div>
     <div class="row">
       <div class="col">
-        <p class="lead"><%= t('masterclass').pluralize %></p>
+        <p class="lead">
+          <%= t('masterclass') %>
+        </p>
       </div>
       <div class="col">
         <p class="lead"><%= t('exclusive_dining') %></p>
@@ -20,15 +22,3 @@
     </div>
   </div>
 </div>
-
-
-<script>
-  $learnMore = document.querySelector('#learn-more');
-  $learnMore.addEventListener('click', function (event) {
-    event.preventDefault();
-    document.querySelector('nav').scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-
-</script>
