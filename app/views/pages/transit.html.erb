@@ -1,3 +1,8 @@
 <h3><%= t('please_drink_responsibly') %></h3>
 
-<%= t('transit').html_safe %>
+<% if user_is_admin? %>
+    <%= content_tag :i, "To edit this page, find the 'transit_page' key in" %>
+    <%= link_to t('translations'), locale_translations_path(locale_id: current_user.locale) %>
+    <hr/>
+<% end %>
+<%= t('transit_page').html_safe %>
