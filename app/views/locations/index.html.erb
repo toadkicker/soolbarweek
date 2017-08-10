@@ -139,9 +139,9 @@
 
           <td>
             <ul class="list-group">
-              <% location.events.each do |event| %>
+              <% location.events.order(:start_time).each do |event| %>
                   <li>
-                    <%= link_to event.title, event_path(event) %>&ndash;<%= event.start_time.strftime("%A %d, %I:%M %p") %>
+                    <%= link_to event.title, event_path(event) %>&nbsp;&ndash;&nbsp;<%= event.start_time.strftime("%A %d, %l:%M %p") %>
                   </li>
               <% end %>
             </ul>
