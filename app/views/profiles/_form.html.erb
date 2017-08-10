@@ -17,18 +17,28 @@
     </div>
 
     <div class="form-group field">
+      <%= form.label :description %>
+      <%= form.text_area :description, id: :profile_description, class: 'form-control' %>
+      <%= content_tag :small, t('allow_html') %>
+    </div>
+
+    <div class="form-group field">
+      <%= form.label :tags %>
+      <%= form.text_field :tags, id: :profile_tags, class: 'form-control' %>
+      <%= content_tag :small, t('whatareprofiletags') %>
+    </div>
+
+    <div class="form-group field">
       <%= form.label :slug %>
       <%= form.text_field :slug, id: :profile_slug, class: 'form-control' %>
+      <%= content_tag :small, t('slug') %>
     </div>
 
-    <div class="form-group field">
-      <%= form.label :description %>
-      <%= form.text_field :description, id: :profile_description, class: 'form-control' %>
-    </div>
-
-    <div class="form-group field">
-      <%= form.label :description %>
-      <%= form.select_tag :type, ["chef", "speaker", "bartender", "ambasador"], id: :profile_description, class: 'form-control' %>
+    <div class="form-check field">
+      <%= form.label :is_active, class:'form-check-label' do %>
+          <%= form.check_box :is_active, id: :profile_is_active, class: 'form-check-input' %>
+          <%= t('active') %>?
+      <% end %>
     </div>
 
     <div class="form-group field">
@@ -43,3 +53,11 @@
       <%= form.submit class: 'btn btn-outline-primary' %>
     </div>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+    (function ($) {
+        $(document).on('turbolinks:load', function (e) {
+            $('#profile_tags').tagsInput();
+        })
+    })(jQuery)
+</script>

@@ -437,6 +437,12 @@ profiles = [
     a space for creation and inspirational thoughts around the world of spirits.</p>",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'nicolas_julhes.jpg')),
     type: 'bartender'
+  },
+  {
+    name: 'No Name',
+    slug: '#',
+    description: 'Use this profile for testing',
+    active: false
   }
 ]
 
@@ -1004,7 +1010,8 @@ events = [
     end_time: '2017-09-11T02:00:00',
     filter_type: 'masterclass',
     price: 0,
-    location: Location.find_by_name('B28')
+    location_id: 24,
+    profile_id: 1
   },
   {
     title: 'Bar Philosophy',

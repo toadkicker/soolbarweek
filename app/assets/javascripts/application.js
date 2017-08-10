@@ -16,4 +16,5 @@
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require turbolinks
+//= require jquery.tagsinput
 //= require_tree .

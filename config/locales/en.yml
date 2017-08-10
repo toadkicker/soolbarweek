@@ -368,3 +368,7 @@ en:
   store: "store"
   skip_intro: "Skip Intro"
   please_drink_responsibly: "Please Drink Responsibly"
+  active: "Active"
+  slug: "A slug controls what the end of the URL will display. This should be firstname-lastname usually."
+  whatareprofiletags: "Tags are used to describe a person's profile. Things like 'speaker', 'chef', anything you want."
+  allow_html: "HTML is enabled here"
