@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :profiles
   resources :events
 
+  resources :checkouts, only: [:show, :new, :create]
+
   resources :locales do
     resources :translations, constraints: { :id => /[^\/]+/ }
   end
@@ -20,6 +22,9 @@ Rails.application.routes.draw do
 
   get '/thank-you', to: 'pages#show', page: 'thankyou', as: 'thankyou'
   get '/transit', to: 'pages#show', page: 'transit', as: 'transit'
+
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
 
   root 'pages#show', page: 'index'
 

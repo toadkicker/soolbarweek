@@ -1,0 +1,31 @@
+<div class="row justify-content-between<%= stripe ? ' bg-faded':'' %>">
+  <div class="col-6 pt-3">
+    <p class="lead mb-0">
+      <%= order_item.event.title %>
+    </p>
+    <p>
+      Price: <%= humanized_money_with_symbol order_item.unit_price %>
+    </p>
+  </div>
+  <div class="col-6 pt-3">
+    <%= form_for order_item, remote: true, html: {class: 'form form-inline justify-content-end'} do |f| %>
+        <%= f.hidden_field :event_id, value: event.id %>
+
+        <div class="input-group field">
+          <%= f.number_field :quantity, value: order_item.quantity.to_i, class: "form-control", min: 1, max: order_item.event.max_seats %>
+          <%= f.submit "Update Quantity", class: "btn input-group-addon" %>
+        </div>
+        &nbsp;
+        <div class="btn-group">
+          <%= link_to order_item, {data: {confirm: "Are you sure you wish to remove the event '#{order_item.event.title}' from your cart?"}, method: :delete, remote: true, class: "btn btn-outline-danger"} do %>
+              <%= fa_icon('trash') %>
+              <%= t('remove_from_order') %>
+          <% end %>
+        </div>
+    <% end %>
+    <p class="text-right mb-0">
+      Total Price:
+      <span style="color: green"><%= humanized_money_with_symbol order_item.total_price %></span>
+    </p>
+  </div>
+</div>

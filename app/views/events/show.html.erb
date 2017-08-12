@@ -1,21 +1,37 @@
 <h3><%= @event.title %></h3>
 <div class="flex-row">
   <p>
-    <strong>Start time:</strong>
-    <%= @event.start_time.strftime("%B %d %H:%M %p") %>
-  </p>
-
-  <p>
-    <strong>End time:</strong>
-    <%= @event.end_time.strftime("%B %d %H:%M %p") %>
-  </p>
-  <p>
-    <strong>Price:</strong>
-    <%= humanized_money_with_symbol @event.price %>
+    <%= @event.start_time.strftime("%B %d %H:%M %p") %>&nbsp;&ndash;&nbsp;<%= @event.end_time.strftime("%H:%M %p") %>
   </p>
 </div>
 <div class="flex-row">
   <%= @event.description.html_safe %>
+</div>
+<div class="flex-row">
+  <p class="lead">
+    <strong>Price:</strong>
+    <% if @event.price == 0 %>
+        <%= content_tag :b, t('free'), class: 'badge badge-danger' %>
+    <% else %>
+        <%= humanized_money_with_symbol @event.price %>
+    <% end %>
+  </p>
+</div>
+
+<div class="flex-row">
+  <%= form_for @order_item, remote: true, html: {class: 'form form-inline'} do |f| %>
+      <% if @event.price != 0 %>
+          <%= f.hidden_field :event_id, value: @event.id %>
+
+          <div class="form-group field">
+            <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+          </div>
+          &nbsp;
+          <div class="form-actions">
+          <%= f.submit t('add_to_order'), class: 'btn btn-success' %>
+          </div>
+      <% end %>
+  <% end %>
 </div>
 
 <% if user_is_admin? %>

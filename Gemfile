@@ -74,7 +74,7 @@ gem 'rails-i18n', '~> 5.0.0'
 gem 'i18n-active_record', :require => 'i18n/active_record'
 
 gem 'paperclip'
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap', '= 4.0.0.alpha6'
 gem 'font-awesome-rails'
 gem 'handlebars'
 gem 'money-rails', '~> 1.9.0'
@@ -88,5 +88,6 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'geocoder'
 
 gem 'tagsinput-rails'
+gem "braintree", "~> 2.76.0"
 
 ruby "2.4.1"

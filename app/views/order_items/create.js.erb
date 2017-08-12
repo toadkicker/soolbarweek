@@ -1,0 +1,5 @@
+<% if @order.errors.any? || @order_items.errors.any? %>
+<% flash[:warning] = t('cart_error')%>
+<% else %>
+$(".cart-text").html("<%= escape_javascript(render 'partials/cart_text') %>")
+<% end %>

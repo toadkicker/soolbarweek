@@ -1,5 +1,5 @@
-@include media-breakpoint-between(xs,sm) {
+@include media-breakpoint-down(sm) {
   .brand > img {
-    width: 30px;
+    width: 40px;
   }
 }

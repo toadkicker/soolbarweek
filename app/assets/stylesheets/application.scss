@@ -147,7 +147,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card-outline-none {
-  @include card-outline-variant(transparent);
+  border: none !important;
 }
 
 .text-ellipse {

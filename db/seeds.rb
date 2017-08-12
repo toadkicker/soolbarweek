@@ -1471,3 +1471,8 @@ events = [
 events.each do |event|
   Event.create(event)
 end
+
+OrderStatus.create! name: "In Progress", default: true
+OrderStatus.create! name: "Placed"
+OrderStatus.create! name: "Shipped"
+OrderStatus.create! name: "Cancelled"

@@ -8,4 +8,10 @@ module ApplicationHelper
       redirect_back(fallback_location: root_path)
     end
   end
+
+  def cart_button(*args)
+    opts = args.first
+    content_tag :button, t('add_to_order'), class: 'btn btn-outline-primary', id: opts[:id]
+  end
+
 end
