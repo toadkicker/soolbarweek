@@ -2,6 +2,7 @@
 <div class="flex-row">
   <p>
     <%= @event.start_time.strftime("%B %d %H:%M %p") %>&nbsp;&ndash;&nbsp;<%= @event.end_time.strftime("%H:%M %p") %>
+    @ <%= link_to @event.location.name, location_path(@event.location) %>
   </p>
 </div>
 <div class="flex-row">
@@ -19,18 +20,24 @@
 </div>
 
 <div class="flex-row">
-  <%= form_for @order_item, remote: true, html: {class: 'form form-inline'} do |f| %>
-      <% if @event.price != 0 %>
-          <%= f.hidden_field :event_id, value: @event.id %>
+  <% if user_signed_in? %>
+      <%= form_for @order_item, remote: true, html: {class: 'form form-inline'} do |f| %>
+          <% if @event.price != 0 %>
+              <%= f.hidden_field :event_id, value: @event.id %>
 
-          <div class="form-group field">
-            <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
-          </div>
-          &nbsp;
-          <div class="form-actions">
-          <%= f.submit t('add_to_order'), class: 'btn btn-success' %>
-          </div>
+              <div class="form-group field">
+                <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+              </div>
+              &nbsp;
+              <div class="form-actions">
+                <%= f.submit t('add_to_order'), class: 'btn btn-success' %>
+              </div>
+          <% end %>
       <% end %>
+  <% else %>
+      <%= t('create_account') %>
+      <br>
+      <%= link_to t('sign_up'), new_user_registration_path, class: 'btn btn-outline-primary' %>
   <% end %>
 </div>
 
