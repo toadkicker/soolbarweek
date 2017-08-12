@@ -10,7 +10,13 @@ class CheckoutsController < ApplicationController
   ].freeze
 
   def new
-    @client_token = Braintree::ClientToken.generate
+    @order = current_order
+
+    begin
+      @client_token = Braintree::ClientToken.generate
+    rescue Braintree::AuthenticationError
+      flash[:danger] = "Unable to connect to payment processor. Payments are unavailable at this time."
+    end
   end
 
   def show
@@ -19,7 +25,7 @@ class CheckoutsController < ApplicationController
   end
 
   def create
-    amount = params['amount'] # In production you should not take amounts directly from clients
+    amount = current_order.subtotal
     nonce = params['payment_method_nonce']
 
     result = Braintree::Transaction.sale(
@@ -33,7 +39,7 @@ class CheckoutsController < ApplicationController
     if result.success? || result.transaction
       redirect_to checkout_path(result.transaction.id)
     else
-      error_messages = result.errors.map { |error| "Error: #{error.code}: #{error.message}" }
+      error_messages = result.errors.map {|error| "Error: #{error.code}: #{error.message}"}
       flash[:error] = error_messages
       redirect_to new_checkout_path
     end

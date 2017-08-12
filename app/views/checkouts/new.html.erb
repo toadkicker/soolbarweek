@@ -9,12 +9,12 @@
         </p>
       </header>
 
-      <%= form_tag("/checkouts", method: "post", id: "payment-form") do %>
+      <%= form_for(@order, url: "/checkouts", method: "post", id: "payment-form") do |f| %>
           <section>
             <label for="amount">
               <span class="input-label">Amount</span>
               <div class="input-wrapper amount-wrapper">
-                <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10">
+                <%= humanized_money_with_symbol @order.subtotal %>
               </div>
             </label>
 

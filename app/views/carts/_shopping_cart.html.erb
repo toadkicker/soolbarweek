@@ -21,7 +21,38 @@
         <span><%= t('subtotal') %></span>
         <%= humanized_money_with_symbol current_order.set_subtotal %>
         <br>
-        <%= link_to t('place_order'), new_checkout_path, class: 'btn btn-success' %>
+        <%= form_for(@order, url: "/checkouts", method: "post", id: "payment-form") do |f| %>
+            <%= f.submit t('place_order'), class: 'btn btn-success' %>
+        <% end %>
       </div>
     </div>
 <% end %>
+
+<script src="https://js.braintreegateway.com/web/dropin/1.6.1/js/dropin.min.js"></script>
+<script>
+    var form = document.querySelector('#payment-form');
+    var client_token = "<%= @client_token %>";
+    braintree.dropin.create({
+        authorization: client_token,
+        container: '#bt-dropin',
+        paypal: {
+            flow: 'vault'
+        }
+    }, function (createErr, instance) {
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            instance.requestPaymentMethod(function (err, payload) {
+                if (err) {
+                    console.log('Error', err);
+                    return;
+                }
+                // Add the nonce to the form and submit
+                document.querySelector('#nonce').value = payload.nonce;
+                form.submit();
+            });
+        });
+    });
+    var checkout = new Demo({
+        formID: 'payment-form'
+    });
+</script>

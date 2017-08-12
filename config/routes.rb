@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   get '/thank-you', to: 'pages#show', page: 'thankyou', as: 'thankyou'
   get '/transit', to: 'pages#show', page: 'transit', as: 'transit'
 
+  get '/order-history', to: 'order_items#index', as: 'order_history'
+
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
 

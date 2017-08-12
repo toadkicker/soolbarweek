@@ -2,6 +2,10 @@ class OrderItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_order
 
+  def index
+    @orders = OrderItem.where(user: current_user)
+  end
+
   def create
     @order = current_order
     @order.user = current_user
