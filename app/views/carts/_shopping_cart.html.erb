@@ -1,0 +1,58 @@
+<% if !@order_item.nil? && @order_item.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% @order_item.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+<% if @order_items.size == 0 %>
+    <p class="text-center lead">
+      There are no items in your shopping cart. Please <%= link_to "go back", root_path %> and add some items to your
+      cart.
+    </p>
+<% else %>
+    <% @order_items.each_with_index do |order_item, idx| %>
+        <%= render 'carts/cart_row', event: order_item.event, order_item: order_item, show_total: true, stripe: (idx+1).even? %>
+    <% end %>
+    <div class="flex-row">
+      <div class="text-right justify-content-end">
+        <span><%= t('subtotal') %></span>
+        <%= humanized_money_with_symbol current_order.set_subtotal %>
+        <br>
+        <%= form_for(@order, url: "/checkouts", method: "post", id: "payment-form") do |f| %>
+            <%= f.submit t('place_order'), class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    </div>
+<% end %>
+
+<script src="https://js.braintreegateway.com/web/dropin/1.6.1/js/dropin.min.js"></script>
+<script>
+    var form = document.querySelector('#payment-form');
+    var client_token = "<%= @client_token %>";
+    braintree.dropin.create({
+        authorization: client_token,
+        container: '#bt-dropin',
+        paypal: {
+            flow: 'vault'
+        }
+    }, function (createErr, instance) {
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            instance.requestPaymentMethod(function (err, payload) {
+                if (err) {
+                    console.log('Error', err);
+                    return;
+                }
+                // Add the nonce to the form and submit
+                document.querySelector('#nonce').value = payload.nonce;
+                form.submit();
+            });
+        });
+    });
+    var checkout = new Demo({
+        formID: 'payment-form'
+    });
+</script>

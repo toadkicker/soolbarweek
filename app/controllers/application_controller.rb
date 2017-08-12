@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+  helper_method :current_order
+
 
   def set_locale
     I18n.locale = (user_signed_in? && current_user.try(:locale)) || read_lang_header || I18n.default_locale
@@ -16,6 +18,15 @@ class ApplicationController < ActionController::Base
   def authenticate_admin!
     unless user_is_admin?
       redirect_back(fallback_location: root_path)
+    end
+  end
+
+  def current_order
+    if user_signed_in?
+      oi = OrderItem.where(user: current_user).first
+      @order = oi.nil? ? Order.new : oi.order
+    else
+      @order = Order.new
     end
   end
 

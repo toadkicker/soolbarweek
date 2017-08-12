@@ -5,5 +5,6 @@ FactoryGirl.define do
     password 'password'
     password_confirmation 'password'
     locale 'en'
+    is_admin false
   end
 end

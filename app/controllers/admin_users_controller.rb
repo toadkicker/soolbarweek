@@ -3,7 +3,7 @@ class AdminUsersController < ApplicationController
   before_action :get_user, only: [:edit, :update]
   before_action :allow_without_password, only: [:update]
   def index
-    @users = User.all
+    @users = User.order(:is_admin)
   end
 
   def show

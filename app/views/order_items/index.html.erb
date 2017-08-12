@@ -1,0 +1,22 @@
+<h3><%= current_user.name %>'s <%= t('order_history') %></h3>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td>Event</td>
+    <td>Quantity</td>
+    <td>Price</td>
+    <td>Status</td>
+  </tr>
+  </thead>
+  <tbody>
+  <%= @orders.each do |order| %>
+      <tr>
+        <td><%= order.order_items.event.title %></td>
+        <td><%= order.quantity %></td>
+        <td><%= humanized_money_with_symbol order.set_subtotal %></td>
+        <td><%= order.order_status.name %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
