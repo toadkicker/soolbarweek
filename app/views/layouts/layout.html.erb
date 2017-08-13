@@ -637,13 +637,11 @@
   <div class="row h-100 mt-3">
     <%= render 'partials/aside' %>
     <main class="col py-5">
-      <% if flash.present? %>
-          <div class="row">
-            <div class="col messages">
-              <%= bootstrap_flash %>
-            </div>
-          </div>
-      <% end %>
+      <div class="row">
+        <div class="col messages">
+          <%= bootstrap_flash %>
+        </div>
+      </div>
       <div class="row">
         <div class="col">
           <%= yield %>

@@ -3,7 +3,7 @@ class OrderItemsController < ApplicationController
   before_action :set_order
 
   def index
-    @orders = OrderItem.where(user: current_user)
+    @past_order_items = OrderItem.where(user: current_user).joins(:order).to_a
   end
 
   def create

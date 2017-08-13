@@ -10,12 +10,14 @@
   </tr>
   </thead>
   <tbody>
-  <%= @orders.each do |order| %>
+  <% @past_order_items.each do |poi| %>
       <tr>
-        <td><%= order.order_items.event.title %></td>
-        <td><%= order.quantity %></td>
-        <td><%= humanized_money_with_symbol order.set_subtotal %></td>
-        <td><%= order.order_status.name %></td>
+        <td><%= poi.event.title %></td>
+        <td><%= poi.quantity %></td>
+        <td><%= humanized_money_with_symbol poi.total_price %></td>
+        <td>
+          <%= poi.order.order_status.name %>
+        </td>
       </tr>
   <% end %>
   </tbody>

@@ -88,6 +88,6 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'geocoder'
 
 gem 'tagsinput-rails'
-gem "braintree", "~> 2.76.0"
+gem 'paypal-sdk-rest'
 
 ruby "2.4.1"

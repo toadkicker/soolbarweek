@@ -1,7 +1,19 @@
 <aside class="col-md-2">
-    <div class="mt-5 mb-3" id="sidemenu">
-        <a class="brand" href="/">
-            <%= image_tag 'logo2x.png', alt: t('logo_alt') %>
-        </a>
-    </div>
+  <div class="mt-5 mb-3" id="sidemenu">
+    <a class="brand" href="/">
+      <%= image_tag 'logo2x.png', alt: t('logo_alt') %>
+    </a>
+    <% if user_is_admin? %>
+        <ul class="nav flex-column">
+          <%= content_tag :li, class: 'nav-item pt-4' do %>
+              Admin Tools
+          <% end %>
+          <% admin_nav.each do |nav| %>
+              <%= content_tag :li, class: 'nav-item' do %>
+                  <%= link_to nav[:title], nav[:url], class: 'nav-link' %>
+              <% end %>
+          <% end %>
+        </ul>
+    <% end %>
+  </div>
 </aside>

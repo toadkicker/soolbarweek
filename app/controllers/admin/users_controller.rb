@@ -1,7 +1,8 @@
-class AdminUsersController < ApplicationController
+class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!
   before_action :get_user, only: [:edit, :update]
   before_action :allow_without_password, only: [:update]
+
   def index
     @users = User.order(:is_admin)
   end

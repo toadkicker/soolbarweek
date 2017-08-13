@@ -11,7 +11,10 @@ Rails.application.routes.draw do
     resources :translations, constraints: { :id => /[^\/]+/ }
   end
 
-  resources :admin_users
+  namespace :admin do
+    resources :users
+    resources :orders
+  end
 
   get '/privacy', to: 'pages#show', page: 'privacy'
   get '/terms-of-service', to: 'pages#show', page: 'tos'

@@ -1,0 +1,50 @@
+<h3>
+  <%= image_tag @user.photo.url(:thumb) %>
+  <%= @user.name %>'s <%= t('order_history') %>
+</h3>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td>Event</td>
+    <td>Quantity</td>
+    <td>Price</td>
+    <td>Status</td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @past_order_items.each do |poi| %>
+      <tr>
+        <td><%= poi.event.title %></td>
+        <td><%= poi.quantity %></td>
+        <td><%= humanized_money_with_symbol poi.total_price %></td>
+        <td>
+          <%= select_tag :status,
+                         options_from_collection_for_select(@statuses, :id, :name, poi.order.order_status_id),
+                         class: "order-status",
+                         data: {order_item_id: "#{poi.id}", order_id: "#{poi.order.id}"} %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<script>
+    (function ($) {
+        $(document).on('turbolinks:load', function (e) {
+            $("select.order-status").on('change', function (event) {
+                $el = event.currentTarget;
+                $.ajax({
+                    url:"/admin/orders/" + `${$el.dataset.orderItemId}`,
+                    method: 'PUT',
+                    data: {
+                        order_item: {
+                            order_status_id: Number($el.value),
+                            order_id: Number($el.dataset.orderId)
+                        }
+                    }
+                })
+            })
+        })
+    })(jQuery);
+</script>

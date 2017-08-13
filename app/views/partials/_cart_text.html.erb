@@ -1,4 +1,6 @@
 <%= link_to cart_path, class: "btn btn-link cart-text" do %>
-    <%= fa_icon('calendar') %>
-    <%= "#{current_order.order_items.size} #{t('events')} ( #{humanized_money_with_symbol current_order.set_subtotal} )" %>
+    <% unless current_order.order_items.size == 0 %>
+        <%= fa_icon('calendar') %>
+        <%= "#{current_order.order_items.size} #{t('events')} ( #{humanized_money_with_symbol current_order.set_subtotal} )" %>
+    <% end %>
 <% end %>

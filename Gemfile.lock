@@ -58,8 +58,6 @@ GEM
     bootstrap (4.0.0.alpha6)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
-    braintree (2.76.0)
-      builder (>= 2.0.0)
     builder (3.2.3)
     byebug (9.0.6)
     climate_control (0.2.0)
@@ -159,6 +157,9 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
+    paypal-sdk-rest (1.6.0)
+      multi_json (~> 1.0)
+      xml-simple
     pg (0.21.0)
     popper_js (1.11.1)
     puma (3.9.1)
@@ -276,6 +277,7 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    xml-simple (1.1.5)
 
 PLATFORMS
   ruby
@@ -284,7 +286,6 @@ DEPENDENCIES
   aws-sdk
   aws-sdk-rails
   bootstrap (= 4.0.0.alpha6)
-  braintree (~> 2.76.0)
   byebug
   codecov
   coffee-rails (~> 4.2)
@@ -305,6 +306,7 @@ DEPENDENCIES
   money-rails (~> 1.9.0)
   newrelic_rpm
   paperclip
+  paypal-sdk-rest
   pg (~> 0.18)
   popper_js
   puma (~> 3.7)

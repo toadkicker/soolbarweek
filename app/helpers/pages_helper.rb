@@ -1,6 +1,6 @@
 module PagesHelper
   def nav
-    items = [
+    [
       {
         title: t('events'),
         url: events_path,
@@ -22,17 +22,23 @@ module PagesHelper
         active: current_page?(locations_path)
       }
     ]
-    if user_is_admin?
-      items.push({
-                   title: t('translations'),
-                   url: locale_translations_path(current_user.try(:locale)),
-                   active: current_page?('/translations')
-                 },
-                 title: t('users'),
-                 url: admin_users_path,
-                 active: current_page?(admin_users_path))
-    end
-    items
+  end
+
+  def admin_nav
+    [{
+      title: t('translations'),
+      url: locale_translations_path(current_user.try(:locale)),
+      active: current_page?('/translations')
+    }, {
+      title: t('users'),
+      url: admin_users_path,
+      active: current_page?(admin_users_path)
+    },
+     {
+       title: t('order_history'),
+       url: admin_orders_path,
+       active: current_page?(admin_orders_path)
+     }]
   end
 
   def footer
