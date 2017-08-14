@@ -11,15 +11,15 @@ User.create(email: 'todd@toadkicker.com',
             locale: 'en')
 
 def load_translations
-  en_seed_file = Rails.root.join('config', 'locales', 'en.yml')
+  en_seed_file = Rails.root.join('config', 'locales', 'en-us.yml')
   en_yml = YAML.load_file(en_seed_file)
 
-  en_yml.fetch('en').each {|k, v| Translation.create(key: k, value: v, locale: 'en')}
+  en_yml.fetch('en-us').each {|k, v| Translation.create(key: k, value: v, locale: 'en-us')}
 
-  devise_en_seed_file = Rails.root.join('config', 'locales', 'devise.en.yml')
+  devise_en_seed_file = Rails.root.join('config', 'locales', 'devise.en-us.yml')
   devise_yml = YAML.load_file(devise_en_seed_file)
 
-  devise_yml.fetch('en').each {|k, v| Translation.create(key: k, value: v, locale: 'en')}
+  devise_yml.fetch('en-us').each {|k, v| Translation.create(key: k, value: v, locale: 'en-us')}
 
   kr_seed_file = Rails.root.join('config', 'locales', 'ko-kr.yml')
   kr_yml = YAML.load_file(kr_seed_file)
