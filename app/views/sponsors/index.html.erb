@@ -18,7 +18,7 @@
                     <% end %>
                     <% if user_is_admin? %>
                         <%= content_tag :div, class: 'flex-row' do %>
-                            <%= link_to 'Edit', edit_sponsor_path(sponsor), class: 'btn btn-sm btn-outline-primary' %>
+                            <%= link_to 'Edit', edit_sponsor_url(sponsor.id), class: 'btn btn-sm btn-outline-primary' %>
                             <%= link_to 'Destroy', sponsor, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-outline-danger' %>
                         <% end %>
                     <% end %>
