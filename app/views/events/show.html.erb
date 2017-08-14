@@ -1,8 +1,8 @@
-<h3><%= @event.title %></h3>
+<h3><%= t("event.#{@event.id}.title", default: @event.title) %></h3>
 <div class="flex-row">
   <p>
     <%= @event.start_time.strftime("%B %d %H:%M %p") %>&nbsp;&ndash;&nbsp;<%= @event.end_time.strftime("%H:%M %p") %>
-    <%= fa_icon('at') %> <%= link_to t("event.#{@event.id}.title", default: @event.location.name), location_path(@event.location) %>
+    <%= fa_icon('at') %> <%= link_to t("event.#{@event.id}.location.name", default: @event.location.title), location_path(@event.location) %>
   </p>
 </div>
 <div class="flex-row">
