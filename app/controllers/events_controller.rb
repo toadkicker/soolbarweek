@@ -5,6 +5,11 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.by_day
+    respond_to do |format|
+      format.html
+      format.csv
+    end
+
   end
 
   # GET /events/1
