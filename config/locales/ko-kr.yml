@@ -9,7 +9,7 @@ ko-kr:
     방법, 바텐더에게 기대할 것들, 그리고 브랜드의 지식 또한 높아질 것 입니다.</p>"
   home: Home
   logo_alt: Sool Bar Week
-  date: 9 월 11 일 ~ 17 일
+  sbw_date: 9 월 11 일 ~ 17 일
   events: 이벤트
   members: 회원
   sponsors: 후원자
@@ -58,3 +58,18 @@ ko-kr:
   next_event_header: 다음 이벤트
   next_event_button_text: next_event_button_text
   whos_who: whos_who
+  date:
+    order:
+      - :day
+      - :month
+      - :year
+  activerecord:
+    models:
+      event:
+    attributes:
+      event:
+        title: "${title}"
+        subtitle: "${subtitle}"
+        short_description: "${short_description}"
+        description: "${description}"
+

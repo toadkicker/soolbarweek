@@ -3,7 +3,7 @@
       <div class="flex-row text-right">
         <%= link_to new_event_path, class: 'btn btn-outline-success' do %>
             <%= fa_icon('plus') %>
-            New Event
+            <%= t('new_event') %>
         <% end %>
       </div>
   <% end %>
@@ -35,8 +35,8 @@
                         <b><%= event.start_time.strftime("%I:%M %p") %>&nbsp;&ndash;&nbsp;<%= event.end_time.strftime("%I:%M %p") %></b>
                       </div>
                       <div class="col">
-                        <p class="my-0"><%= link_to event.title, event_path(event) %></p>
-                        <small><%= event.short_description.html_safe %></small>
+                        <p class="my-0"><%= link_to t("event.#{event.id}.title", default: event.title), event_path(event) %></p>
+                        <small><%= t("event.#{event.id}.short_description".html_safe, default: event.short_description.html_safe) %></small>
                       </div>
                       <div class="col"><%= link_to event.profile.name, profile_path(event.profile) unless !event.profile.is_active %></div>
                     </div>
@@ -59,7 +59,7 @@
                         <p class="my-0">
                           <%= link_to gs.profile.name, profile_path(gs.profile) %>
                           <%= fa_icon('at') %>
-                          <%= link_to gs.location.name, location_path(gs.location) %>
+                          <%= link_to t("gs.#{gs.id}.location.name", default: gs.location.name), location_path(gs.location) %>
                           <%= content_tag :b, class: 'badge badge-info' do %>
                               <%= link_to t('Info'), event_url(gs.id), class: 'text-white' %>
                           <% end %>
