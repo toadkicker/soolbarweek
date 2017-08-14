@@ -16,7 +16,7 @@
 
     <div class="form-group field">
       <%= f.label :locale %><br/>
-      <%= f.select :locale, [%w(English en), %w(Korean ko-kr)], {}, class: 'form-control custom-select' %>
+      <%= f.select :locale, [%w(English en-us), %w(Korean ko-kr)], {}, class: 'form-control custom-select' %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
