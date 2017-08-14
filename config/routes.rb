@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :orders
+    resources :order_statuses
   end
 
   get '/privacy', to: 'pages#show', page: 'privacy'

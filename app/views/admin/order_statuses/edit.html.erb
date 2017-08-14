@@ -1,0 +1,19 @@
+<%= form_for @order_status, url: admin_order_status_path(@order_status) do |f| %>
+
+    <div class="form-group field">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group field">
+      <%= f.label :default %>
+      <%= f.check_box :default, class: 'form-control' %>
+    </div>
+    <div class="form-group field">
+      <%= f.label :ordinality %>
+      <%= f.number_field :ordinality, class: 'form-control' %>
+    </div>
+
+    <div class="form-action">
+      <%= f.submit t('update'), class: 'btn btn-outline-primary' %>
+    </div>
+<% end %>

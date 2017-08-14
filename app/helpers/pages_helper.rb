@@ -26,14 +26,18 @@ module PagesHelper
 
   def admin_nav
     [{
-      title: t('translations'),
-      url: locale_translations_path(current_user.try(:locale)),
-      active: current_page?('/translations')
-    }, {
-      title: t('users'),
-      url: admin_users_path,
-      active: current_page?(admin_users_path)
-    },
+       title: t('translations'),
+       url: locale_translations_path(current_user.try(:locale)),
+       active: current_page?('/translations')
+     }, {
+       title: t('users'),
+       url: admin_users_path,
+       active: current_page?(admin_users_path)
+     }, {
+       title: t('order_statuses'),
+       url: admin_order_statuses_path,
+       active: current_page?(admin_order_statuses_path)
+     },
      {
        title: t('order_history'),
        url: admin_orders_path,
