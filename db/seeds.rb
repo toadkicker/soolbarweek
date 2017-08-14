@@ -59,7 +59,7 @@ profiles = [
     American bar culture and work style, as well as to enhance her work experience and
     ability.",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'alli_nguyen.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Beckaly Franks',
@@ -81,7 +81,7 @@ profiles = [
     \ Beckaly Franks was also the first to win the Ada Coleman awards for leading female
     in Hong Kong’s bar industry.</p>",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'beckaly_franks.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Dustin Wessa',
@@ -95,7 +95,7 @@ profiles = [
     towards Valhalla and collaborating with those that cook better than breathing sanitizer
     in a stainless steel fortress.",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'dustin_wessa.jpg')),
-    type: 'chef'
+    tags: 'chef'
   },
   {
     name: 'Tristan Stephenson',
@@ -111,7 +111,7 @@ profiles = [
     the topics of Whisky and Coffee.  His fourth book, The Curious Bartender’s Gin Palace,
     was released in Spring 2016.  He’s currently working on the fifth…",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'tristan_stephenson.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Nagatomo Shuichi',
@@ -124,7 +124,7 @@ profiles = [
     stretch as far back as 1994, and he is delighted to share his passion for his country
     and his craft with us in Seoul.",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'nagatomo_shuichi.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Jacopo Rosita',
@@ -142,7 +142,7 @@ profiles = [
     participating in national and international mixologist competitions, such as Disaronno
     Mixing Start, Bols Around the World, Road to the Hacienda Herradura.",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'jacopo_rosito.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Seongha Lee',
@@ -171,7 +171,7 @@ profiles = [
     Brizard Masters - USA Winner and Global Finalist</dd> <dt>2017</dt> <dd>Bombay Sapphire
     Most Imaginative Bartender Competition - First Place, Southwest regionals</dd> </dl>",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'seongha_lee.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Masahiko Endo',
@@ -189,7 +189,7 @@ profiles = [
     Cup International Classical Competition</dd><dd>Reginald Champion and International
     Champion</dd></dl>",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'masahiko_endo.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Richard Fawcett',
@@ -207,7 +207,7 @@ profiles = [
     clientele seeking discerning cocktail experiences with world-class standards.  <a
     href=\"www.richiefawcett.com\" target=\"_blank\"><i class=\"fa fa-globe\"></i>Website</a>",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'richard_fawcett.jpg')),
-    type: 'speaker'
+    tags: 'speaker'
   },
   {
     name: 'John Ng',
@@ -219,7 +219,7 @@ profiles = [
     for 3 years in a row since 2014. In 2016, Michter’s and John came to a joining point,
     appointed him as Asia brand ambassador to bring Michter’s to a brighter future. ",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'john_ng.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Matt Solario',
@@ -231,7 +231,7 @@ profiles = [
     Hill neighborhood where he enjoys restoring classic cocktails and preaching the
     gospel of gin.",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'matt_solario.jpg')),
-    type: 'speaker'
+    tags: 'speaker'
   },
   {
     name: 'Koji Esashi',
@@ -243,7 +243,7 @@ profiles = [
     bar has the best selection of the Tequila in Japan by more than 430 kinds.  He opened
     a 2nd bar “SPIRITS BAR Surface SHINJUKU” in 2016.",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'koji_esashi.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Toshihiro Fukami',
@@ -257,7 +257,7 @@ profiles = [
     in the management of the event, he is also involved as a committee member for various
     events like a Tequila Festa.",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'toshihiro_fukami.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Kunihiko Nobuhara',
@@ -268,7 +268,7 @@ profiles = [
     prizes. Now, he has opened his bar “sloppy joe” in Kobe, which is celebrating its
     11th anniversary this year.",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'kunihiko_nobuhara.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Kiki Moka',
@@ -289,7 +289,7 @@ profiles = [
     winner of diageo world class national champion competition raising the bar 2011</li><li>Finalist
     of diageo world class competition global final new delhi 2011</li></ul>",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'kiki_moka.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Greg Boehm',
@@ -312,7 +312,7 @@ profiles = [
     Mixing Drinks*, by David Embury.  He keeps the collection in a working research
     library in New York, which draws bartenders and writers from around the world.</p>",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'greg_boehm.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Jisung Chun',
@@ -328,7 +328,7 @@ profiles = [
     experiences also offer a new path to traditional culture that is approachable and
     relatable to today’s society.",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'jisung_chun.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Yumi Takekoshi',
@@ -344,7 +344,7 @@ profiles = [
     trends, high quality bars and different kinds of spirits from all over the world.
     We endorse the spirits of all kinds, especially tequila.",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'yumi_takekoshi.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Guilhem Grosperrin',
@@ -360,7 +360,7 @@ profiles = [
     the perfect balancing point without using traditional adjuvants, and systemize light
     filtration by slow reduction process.</p>",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'guilhem_grosperrin.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Minzi Kim Wind',
@@ -383,7 +383,7 @@ profiles = [
     senses, chef Minzi creates new dishes of her own by introducing the modern (contemporary)
     Korean cuisine with a European touch.</p>",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'minzi_kim_wind.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Kevin Attal',
@@ -394,7 +394,7 @@ profiles = [
     helm of his own restaurant of the same name in Montreal, Chef Kevin Attal now brings
     his exquisite talents to Seoul.",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'kevin_attal.jpg')),
-    type: 'chef'
+    tags: 'chef'
   },
   {
     name: 'Ryu Fuji',
@@ -405,7 +405,7 @@ profiles = [
     PROFESSIONAL QUALIFICATIONS</p>2011 The Elite Bartenders (JWC) Far East<br>2005
     Himeji Institute of technology<br>",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'ryu_fuji.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Ioana Munteanu',
@@ -420,7 +420,7 @@ profiles = [
     so for a couple of years.  She later moved into a Bar Manager position for a successful
     Asian restaurant in Dubai called Asia Asia, and run the bar until today.",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'ioana_munteanu.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'Nicolas Julhes',
@@ -436,19 +436,15 @@ profiles = [
     of La Distillierie de Paris</p><p>The Distillerie de Paris is today recognized as
     a space for creation and inspirational thoughts around the world of spirits.</p>",
     photo: File.open(File.join(Rails.root, 'app', 'assets', 'images', 'profiles', 'nicolas_julhes.jpg')),
-    type: 'bartender'
+    tags: 'bartender'
   },
   {
     name: 'No Name',
     slug: '#',
     description: 'Use this profile for testing',
-    active: false
+    is_active: false
   }
 ]
-
-profiles.each do |profile|
-  Profile.create(profile)
-end
 
 sponsors = [
   {
@@ -597,10 +593,6 @@ sponsors = [
     ordinality: 23
   }
 ]
-
-sponsors.each do |sponsor|
-  Sponsor.create(sponsor)
-end
 
 locations = [
   {
@@ -994,11 +986,6 @@ locations = [
     marker_number: 30
   }
 ]
-
-locations.each do |loc|
-  Location.create(loc)
-end
-
 
 events = [
   {
@@ -1468,11 +1455,24 @@ events = [
   },
 ]
 
-events.each do |event|
-  Event.create(event)
-end
+OrderStatus.create([{
+                      name: "In Progress", default: true
+                    },
+                    {
+                      name: "Payment Received"
+                    },
+                    {
+                      name: "Used"
+                    },
+                    {
+                      name: "Refunded"
+                    },
+                    {
+                      name: "Cancelled"
+                    }])
 
-OrderStatus.create! name: "In Progress", default: true
-OrderStatus.create! name: "Placed"
-OrderStatus.create! name: "Shipped"
-OrderStatus.create! name: "Cancelled"
+
+Sponsor.create(sponsors)
+Location.create(locations)
+Profile.create(profiles)
+Event.create(events)
