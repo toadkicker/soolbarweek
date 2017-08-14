@@ -11,8 +11,10 @@
     <% @events.each do |dayz| %>
         <h1 class="text-danger"><%= dayz[0].strftime("%A %d") %></h1>
         <hr class="mt-0">
-        <% dayz[1].each do |event| %>
-            <% if event.filter_type == "masterclass" || event.filter_type.nil? %>
+        <% @gs = dayz[1].select {|e| e.filter_type == "guest_shift"} %>
+        <% @mc = dayz[1].select {|e| e.filter_type == "masterclass"} %>
+        <% if @mc.length > 0 %>
+            <% @mc.each do |event| %>
                 <% if user_is_admin? %>
                     <div class="float-right">
                       <%= link_to t('edit'), edit_event_path(event), class: 'btn btn-sm btn-outline-primary' %>
@@ -40,38 +42,35 @@
                     </div>
                 <% end %>
             <% end %>
-            <% if event.filter_type == "guest_shift" %>
-                <div class="row pb-3">
-                  <div class="col-3 border border-left-0">
-                    <p class="text-muted mb-0">
-                      <%= t('guest_shift') %>
-                    </p>
-                    <p class="text-muted mb-0">
-                      <%= event.start_time.strftime("%I:%M %p") %>&nbsp;&ndash;&nbsp;<%= event.end_time.strftime("%I:%M %p") %>
-                    </p>
-                    <!--{{#gs_times}}-->
-                    <!--{{start_time}}&ndash;{{end_time}}-->
-                    <!--{{/gs_times}}-->
-                  </div>
-                  <div class="col border border-right-0 border-left-0">
-                    <% dayz[1].each do |gs| %>
-                        <% if gs.filter_type == "guest_shift" %>
-                            <p class="my-0">
-                              <%= link_to gs.profile.name, profile_path(gs.profile) %>
-                              <%= fa_icon('at') %>
-                              <%= link_to gs.location.name, location_path(gs.location) %>
-                            </p>
-                        <% end %>
+        <% end %>
+        <% if @gs.length > 0 %>
+            <div class="row pb-3">
+              <div class="col-3 border border-left-0">
+                <p class="text-muted mb-0">
+                  <%= t('guest_shift') %>
+                </p>
+                <p class="text-muted mb-0">
+                  <%= @gs.first.start_time.strftime("%I:%M %p") %>&nbsp;&ndash;&nbsp;<%= @gs.first.end_time.strftime("%I:%M %p") %>
+                </p>
+              </div>
+              <div class="col border border-right-0 border-left-0">
+                <% @gs.each do |gs| %>
+                    <% unless gs.nil? %>
+                        <p class="my-0">
+                          <%= link_to gs.profile.name, profile_path(gs.profile) %>
+                          <%= fa_icon('at') %>
+                          <%= link_to gs.location.name, location_path(gs.location) %>
+                          <% if user_is_admin? %>
+                            <span>
+                              <%= link_to t('edit'), edit_event_path(gs), class: 'btn btn-sm btn-outline-primary' %>
+                              <%= link_to t('destroy'), gs, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-outline-danger' %>
+                            </span>
+                          <% end %>
+                        </p>
                     <% end %>
-                    <% if user_is_admin? %>
-                        <div class="float-right">
-                          <%= link_to t('edit'), edit_event_path(event), class: 'btn btn-sm btn-outline-primary' %>
-                          <%= link_to t('destroy'), event, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-outline-danger' %>
-                        </div>
-                    <% end %>
-                  </div>
-                </div>
-            <% end %>
+                <% end %>
+              </div>
+            </div>
         <% end %>
     <% end %>
   </div>
