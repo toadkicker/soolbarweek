@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :order_statuses
   end
 
+  get '/events_csv', to: 'events#csv'
   get '/privacy', to: 'pages#show', page: 'privacy'
   get '/terms-of-service', to: 'pages#show', page: 'tos'
   get '/about', to: 'pages#show', page: 'about'
