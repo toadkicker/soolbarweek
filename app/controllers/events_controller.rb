@@ -7,10 +7,6 @@ class EventsController < ApplicationController
     @events = Event.by_day
   end
 
-  def csv
-    @events = Event.all
-  end
-
   # GET /events/1
   # GET /events/1.json
   def show

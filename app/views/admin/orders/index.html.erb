@@ -10,6 +10,8 @@
     <td>Quantity</td>
     <td>Price</td>
     <td>Status</td>
+    <td>Created</td>
+    <td>Last Updated</td>
   </tr>
   </thead>
   <tbody>
@@ -24,6 +26,8 @@
                          class: "order-status",
                          data: {order_item_id: "#{poi.id}", order_id: "#{poi.order.id}"} %>
         </td>
+        <td><%= poi.created_at.strftime("%b %d %I:%M %p") %></td>
+        <td><%= poi.updated_at.strftime("%b %d %I:%M %p") %></td>
       </tr>
   <% end %>
   </tbody>

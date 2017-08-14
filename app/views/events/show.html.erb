@@ -26,7 +26,7 @@
               <%= f.hidden_field :event_id, value: @event.id %>
 
               <div class="form-group field">
-                <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+                <%= f.number_field :quantity, value: 1, class: "form-control", min: 1, max: @event.max_seats %>
               </div>
               &nbsp;
               <div class="form-actions">
