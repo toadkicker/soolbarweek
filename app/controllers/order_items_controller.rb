@@ -9,7 +9,7 @@ class OrderItemsController < ApplicationController
   def create
     @order = current_order
     @order.user = current_user
-    @order.order_status = OrderStatus.default
+    @order.order_status_id = OrderStatus.default[:id]
     @order_items = @order.order_items.new(order_item_params)
     @order_items.user = current_user
     existing_order = @order.order_items.where(event_id: params[:order_item][:event_id])
