@@ -1,0 +1,4 @@
+Title,Subtitle,Short Description,Description,Start Time, End Time, Filter Type
+<% @events.each do |event| %>
+    <%= raw "\"#{event.title}\"" %>, <%= raw "\"#{event.subtitle}\"" %>, <%= raw "\"#{event.short_description}\"" %>, <%= raw "\"#{event.description}\"" %>, <%= raw "\"#{event.start_time}\"" %>, <%= raw "\"#{event.end_time}\"" %>, <%= raw "\"#{event.filter_type}\"" %>
+<% end %>
