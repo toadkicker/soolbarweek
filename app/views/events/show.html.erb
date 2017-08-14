@@ -2,11 +2,11 @@
 <div class="flex-row">
   <p>
     <%= @event.start_time.strftime("%B %d %H:%M %p") %>&nbsp;&ndash;&nbsp;<%= @event.end_time.strftime("%H:%M %p") %>
-    @ <%= link_to t("event.#{@event.id}".title, default: @event.location.name), location_path(@event.location) %>
+    <%= fa_icon('at') %> <%= link_to t("event.#{@event.id}.title", default: @event.location.name), location_path(@event.location) %>
   </p>
 </div>
 <div class="flex-row">
-  <%= t("event.#{@event.id}.description",. default: @event.description.html_safe) %>
+  <%= t("event.#{@event.id}.description", default: @event.description.html_safe) %>
 </div>
 <div class="flex-row">
   <p class="lead">
