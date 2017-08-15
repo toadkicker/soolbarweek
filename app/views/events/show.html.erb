@@ -6,7 +6,7 @@
   </p>
 </div>
 <div class="flex-row">
-  <%= t("event.#{@event.id}.description".html_safe, default: @event.description.html_safe) %>
+  <%= t("event.#{@event.id}.description", default: @event.description).html_safe %>
 </div>
 <div class="flex-row">
   <p class="lead">
