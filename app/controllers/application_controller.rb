@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
 
 
   def set_locale
-    I18n.locale = (user_signed_in? && current_user.try(:locale)) || read_lang_header || I18n.default_locale
+    begin
+      I18n.locale = (user_signed_in? && current_user.try(:locale)) || read_lang_header || I18n.default_locale
+    rescue I18n::InvalidLocale
+      I18n.locale = "en-us"
+    end
   end
 
   def user_is_admin?
@@ -49,7 +53,7 @@ class ApplicationController < ActionController::Base
     return unless request.xhr?
     msg = flash_message
     #replace german umlaute encoded in utf-8 to html escaped ones
-    msg = msg.gsub("ä","&auml;").gsub("ü","&uuml;").gsub("ö","&ouml;").gsub("Ä","&Auml;").gsub("Ü","&Uuml;").gsub("Ö","&Ouml;").gsub("ß","&szlig;")
+    msg = msg.gsub("ä", "&auml;").gsub("ü", "&uuml;").gsub("ö", "&ouml;").gsub("Ä", "&Auml;").gsub("Ü", "&Uuml;").gsub("Ö", "&Ouml;").gsub("ß", "&szlig;")
     response.headers['X-Message'] = msg
     response.headers["X-Message-Type"] = flash_type.to_s
 
