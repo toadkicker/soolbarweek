@@ -1,14 +1,4 @@
 ko-kr:
-  title: Sool Bar Week
-  welcome: 술 바 위크에 대해서
-  home_copy: ""
-  logo_alt: Sool Bar Week
-  sbw_date: 9 월 11 일 ~ 17 일
-  events: 이벤트
-  members: 회원
-  sponsors: 후원자
-  locations: 위치
-  registration: 맞춰 짜기
   error.title: 음료를 찾을 수 없음
   error.content: '죄송 합니다만이 사이트에서는 음료수가없는 것 같습니다. 아마 집에 갈 필요가있을거야. '
   error.back_url: "/"
