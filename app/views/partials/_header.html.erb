@@ -1,5 +1,8 @@
 <div class="jumbotron mb-0 d-flex align-items-center flex-column justify-content-center min-100" id="header">
   <video loop muted autoplay poster="<%= asset_path 'homestill.jpg' %>" preload="auto" class="video-bg" playsinline>
+    <!--order by file size -->
+    <source src="/homepage.webm">
+    <source src="/homepage.mov">
     <source src="/homepage.mp4">
   </video>
   <%= content_tag :div, class: "row", id: 'launch-bar' do %>
