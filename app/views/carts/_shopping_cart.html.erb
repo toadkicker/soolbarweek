@@ -33,7 +33,7 @@
         $(document).on('turbolinks:load', function () {
             const CREATE_PAYMENT_URL = "<%= checkout_notify_url %>";
             const EXECUTE_PAYMENT_URL = '<%= checkout_done_url %>';
-
+            $('#paypal-button').html("");
             paypal.Button.render({
 
                 env: '<%= Rails.env.development? ? 'sandbox' : 'production' %>',
