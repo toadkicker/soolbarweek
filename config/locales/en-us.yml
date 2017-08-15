@@ -1,4 +1,4 @@
-en-us:
+en-us: &en
   title: Sool Bar Week
   welcome: Welcome
   home_copy: "<p>Sool Bar Week is about promoting quality and passion about the bar
@@ -388,3 +388,24 @@ en-us:
   order_statuses: "Order Statuses"
   update: "Update"
   new_event: "New Event"
+  payments:
+    description: "Sool Bar Week"
+  canceled_payment: "You canceled payment"
+  date:
+    order:
+      - :day
+      - :month
+      - :year
+  activerecord:
+    errors:
+     models:
+       event:
+         attributes:
+           location:
+             required: "is required"
+           profile:
+             required: "is required"
+       message_sent_title: "Message Sent!"
+       thank_you: "Thank you"
+       order_placed: "Your order has been placed and recieved by our system. You can review your order history in account settings."
+       payments_by_paypal: "Payments by Paypal"

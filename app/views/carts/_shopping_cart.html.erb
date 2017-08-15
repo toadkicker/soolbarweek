@@ -21,38 +21,62 @@
         <span><%= t('subtotal') %></span>
         <%= humanized_money_with_symbol current_order.set_subtotal %>
         <br>
-        <%= form_for(@order, url: "/checkouts", method: "post", id: "payment-form") do |f| %>
-            <%= f.submit t('place_order'), class: 'btn btn-success' %>
-        <% end %>
+        <%= content_tag :i, t('payments_by_paypal') %>
+        <div id="paypal-button">
+        </div>
       </div>
     </div>
 <% end %>
 
-<script src="https://js.braintreegateway.com/web/dropin/1.6.1/js/dropin.min.js"></script>
 <script>
-    var form = document.querySelector('#payment-form');
-    var client_token = "<%= @client_token %>";
-    braintree.dropin.create({
-        authorization: client_token,
-        container: '#bt-dropin',
-        paypal: {
-            flow: 'vault'
-        }
-    }, function (createErr, instance) {
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-            instance.requestPaymentMethod(function (err, payload) {
-                if (err) {
-                    console.log('Error', err);
-                    return;
+    (function ($) {
+        $(document).on('turbolinks:load', function () {
+            const CREATE_PAYMENT_URL = "<%= checkout_notify_url %>";
+            const EXECUTE_PAYMENT_URL = '<%= checkout_done_url %>';
+
+            paypal.Button.render({
+
+                env: '<%= Rails.env.development? ? 'sandbox' : 'production' %>',
+                locale: '<%= current_user.locale.split('-')[0] + "_" + current_user.locale.split('-')[1].upcase %>',
+
+                client: {
+                    <% if Rails.env.development? %>
+                    sandbox: 'Af43QxK2o4zjNu-ZcvSe_4pWxZbFDxXlhJUbSHpiMqj_V1BDRddhGqAus2UDvrWcU4WHDZ1NnKwzGkFw'
+                    <% end %>
+                    <% if Rails.env.production? %>
+                    production: 'AfmfcGrdQykKw3DNybk2ncWEOVWdiA4hjRgMWeSpA3QQzyCSMc_jernaPyRPS-tWfP67jt7qMp34CJV-'
+                    <% end %>
+                },
+
+                commit: true, // Show a 'Pay Now' button
+
+                payment: function (data, actions) {
+                    return actions.payment.create({
+                        payment: {
+                            transactions: [
+                                {
+                                    amount: {total: <%= @amount %>, currency: 'USD'}
+                                }
+                            ]
+                        }
+                    });
+                },
+
+                onAuthorize: function (data, actions) {
+                    return actions.payment.execute().then(function (payment) {
+                        $('.shopping-cart').html("<%= escape_javascript(render 'carts/thankyou') %>");
+                        let csrfToken = $("meta[name='csrf-token']").attr("content");
+                        $.ajax({
+                            url: CREATE_PAYMENT_URL,
+                            data: JSON.stringify(payment),
+                            headers: {
+                                'X-CSRF-Token': csrfToken
+                            }
+                        });
+                    });
                 }
-                // Add the nonce to the form and submit
-                document.querySelector('#nonce').value = payload.nonce;
-                form.submit();
-            });
-        });
-    });
-    var checkout = new Demo({
-        formID: 'payment-form'
-    });
+
+            }, '#paypal-button');
+        })
+    })(jQuery);
 </script>

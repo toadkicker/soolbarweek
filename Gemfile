@@ -78,6 +78,7 @@ gem 'bootstrap', '= 4.0.0.alpha6'
 gem 'font-awesome-rails'
 gem 'handlebars'
 gem 'money-rails', '~> 1.9.0'
+gem 'google_currency'
 
 gem 'devise'
 gem 'devise-i18n'

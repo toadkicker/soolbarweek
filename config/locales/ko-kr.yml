@@ -72,4 +72,5 @@ ko-kr:
         subtitle: "${subtitle}"
         short_description: "${short_description}"
         description: "${description}"
+  thank_you: "감사합니다"
 

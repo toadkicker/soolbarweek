@@ -5,10 +5,8 @@ Rails.application.routes.draw do
   resources :profiles
   resources :events
 
-  resources :checkouts, only: [:show, :new, :create]
-
   resources :locales do
-    resources :translations, constraints: { :id => /[^\/]+/ }
+    resources :translations, constraints: { id: /[^\/]+/ }
   end
 
   namespace :admin do
@@ -16,6 +14,11 @@ Rails.application.routes.draw do
     resources :orders
     resources :order_statuses
   end
+
+  get '/checkout', to: 'checkouts#index'
+  post '/checkout/notify', to: 'checkouts#notify'
+  post '/checkout/done', to: 'checkouts#done'
+  post '/checkout/cancel', to: 'checkouts#cancel'
 
   get '/privacy', to: 'pages#show', page: 'privacy'
   get '/terms-of-service', to: 'pages#show', page: 'tos'
@@ -30,7 +33,7 @@ Rails.application.routes.draw do
   get '/order-history', to: 'order_items#index', as: 'order_history'
 
   resource :cart, only: [:show]
-  resources :order_items, only: [:create, :update, :destroy]
+  resources :order_items, only: %i[create update destroy]
 
   root 'pages#show', page: 'index'
 
