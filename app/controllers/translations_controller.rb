@@ -5,7 +5,7 @@ class TranslationsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @translations = Translation.locale(@locale)
+    @translations = Translation.order(:key).locale(@locale)
   end
 
   def new
