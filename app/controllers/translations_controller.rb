@@ -26,6 +26,9 @@ class TranslationsController < ApplicationController
         render :new
       end
     end
+  rescue ActiveRecord::RecordNotUnique
+    flash[:warning] = "Translation already exists"
+    render :new
   end
 
   def edit
