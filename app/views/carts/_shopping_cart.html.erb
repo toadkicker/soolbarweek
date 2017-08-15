@@ -37,7 +37,7 @@
             paypal.Button.render({
 
                 env: '<%= Rails.env.development? ? 'sandbox' : 'production' %>',
-                locale: '<%= current_user.locale.split('-')[0] + "_" + current_user.locale.split('-')[1].upcase %>',
+                locale: 'en-US',
 
                 client: {
                     <% if Rails.env.development? %>
