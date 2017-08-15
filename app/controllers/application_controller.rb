@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     begin
-      I18n.locale = (user_signed_in? && current_user.try(:locale)) || read_lang_header || I18n.default_locale
+      I18n.locale = (user_signed_in? && current_user.try(:locale)) || read_lang_header || "en-us"
     rescue I18n::InvalidLocale
       I18n.locale = "en-us"
     end
