@@ -8,7 +8,7 @@
         <div class="card-block">
           <h3 class="card-title"><%= t('next_event_header') %></h3>
           <p class="card-text"><%= @event.title %></p>
-          <p class="card-text"><%= @event.start_time.strftime("%A %b %C %I:%M %p") %></p>
+          <p class="card-text"><%= l(@event.start_time, format: "%A %b %C %I:%M %p") %></p>
           <p class="card-text text-center">
             <a href="<%= event_path(@event) %>" class="btn btn-outline-danger text-white"><%= t('next_event_button_text') %></a>
           </p>

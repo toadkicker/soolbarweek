@@ -9,7 +9,7 @@
   <% end %>
   <div class="mb-4">
     <% @events.each do |dayz| %>
-        <h1 class="text-danger"><%= dayz[0].strftime("%A %d") %></h1>
+        <h1 class="text-danger"><%= l(dayz[0], format: '%A %d') %></h1>
         <hr class="mt-0">
         <% @gs = dayz[1].select {|e| e.filter_type == "guest_shift"} %>
         <% @mc = dayz[1].select {|e| e.filter_type == "masterclass"} %>
@@ -32,7 +32,7 @@
                 <% if event.filter_type.downcase.eql? 'masterclass' %>
                     <div class="row pb-4">
                       <div class="col-3">
-                        <b><%= event.start_time.strftime("%I:%M %p") %>&nbsp;&ndash;&nbsp;<%= event.end_time.strftime("%I:%M %p") %></b>
+                        <b><%= l(event.start_time, format: '%l:%M %p') %>&nbsp;&ndash;&nbsp;<%= l(event.end_time, format: '%l:%M %p') %></b>
                       </div>
                       <div class="col">
                         <p class="my-0"><%= link_to t("event.#{event.id}.title", default: event.title), event_path(event) %></p>
@@ -50,7 +50,7 @@
                   <%= t('guest_shift') %>
                 </p>
                 <p class="text-muted mb-0">
-                  <%= @gs.first.start_time.strftime("%I:%M %p") %>&nbsp;&ndash;&nbsp;<%= @gs.first.end_time.strftime("%I:%M %p") %>
+                  <%= l(@gs.first.start_time, format: '%I:%M %p') %>&nbsp;&ndash;&nbsp;<%= l(@gs.first.end_time, format: '%I:%M %p') %>
                 </p>
               </div>
               <div class="col border border-right-0 border-left-0">

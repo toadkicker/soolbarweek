@@ -141,7 +141,7 @@
             <ul class="list-group">
               <% location.events.order(:start_time).each do |event| %>
                   <li>
-                    <%= link_to t("event.#{event.id}.title", default: event.title), event_path(event) %>&nbsp;&ndash;&nbsp;<%= event.start_time.strftime("%A %d, %l:%M %p") %>
+                    <%= link_to t("event.#{event.id}.title", default: event.title), event_path(event) %>&nbsp;&ndash;&nbsp;<%= l(event.start_time, format: '%A %d, %l:%M %p') %>
                   </li>
               <% end %>
             </ul>
