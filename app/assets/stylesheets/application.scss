@@ -193,3 +193,9 @@ svg text {
   font-family: $font-family-sans-serif;
   font-size: 0.65rem;
 }
+
+.event {
+  a {
+    cursor: hand;
+  }
+}

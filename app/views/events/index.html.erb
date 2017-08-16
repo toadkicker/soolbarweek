@@ -30,12 +30,19 @@
                     <img class="card-img-top" src="<%= event[:image_url] %>" alt="<%= event[:image_alt] %>">
                 <% end %>
                 <% if event.filter_type.downcase.eql? 'masterclass' %>
-                    <div class="row pb-4">
+                    <div class="row pb-4 event">
                       <div class="col-3">
-                        <b><%= l(event.start_time, format: '%l:%M %p') %>&nbsp;&ndash;&nbsp;<%= l(event.end_time, format: '%l:%M %p') %></b>
+                        <b>
+                          <%= l(event.start_time, format: '%l:%M %p') %>&nbsp;&ndash;&nbsp;<%= l(event.end_time, format: '%l:%M %p') %>
+                        </b>
                       </div>
                       <div class="col">
-                        <p class="my-0"><%= link_to t("event.#{event.id}.title", default: event.title), event_path(event) %></p>
+                        <p class="my-0">
+                          <%= link_to t("event.#{event.id}.title", default: event.title), event_path(event) %>
+                          <%= content_tag :b, class: "badge badge-#{event.price == 0 ? 'danger' : 'info'}" do %>
+                              <%= link_to (event.price == 0 ? t('free') : t('sign_up')), event_url(event.id), class: 'text-white' %>
+                          <% end %>
+                        </p>
                         <small><%= t("event.#{event.id}.short_description".html_safe, default: event.short_description.html_safe) %></small>
                       </div>
                       <div class="col"><%= link_to event.profile.name, profile_path(event.profile) unless !event.profile.is_active %></div>
@@ -57,12 +64,12 @@
                 <% @gs.each do |gs| %>
                     <% unless gs.nil? %>
                         <p class="my-0">
+                          <%= content_tag :b, class: 'badge badge-info' do %>
+                              <%= link_to t('sign_up'), event_url(gs.id), class: 'text-white' %>
+                          <% end %>
                           <%= link_to gs.profile.name, profile_path(gs.profile) %>
                           <%= fa_icon('at') %>
                           <%= link_to t("gs.#{gs.id}.location.name", default: gs.location.name), location_path(gs.location) %>
-                          <%= content_tag :b, class: 'badge badge-info' do %>
-                              <%= link_to t('Info'), event_url(gs.id), class: 'text-white' %>
-                          <% end %>
                           <% if user_is_admin? %>
                             <span>
                               <%= link_to t('edit'), edit_event_path(gs), class: 'btn btn-sm btn-outline-primary' %>
