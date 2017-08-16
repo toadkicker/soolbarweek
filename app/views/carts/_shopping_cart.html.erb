@@ -17,6 +17,9 @@
         <%= render 'carts/cart_row', event: order_item.event, order_item: order_item, show_total: true, stripe: (idx+1).even? %>
     <% end %>
     <div class="flex-row">
+      <i class="notes">
+        <%= t('payment_notes').html_safe %>
+      </i>
       <div class="text-right justify-content-end">
         <span><%= t('subtotal') %></span>
         <%= humanized_money_with_symbol current_order.set_subtotal %>
