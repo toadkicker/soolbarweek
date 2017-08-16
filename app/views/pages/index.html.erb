@@ -8,16 +8,23 @@
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col text-center">
         <p class="lead">
           <%= t('masterclass') %>
         </p>
+        <%= link_to t('sign_up'), events_path, class: 'btn btn-large btn-outline-info' %>
       </div>
-      <div class="col">
-        <p class="lead"><%= t('exclusive_dining') %></p>
+      <div class="col text-center">
+        <p class="lead">
+          <%= t('exclusive_dining') %>
+        </p>
+        <%= link_to t('events'), events_path, class: 'btn btn-large btn-outline-success' %>
       </div>
-      <div class="col">
-        <p class="lead"><%= t('city_wide_events') %></p>
+      <div class="col text-center">
+        <p class="lead">
+          <%= t('city_wide_events') %>
+        </p>
+        <%= link_to t('locations'), locations_path, class: 'btn btn-large btn-outline-primary' %>
       </div>
     </div>
   </div>
