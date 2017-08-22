@@ -39,6 +39,20 @@
       <br>
       <%= link_to t('sign_up'), new_user_registration_path, class: 'btn btn-outline-primary' %>
   <% end %>
+  <% if user_signed_in? %>
+      <% if @event.max_seats == -1 %>
+          <b class="badge badge-info"><%= t('open_seating').upcase %></b>
+      <% end %>
+      <% if @event.max_seats >= 1 %>
+          <br>
+          <b class="badge badge-info">
+            <%= @event.max_seats %> <%= t('available').upcase %>
+          </b>
+      <% end %>
+      <% if @event.max_seats == 0 %>
+          <b class="badge badge-danger"><%= t('sold_out').upcase %></b>
+      <% end %>
+  <% end %>
 </div>
 
 <% if user_is_admin? %>

@@ -1,4 +1,7 @@
 en-us: &en
+  available: "available"
+  sold_out: "sold out"
+  open_seating: "open seating"
   title: Sool Bar Week
   welcome: Welcome
   home_copy: "<p>Sool Bar Week is about promoting quality and passion about the bar
