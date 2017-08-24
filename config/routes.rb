@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :sponsors
   resources :profiles
   resources :events
+  resources :charges, only: [:index, :new, :create]
 
   resources :locales do
     resources :translations, constraints: { id: /[^\/]+/ }
@@ -15,11 +16,6 @@ Rails.application.routes.draw do
     resources :order_statuses
   end
 
-  get '/checkout', to: 'checkouts#index'
-  post '/checkout/notify', to: 'checkouts#notify'
-  post '/checkout/done', to: 'checkouts#done'
-  post '/checkout/cancel', to: 'checkouts#cancel'
-
   get '/privacy', to: 'pages#show', page: 'privacy'
   get '/terms-of-service', to: 'pages#show', page: 'tos'
   get '/about', to: 'pages#show', page: 'about'
@@ -30,10 +26,8 @@ Rails.application.routes.draw do
   get '/thank-you', to: 'pages#show', page: 'thankyou', as: 'thankyou'
   get '/transit', to: 'pages#show', page: 'transit', as: 'transit'
 
-  get '/order-history', to: 'order_items#index', as: 'order_history'
-
   resource :cart, only: [:show]
-  resources :order_items, only: %i[create update destroy]
+  resources :order_items, only: %i[index create update destroy]
 
   root 'pages#show', page: 'index'
 

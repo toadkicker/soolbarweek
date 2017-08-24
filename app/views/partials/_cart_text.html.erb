@@ -2,5 +2,7 @@
     <% unless current_order.order_items.size == 0 %>
         <%= fa_icon('calendar') %>
         <%= "#{current_order.order_items.size} #{t('events')} ( #{humanized_money_with_symbol current_order.set_subtotal} )" %>
+        <% else %>
+        <%= fa_icon 'shopping-cart' %>
     <% end %>
 <% end %>

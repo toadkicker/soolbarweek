@@ -8,10 +8,12 @@ class ApplicationController < ActionController::Base
 
   after_action :flash_to_headers
 
-
   def set_locale
     begin
-      I18n.locale = (user_signed_in? && current_user.try(:locale)) || read_lang_header || "en-us"
+      if params[:locale] != nil
+        cookies.permanent[:locale] = params[:locale]
+      end
+      I18n.locale = (user_signed_in? && current_user.try(:locale)) || cookies[:locale] || read_lang_header || "en-us"
     rescue I18n::InvalidLocale
       I18n.locale = "en-us"
     end
@@ -29,7 +31,7 @@ class ApplicationController < ActionController::Base
 
   def current_order
     if user_signed_in?
-      oi = OrderItem.where(user: current_user).first
+      oi = OrderItem.in_cart.first
       @order = oi.nil? ? Order.new : oi.order
     else
       @order = Order.new
@@ -46,7 +48,8 @@ class ApplicationController < ActionController::Base
   private
 
   def read_lang_header
-    request.env['HTTP_ACCEPT_LANGUAGE'].downcase.scan(/[a-z]{2}\-[a-z]{2}/).first unless request.env['HTTP_ACCEPT_LANGUAGE'].nil?
+    lang_header = request.env['HTTP_ACCEPT_LANGUAGE']
+    lang_header.downcase.scan(/[a-z]{2}\-[a-z]{2}/).first unless lang_header.nil?
   end
 
   def flash_to_headers

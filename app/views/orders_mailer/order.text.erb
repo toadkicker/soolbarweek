@@ -1,0 +1,3 @@
+<%= t('hello') %> <%= @user.name.present? ? @user.name : @user.email %>,
+
+<%= t('order.email.message', default: @body) %>

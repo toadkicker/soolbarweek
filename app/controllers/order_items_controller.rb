@@ -3,7 +3,9 @@ class OrderItemsController < ApplicationController
   before_action :set_order
 
   def index
-    @past_order_items = OrderItem.where(user: current_user).joins(:order).to_a
+    respond_to do |format|
+      format.js { render 'order_items/index' }
+    end
   end
 
   def create

@@ -1,0 +1,13 @@
+<%= form_for charges_path(@payment), url: "/charges" do %>
+    <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+    <% end %>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Sool Bar Week"
+            data-amount="<%= amount %>"
+            data-locale="auto"></script>
+<% end %>

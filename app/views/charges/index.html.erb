@@ -1,0 +1,41 @@
+<h3>
+  <%= image_tag @user.photo.url(:thumb) %>
+  <%= @user.name %>'s <%= t('order_history') %>
+</h3>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td>Event</td>
+    <td>Quantity</td>
+    <td>Price</td>
+    <td>Status</td>
+    <td>Created</td>
+    <td>Last Updated</td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @orders.each do |order| %>
+      <% order.order_items.each do |poi| %>
+          <tr>
+            <td><%= poi.event.title %></td>
+            <td><%= poi.quantity %></td>
+            <td><%= humanized_money_with_symbol poi.total_price %></td>
+            <td>
+              <%= poi.order.order_status.name %>
+            </td>
+            <td><%= l(poi.created_at, format: "%b %d %I:%M %p") %></td>
+            <td><%= l(poi.updated_at, format: "%b %d %I:%M %p") %></td>
+          </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+</table>
+
+<script type="text/javascript" charset="utf-8">
+    (function ($) {
+        $(document).on('turbolinks:load', function (event) {
+            $.ajax("<%= order_items_path %>")
+        })
+    })(jQuery)
+</script>

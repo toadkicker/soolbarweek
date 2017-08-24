@@ -89,6 +89,6 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'geocoder'
 
 gem 'tagsinput-rails'
-gem 'paypal-sdk-rest'
+gem 'stripe'
 
 ruby "2.4.1"
