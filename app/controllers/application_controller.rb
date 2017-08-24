@@ -31,8 +31,8 @@ class ApplicationController < ActionController::Base
 
   def current_order
     if user_signed_in?
-      oi = OrderItem.in_cart.first
-      @order = oi.nil? ? Order.new : oi.order
+      oi = OrderItem.current_users_cart(current_user.id).in_cart
+      @order = oi.empty? ? Order.new : oi.order
     else
       @order = Order.new
     end
