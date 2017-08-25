@@ -23,7 +23,7 @@
       <div class="text-right justify-content-end">
         <span><%= t('subtotal') %></span>
         <%= humanized_money_with_symbol current_order.set_subtotal %>
-        <%= render 'charges/form', amount: @amount %>
+        <%= render 'charges/form' %>
       </div>
     </div>
 <% end %>
