@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :events
   resources :charges, only: [:index, :new, :create]
 
+  get "/charges/receipt/:id", to: "charges#receipt", as: 'receipt_mailer'
+
   resources :locales do
     resources :translations, constraints: { id: /[^\/]+/ }
   end

@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
 
   after_action :flash_to_headers
 
+  FLASH_TYPES = [:error, :warning, :notice, :info, :success, :keep]
+
   def set_locale
     begin
       if params[:locale] != nil
@@ -32,7 +34,7 @@ class ApplicationController < ActionController::Base
   def current_order
     if user_signed_in?
       oi = OrderItem.current_users_cart(current_user.id).in_cart
-      @order = oi.empty? ? Order.new : oi.order
+      @order = oi.empty? ? Order.new : oi.first.order
     else
       @order = Order.new
     end
@@ -64,7 +66,7 @@ class ApplicationController < ActionController::Base
   end
 
   def flash_message
-    [:error, :warning, :notice].each do |type|
+    FLASH_TYPES.each do |type|
       return flash[type] unless flash[type].blank?
     end
     # if we don't return something here, the above code will return "error, warning, notice"
@@ -74,7 +76,7 @@ class ApplicationController < ActionController::Base
   def flash_type
     #:keep will instruct the js to not update or remove the shown message.
     #just write flash[:keep] = true (or any other value) in your controller code
-    [:error, :warning, :notice, :keep].each do |type|
+    FLASH_TYPES.each do |type|
       return type unless flash[type].blank?
     end
     #don't return the array from above which would happen if we don't have an explicit return statement

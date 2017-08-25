@@ -6,6 +6,12 @@ class ChargesController < ApplicationController
     @orders = Order.where(user: current_user, order_status_id: @order_status.id)
   end
 
+  def receipt
+    @processed_order = Order.where(id: params[:id], user: current_user).first
+    OrdersMailer.receipt(current_user, @processed_order).deliver_later
+    flash[:success] = t('receipt_sent', default: "A receipt was sent to #{current_user.email}")
+  end
+
   def new
     @payment = Payment.new
   end
@@ -26,7 +32,8 @@ class ChargesController < ApplicationController
 
     current_order.update(order_status_id: @order_status.id)
 
-    OrdersMailer.order(current_user, current_order)
+    @processed_order = OrderItem.current_users_cart(current_user.id).first.order
+    OrdersMailer.receipt(current_user, @processed_order).deliver_later
 
     redirect_to charges_path
 
