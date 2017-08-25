@@ -1,6 +1,6 @@
 <h2><%= current_user.name %>'s <%= t('account').capitalize %></h2>
 
-<%= link_to t('order_history'), order_history_path, class: 'btn btn-outline-primary' %>
+<%= link_to t('order_history'), charges_path, class: 'btn btn-outline-primary' %>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put, multipart: true}) do |f| %>
     <%= devise_error_messages! %>
 

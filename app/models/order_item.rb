@@ -16,6 +16,9 @@ class OrderItem < ApplicationRecord
 
   after_save :reduce_quantity
 
+  scope :current_users_cart, -> (user_id) {where(user_id: user_id)}
+  scope :in_cart, -> {joins(:order).where('order_status_id = ?', (OrderStatus.where(default: true).first)[:id])}
+
   def set_unit_price
     if persisted?
       self[:unit_price_cents]

@@ -1,0 +1,46 @@
+<html>
+<head>
+  <style>
+    .text-center {
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="text-center">
+    <img src="http://soolbarweek.com/logo2x.png" alt="Sool Bar Week Logo" height="200"/>
+  </div>
+  <p>
+    <%= t('order.email.thank_you', default: "Thank you for your purchase!") %>
+  </p>
+  <h3><%= t('your_sool_bar_week_events', default: "Your Sool Bar Week Events:") %></h3>
+  <table>
+    <% @events.each do |event| %>
+        <tr>
+          <td>
+            <%= t("event.#{event.id}.title", default: event.title) %>
+          </td>
+          <td>
+            <%= l(event.start_time, format: "%B %d %H:%M %p") %>&nbsp;&ndash;&nbsp;<%= l(event.end_time, format: "%H:%M %p") %>
+            @ <%= link_to t("event.#{event.id}.location.name", default: event.location.name), location_url(event.location) %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+
+  <p>
+    <%= t('order.email.message', default: "Please bring this email with you as proof of payment.") %>
+  </p>
+
+  <p>
+    <%= t('thank_you', default: "Thank You") %>,<br>
+    <%= t('title') %>
+  </p>
+</div>
+</body>
+</html>

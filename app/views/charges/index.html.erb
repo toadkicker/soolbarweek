@@ -1,0 +1,47 @@
+<h3>
+  <%= image_tag @user.photo.url(:thumb) %>
+  <%= t('order_history') %>
+</h3>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td>Events</td>
+    <td>Price</td>
+    <td>Status</td>
+    <td>Last Updated</td>
+    <td>Resend Receipt</td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @orders.each do |order| %>
+      <tr>
+        <td>
+          <% order.order_items.each do |poi| %>
+              <%= poi.quantity %> <%= t('ticket') %> <%= t('for') %> <%= link_to poi.event.title, event_path(poi.event) %>
+          <% end %>
+        </td>
+        <td>
+          <%= humanized_money_with_symbol order.total_cents %>
+        </td>
+        <td>
+          <%= t('order.order_status.id', default: order.order_status.name) %>
+        </td>
+        <td>
+          <%= l(order.updated_at, format: "%b %d %I:%M %p") %>
+        </td>
+        <td class="text-center">
+          <%= link_to fa_icon('envelope-o'), receipt_mailer_path(order.id), remote: true, data: {confirm: t('resend_receipt', default: "Resend receipt to #{current_user.email}?")} %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<script type="text/javascript" charset="utf-8">
+    (function ($) {
+        $(document).on('turbolinks:load', function (event) {
+            $.ajax("<%= order_items_path %>")
+        })
+    })(jQuery)
+</script>

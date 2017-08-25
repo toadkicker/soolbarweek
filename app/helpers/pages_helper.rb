@@ -75,6 +75,22 @@ module PagesHelper
         column_class: 'col-md-3 col-sm-6 pl-0'
       },
       {
+        nav_class: 'flex-column',
+        column_class: 'col-md-3 col-sm-6 pl-0',
+        footer_links: [
+          {
+            icon: 'flag',
+            url: '?locale=en-us',
+            title: 'English'
+          },
+          {
+            icon: 'flag',
+            url: '?locale=ko-kr',
+            title: '한국어'
+          }
+        ]
+      },
+      {
         footer_links: [
           {
             icon: 'instagram',
@@ -88,10 +104,10 @@ module PagesHelper
             icon: 'coffee',
             url: '/transit',
             title: t('please_drink_responsibly')
-          }
+          },
         ],
         nav_class: 'flex-row justify-content-end',
-        column_class: 'col-md-4 ml-auto text-right'
+        column_class: 'col-md-3 ml-auto text-right'
       }
     ]
   end

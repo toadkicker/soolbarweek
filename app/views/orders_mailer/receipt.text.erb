@@ -1,0 +1,18 @@
+<%= t('order.email.thank_you', default: "Thank you for your purchase!") %>
+
+<%= t('your_sool_bar_week_events', default: "Your Sool Bar Week Events:") %>
+
+<% @events.each do |event| %>
+    <%= t("event.#{event.id}.title", default: event.title) %>
+
+    <%= l(event.start_time, format: "%B %d %H:%M %p") %>&nbsp;&ndash;&nbsp;<%= l(event.end_time, format: "%H:%M %p") %>
+    @ <%= link_to t("event.#{event.id}.location.name", default: event.location.name), location_url(event.location) %>
+<% end %>
+
+
+<%= t('order.email.message', default: "Please bring this email with you as proof of payment.") %>
+
+
+<%= t('thank_you', default: "Thank You") %>,
+
+<%= t('title') %>

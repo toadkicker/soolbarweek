@@ -23,63 +23,7 @@
       <div class="text-right justify-content-end">
         <span><%= t('subtotal') %></span>
         <%= humanized_money_with_symbol current_order.set_subtotal %>
-        <br>
-        <%= content_tag :i, t('payments_by_paypal') %>
-        <div id="paypal-button">
-        </div>
+        <%= render 'charges/form', amount: @amount %>
       </div>
     </div>
 <% end %>
-
-<script>
-    (function ($) {
-        $(document).on('turbolinks:load', function () {
-            const CREATE_PAYMENT_URL = "<%= checkout_notify_url %>";
-            const EXECUTE_PAYMENT_URL = '<%= checkout_done_url %>';
-            $('#paypal-button').html("");
-            paypal.Button.render({
-
-                env: '<%= Rails.env.development? ? 'sandbox' : 'production' %>',
-                locale: 'en_US',
-
-                client: {
-                    <% if Rails.env.development? %>
-                    sandbox: 'Af43QxK2o4zjNu-ZcvSe_4pWxZbFDxXlhJUbSHpiMqj_V1BDRddhGqAus2UDvrWcU4WHDZ1NnKwzGkFw'
-                    <% end %>
-                    <% if Rails.env.production? %>
-                    production: 'AfmfcGrdQykKw3DNybk2ncWEOVWdiA4hjRgMWeSpA3QQzyCSMc_jernaPyRPS-tWfP67jt7qMp34CJV-'
-                    <% end %>
-                },
-
-                commit: true, // Show a 'Pay Now' button
-
-                payment: function (data, actions) {
-                    return actions.payment.create({
-                        payment: {
-                            transactions: [
-                                {
-                                    amount: {total: <%= @amount %>, currency: 'USD'}
-                                }
-                            ]
-                        }
-                    });
-                },
-
-                onAuthorize: function (data, actions) {
-                    return actions.payment.execute().then(function (payment) {
-                        $('.shopping-cart').html("<%= escape_javascript(render 'carts/thankyou') %>");
-                        let csrfToken = $("meta[name='csrf-token']").attr("content");
-                        $.ajax({
-                            url: CREATE_PAYMENT_URL,
-                            data: JSON.stringify(payment),
-                            headers: {
-                                'X-CSRF-Token': csrfToken
-                            }
-                        });
-                    });
-                }
-
-            }, '#paypal-button');
-        })
-    })(jQuery);
-</script>
