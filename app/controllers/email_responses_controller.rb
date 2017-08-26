@@ -1,12 +1,11 @@
 class EmailResponsesController < ApplicationController
 
-  skip_authorization_check
   skip_before_action :verify_authenticity_token
 
   before_action :log_incoming_message
 
   def bounce
-    return render json: {} unless aws_message.authentic?request.raw_post
+    return render json: {} unless aws_message.authentic? request.raw_post
 
     if type != 'Bounce'
       Rails.logger.info "Not a bounce - exiting"
@@ -39,7 +38,7 @@ class EmailResponsesController < ApplicationController
     recipients.each do |recp|
       email = recp['emailAddress']
       extra_info = "complaintFeedbackType: #{complaint['complaintFeedbackType']}"
-      EmailResponse.create ({email: email, response_type: 'complaint', extra_info: extra_info})
+      EmailResponse.create({email: email, response_type: 'complaint', extra_info: extra_info})
     end
 
     render json: {}
