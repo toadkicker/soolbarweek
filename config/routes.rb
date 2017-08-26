@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   get "/charges/receipt/:id", to: "charges#receipt", as: 'receipt_mailer'
 
+  post 'email_responses/bounce' => 'email_responses#bounce'
+  post 'email_responses/complaint' => 'email_responses#complaint'
+
   resources :locales do
     resources :translations, constraints: { id: /[^\/]+/ }
   end

@@ -74,7 +74,7 @@ Rails.application.configure do
     password: "#{ENV['SMTP_PASSWORD']}"
   }
   config.action_mailer.default_options = {
-    from: "no-reply@soolbarweek.com"
+    from: "Sool Bar Week <no-reply@soolbarweek.com>"
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
