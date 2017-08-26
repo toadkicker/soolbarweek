@@ -4,10 +4,10 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-4">
+  <div class="col-md-4 col-sm-12">
     <%= image_tag @profile.photo, alt: @profile.name, class: 'rounded float-left mx-auto img-thumbnail' %>
   </div>
-  <div class="col-8">
+  <div class="col-md-8 col-sm-12">
     <p><%= t(@profile.name.parameterize.underscore + '_description', default: @profile.description).html_safe %></p>
   </div>
 </div>
