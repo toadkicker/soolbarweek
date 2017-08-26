@@ -1,9 +1,12 @@
 @include media-breakpoint-down(sm) {
   .brand > img {
-    width: 40px;
+    width: 50%;
   }
   .navbar-collapse {
     left: 15vh;
     position: relative;
+  }
+  #sidemenu {
+    text-align: center;
   }
 }

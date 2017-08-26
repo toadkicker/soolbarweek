@@ -1,29 +1,30 @@
-<nav class="navbar navbar-light navbar-toggleable-md affix-top">
-  <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="navbar-collapse collapse" id="navbarNav">
-    <div class="navbar-nav">
-      <% nav.each do |item| %>
-          <%= link_to item[:title], item[:url], class: "nav-item nav-link #{item[:active] ? 'active' : ''}" %>
+<div class="container">
+  <nav class="navbar navbar-light navbar-toggleable-md affix-top p-0 pt-3">
+    <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarNav">
+      <div class="navbar-nav">
+        <% nav.each do |item| %>
+            <%= link_to item[:title], item[:url], class: "nav-item nav-link #{item[:active] ? 'active' : ''}" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="flex-row text-right" style="width: 100%;">
+      <% if current_user %>
+          <%= link_to edit_user_registration_path, class: 'mr-2' do %>
+              <%= image_tag current_user.photo.url(:nav), class: 'img-profile-photo rounded-circle img-thumbnail' %>
+          <% end %>
+          <%= link_to edit_user_registration_path, class: 'mr-2' do %>
+              <%= current_user.name %>
+          <% end %>
+          <%= render 'partials/cart_text' %>
+          <%= link_to t('sign_out'), destroy_user_session_path, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-outline-danger mr-2' %>
+      <% else %>
+          <%= link_to t('sign_in'), new_user_session_path, class: 'btn btn-outline-info' %>
       <% end %>
     </div>
-  </div>
-  <div class="flex-row text-right" style="width: 100%;">
-    <% if current_user %>
-        <%= link_to edit_user_registration_path, class: 'mr-2' do %>
-            <%= image_tag current_user.photo.url(:nav), class: 'img-profile-photo rounded-circle img-thumbnail' %>
-        <% end %>
-        <%= link_to edit_user_registration_path, class: 'mr-2' do %>
-            <%= current_user.name %>
-        <% end %>
-        <%= render 'partials/cart_text' %>
-        <%= link_to t('sign_out'), destroy_user_session_path, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-outline-danger mr-2' %>
-    <% else %>
-        <%= link_to t('sign_in'), new_user_session_path, class: 'btn btn-outline-info mr-2' %>
-    <% end %>
-    <%#= link_to t('wristbands'), '#', class: 'btn btn-success' %>
-  </div>
-</nav>
+  </nav>
+</div>
