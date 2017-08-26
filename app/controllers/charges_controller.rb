@@ -34,6 +34,7 @@ class ChargesController < ApplicationController
 
     @processed_order = OrderItem.current_users_cart(current_user.id).first.order
     OrdersMailer.receipt(current_user, @processed_order).deliver_later
+    OrdersMailer.notify(current_user, @processed_order).deliver_later
 
     redirect_to charges_path
 
