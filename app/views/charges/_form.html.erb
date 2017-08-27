@@ -8,6 +8,6 @@
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description="Sool Bar Week"
-            data-amount="<%= @amount.cents %>"
+            data-amount="<%= @amount.cents unless @amount.nil? %>"
             data-locale="auto"></script>
 <% end %>
