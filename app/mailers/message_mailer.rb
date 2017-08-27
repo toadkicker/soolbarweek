@@ -9,6 +9,6 @@ class MessageMailer < ApplicationMailer
     @name = message.name
     @body = message.body
 
-    mail to: 'bob@spirit-it.org', from: 'no-reply@soolbarweek.com', subject: 'Sool Bar Week Contact Form'
+    mail to: 'bobspirit-it@gmail.com', from: 'no-reply@soolbarweek.com', subject: 'Sool Bar Week Contact Form'
   end
 end
