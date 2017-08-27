@@ -10,18 +10,20 @@
   </tr>
   </thead>
   <tbody>
-  <% @users.to_a.each do |user| %>
-    <tr>
-      <td><%= image_tag user.photo.url(:thumb) %></td>
-      <td><%= user.name %></td>
-      <td><%= user.email %></td>
-      <td><%= user.sign_in_count %></td>
-      <td><%= content_tag :b, user.is_admin ? 'Yes' : 'No', class: "badge #{user.is_admin ? 'badge-warning' : 'badge-success'}" %></td>
-      <td>
-        <%= link_to t('order_history'), admin_orders_path(user_id: user.id), class: 'btn btn-sm btn-outline-primary' %>
-        <%= link_to t('edit'), edit_admin_user_path(user), class: 'btn btn-sm btn-outline-primary' %>
-      </td>
-    </tr>
+  <% cache @users.to_a.each do |user| %>
+      <tr>
+        <td><%= image_tag user.photo.url(:thumb) %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.sign_in_count %></td>
+        <td><%= content_tag :b, user.is_admin ? 'Yes' : 'No', class: "badge #{user.is_admin ? 'badge-warning' : 'badge-success'}" %></td>
+        <td>
+          <% if user.orders.count > 0 %>
+              <%= link_to t('order_history'), admin_orders_path(user_id: user.id), class: 'btn btn-sm btn-outline-primary' %>
+          <% end %>
+          <%= link_to t('edit'), edit_admin_user_path(user), class: 'btn btn-sm btn-outline-primary' %>
+        </td>
+      </tr>
   <% end %>
   </tbody>
 </table>
