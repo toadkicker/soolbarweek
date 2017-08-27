@@ -10,7 +10,8 @@
   </tr>
   </thead>
   <tbody>
-  <% cache @users.to_a.each do |user| %>
+  <% cache @users do%>
+  <% @users.to_a.each do |user| %>
       <tr>
         <td><%= image_tag user.photo.url(:thumb) %></td>
         <td><%= user.name %></td>
@@ -24,6 +25,7 @@
           <%= link_to t('edit'), edit_admin_user_path(user), class: 'btn btn-sm btn-outline-primary' %>
         </td>
       </tr>
+  <% end %>
   <% end %>
   </tbody>
 </table>
