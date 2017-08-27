@@ -10,7 +10,7 @@
 </div>
 <div class="flex-row">
   <p class="lead">
-    <strong>Price:</strong>
+    <strong><%= t('price') %></strong>
     <% if @event.price == 0 %>
         <%= content_tag :b, t('free'), class: 'badge badge-danger' %>
     <% else %>
