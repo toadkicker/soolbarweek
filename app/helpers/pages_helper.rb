@@ -17,6 +17,11 @@ module PagesHelper
         active: current_page?(sponsors_path)
       },
       {
+        title: t('gallery'),
+        url: galleries_path,
+        active: current_page?(galleries_path)
+      },
+      {
         title: t('locations'),
         url: locations_path,
         active: current_page?(locations_path)

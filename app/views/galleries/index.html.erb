@@ -1,0 +1,34 @@
+<% if user_is_admin? %>
+    <div class="flex-row text-right">
+      <%= link_to new_gallery_path, class: 'btn btn-outline-success' do %>
+          <%= fa_icon('plus') %>
+          Upload
+      <% end %>
+    </div>
+<% end %>
+<% if @galleries.count == 0 %>
+    <p class="lead"><%= t('gallery_no_images', default: "Check back soon when we add more content here!") %></p>
+<% end %>
+<% @galleries.each_slice(3) do |slice| %>
+    <%= content_tag :div, class: 'card-deck text-center' do %>
+        <% slice.each do |gallery| %>
+            <div class="card card-outline-none">
+              <p>
+                <%= link_to media_tag(gallery.media.url(:medium), gallery.media.content_type), gallery_path(gallery) %>
+              </p>
+              <% if user_is_admin? %>
+                  <div class="card-footer">
+                    <% if gallery.active %>
+                        <%= content_tag :b, 'Active', class: 'badge badge-success' %>
+                    <% else %>
+                        <%= content_tag :b, 'Not Active', class: 'badge badge-danger' %>
+                    <% end %>
+                    <%= link_to 'Edit', edit_gallery_path(gallery), class: 'btn btn-small btn-outline-primary' %>
+                    <%= link_to 'Destroy', gallery, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-small btn-outline-danger' %>
+                  </div>
+              <% end %>
+            </div>
+
+        <% end %>
+    <% end %>
+<% end %>

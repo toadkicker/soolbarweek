@@ -1,0 +1,11 @@
+
+<h3><%= t("gallery.#{@gallery.id}.title", default: @gallery.title) %></h3>
+  <%= media_tag @gallery.media.url, @gallery.media.content_type, style: 'max-height: 100%; max-width: 100%;' %>
+<p class="text-sm-center">
+  <%= t("gallery.#{@gallery.id}.description", default: @gallery.description) %>
+</p>
+
+<% if user_is_admin? %>
+    <%= link_to 'Edit', edit_gallery_path(@gallery) %> |
+<% end %>
+<%= link_to 'Back', galleries_path %>

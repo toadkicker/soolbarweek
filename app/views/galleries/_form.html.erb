@@ -1,0 +1,40 @@
+<%= form_with(model: gallery, local: true, html: {multipart: true}) do |form| %>
+    <% if gallery.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(gallery.errors.count, "error") %> prohibited this gallery from being saved:</h2>
+
+          <ul>
+            <% gallery.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group field">
+      <%= form.label :title %>
+      <%= form.text_field :title, id: :gallery_title, class: 'form-control' %>
+    </div>
+
+    <div class="form-group field">
+      <%= form.label :description %>
+      <%= form.text_field :description, id: :gallery_description, class: 'form-control' %>
+    </div>
+
+    <div class="form-group field">
+      <label><%= t('photo') %></label><br/>
+      <%= form.label :media, class: "form-control custom-file" do %>
+          <%= form.file_field :media, id: :gallery_media, class: 'custom-file-input', placeholder: t('browsefile') %>
+          <%= content_tag :span, '', class: "custom-file-control" %>
+      <% end %>
+    </div>
+
+    <div class="form-group field">
+      <%= form.label :active %>
+      <%= form.check_box :active, id: :gallery_active, class: 'form-control', checked: gallery.active || !gallery.persisted? %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Save", class: 'btn btn-primary' %>
+    </div>
+<% end %>
