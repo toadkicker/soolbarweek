@@ -39,13 +39,11 @@
                       <div class="col">
                         <p class="my-0">
                           <%= link_to t("event.#{event.id}.title", default: event.title), event_path(event) %>
-                          <%= content_tag :b, class: "badge badge-#{event.price == 0 ? 'danger' : 'info'}" do %>
-                              <%= link_to (event.price == 0 ? t('free') : t('sign_up')), event_url(event.id), class: 'text-white' %>
-                          <% end %>
+                          <%= event_status_tag(event.max_seats) %>
                         </p>
                         <small><%= t("event.#{event.id}.short_description".html_safe, default: event.short_description.html_safe) %></small>
                       </div>
-                      <div class="col"><%= link_to event.profile.name, profile_path(event.profile) unless !event.profile.is_active %></div>
+                      <div class="col"><%= link_to event.profile.name, profile_path(event.profile) if event.profile.is_active %></div>
                     </div>
                 <% end %>
             <% end %>
@@ -64,9 +62,7 @@
                 <% @gs.each do |gs| %>
                     <% unless gs.nil? %>
                         <p class="my-0">
-                          <%= content_tag :b, class: 'badge badge-info' do %>
-                              <%= link_to t('sign_up'), event_url(gs.id), class: 'text-white' %>
-                          <% end %>
+                          <%= event_status_tag(gs.max_seats) %>
                           <%= link_to gs.profile.name, profile_path(gs.profile) %>
                           <%= fa_icon('at') %>
                           <%= link_to t("gs.#{gs.id}.location.name", default: gs.location.name), location_path(gs.location) %>

@@ -11,27 +11,25 @@
 <div class="flex-row">
   <p class="lead">
     <strong><%= t('price') %></strong>
-    <% if @event.price == 0 %>
-        <%= content_tag :b, t('free'), class: 'badge badge-danger' %>
-    <% else %>
-        <%= humanized_money_with_symbol @event.price %>
-    <% end %>
+    <%= event_price_tag(@event.price) %>
   </p>
 </div>
 
 <div class="flex-row">
   <% if user_signed_in? %>
-      <%= form_for @order_item, remote: true, html: {class: 'form form-inline'} do |f| %>
-          <% if @event.price != 0 %>
-              <%= f.hidden_field :event_id, value: @event.id %>
+      <% if @event.max_seats > 0 %>
+          <%= form_for @order_item, remote: true, html: {class: 'form form-inline'} do |f| %>
+              <% if @event.price != 0 %>
+                  <%= f.hidden_field :event_id, value: @event.id %>
 
-              <div class="form-group field">
-                <%= f.number_field :quantity, value: 1, class: "form-control", min: 1, max: @event.max_seats %>
-              </div>
-              &nbsp;
-              <div class="form-actions">
-                <%= f.submit t('add_to_order'), class: 'btn btn-success' %>
-              </div>
+                  <div class="form-group field">
+                    <%= f.number_field :quantity, value: 1, class: "form-control", min: 1, max: @event.max_seats %>
+                  </div>
+                  &nbsp;
+                  <div class="form-actions">
+                    <%= f.submit t('add_to_order'), class: 'btn btn-success' %>
+                  </div>
+              <% end %>
           <% end %>
       <% end %>
   <% else %>
@@ -40,18 +38,7 @@
       <%= link_to t('sign_up'), new_user_registration_path, class: 'btn btn-outline-primary' %>
   <% end %>
   <% if user_signed_in? %>
-      <% if @event.max_seats == -1 %>
-          <b class="badge badge-info"><%= t('open_seating').upcase %></b>
-      <% end %>
-      <% if @event.max_seats >= 1 %>
-          <br>
-          <b class="badge badge-info">
-            <%= @event.max_seats %> <%= t('available').upcase %>
-          </b>
-      <% end %>
-      <% if @event.max_seats == 0 %>
-          <b class="badge badge-danger"><%= t('sold_out').upcase %></b>
-      <% end %>
+      <%= event_status_tag(@event.max_seats) %>
   <% end %>
 </div>
 
