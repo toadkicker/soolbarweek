@@ -37,10 +37,13 @@ class ChargesController < ApplicationController
     OrdersMailer.notify(current_user, @processed_order).deliver_later
 
     redirect_to charges_path
-
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
+
+  rescue Stripe::InvalidRequestError => e
+    flash[:error] = t('charge_timeout', default: "The security token used for processing transactions expired. Please try your purchase again.")
+    redirect_to cart_path
   end
 
 end
