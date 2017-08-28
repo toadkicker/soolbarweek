@@ -15,9 +15,9 @@ module EventsHelper
 
   def event_price_tag(price)
     if price == 0
-      content_tag :b, t('free'), class: 'badge badge-danger'
+      return content_tag :b, t('free'), class: 'badge badge-danger'
     else
-      humanized_money_with_symbol price
+      return humanized_money_with_symbol price
     end
   end
 end
