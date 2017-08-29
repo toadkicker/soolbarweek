@@ -8,7 +8,8 @@
 <% end %>
 <% if @galleries.count == 0 %>
     <p class="lead"><%= t('gallery_no_images', default: "Check back soon when we add more content here!") %></p>
-<% else %>
+<% end %>
+<% if @tags.present? %>
     <div class="flex-row">
       <div class="text-center button-group filters-button-group p-2">
         <small><%= t('view', default: "View:") %></small>
