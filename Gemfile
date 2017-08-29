@@ -74,6 +74,8 @@ gem 'rails-i18n', '~> 5.0.0'
 gem 'i18n-active_record', :require => 'i18n/active_record'
 
 gem 'paperclip'
+gem 'paperclip-av-transcoder'
+
 gem 'bootstrap', '= 4.0.0.alpha6'
 gem 'font-awesome-rails'
 gem 'handlebars'

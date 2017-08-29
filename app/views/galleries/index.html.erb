@@ -8,14 +8,31 @@
 <% end %>
 <% if @galleries.count == 0 %>
     <p class="lead"><%= t('gallery_no_images', default: "Check back soon when we add more content here!") %></p>
+<% else %>
+    <div class="flex-row">
+      <div class="text-center button-group filters-button-group p-2">
+        <small><%= t('view', default: "View:") %></small>
+        <%= content_tag :button, t('All'), class: "tag btn btn-success", data: {filter: '*'} %>
+        <% @tags.each do |tag| %>
+            <%= content_tag :button, t(tag.to_s, default: tag), class: "tag btn", data: {filter: '.' + tag} %>
+        <% end %>
+      </div>
+    </div>
 <% end %>
+
 <% @galleries.each_slice(3) do |slice| %>
-    <%= content_tag :div, class: 'card-deck text-center' do %>
+    <%= content_tag :div, class: 'grid card-deck text-center' do %>
         <% slice.each do |gallery| %>
-            <div class="card card-outline-none">
+            <div class="grid-item card card-outline-none <%= gallery.tags.split(',').join(' ') %>">
               <p>
-                <%= link_to media_tag(gallery.media.url(:medium), gallery.media.content_type), gallery_path(gallery) %>
+                <% if gallery.media.present? %>
+                    <%= link_to image_tag(gallery.media.url(:medium)), gallery_path(gallery) %>
+                <% end %>
+                <% if gallery.video.present? %>
+                    <%= link_to image_tag(gallery.video.url(:poster)), gallery_path(gallery) %>
+                <% end %>
               </p>
+              <p><%= gallery.title %></p>
               <% if user_is_admin? %>
                   <div class="card-footer">
                     <% if gallery.active %>
@@ -32,3 +49,36 @@
         <% end %>
     <% end %>
 <% end %>
+
+<script>
+    (function ($) {
+        $(document).on('turbolinks:load', function () {
+            let $gallery = $('.grid').imagesLoaded(function () {
+
+                // external js: isotope.pkgd.js
+
+// init Isotope
+                let $grid = $('.grid').isotope({
+                    itemSelector: '.grid-item',
+                    layoutMode: 'fitRows'
+                });
+
+// bind filter button click
+                $('.filters-button-group').on('click', 'button', function () {
+                    let filterValue = $(this).attr('data-filter');
+                    $grid.isotope({filter: filterValue});
+                });
+// change is-checked class on buttons
+                $('.button-group').each(function (i, buttonGroup) {
+                    let $buttonGroup = $(buttonGroup);
+                    $buttonGroup.on('click', 'button', function () {
+                        $buttonGroup.find('.btn-success').removeClass('btn-success');
+                        $(this).addClass('btn-success');
+                    });
+                });
+            });
+
+
+        })
+    })(jQuery);
+</script>

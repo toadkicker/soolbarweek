@@ -1,6 +1,13 @@
-
 <h3><%= t("gallery.#{@gallery.id}.title", default: @gallery.title) %></h3>
-  <%= media_tag @gallery.media.url, @gallery.media.content_type, style: 'max-height: 100%; max-width: 100%;' %>
+
+<% if @gallery.media.present? %>
+    <%= image_tag @gallery.media.url, class: 'fill-container' %>
+<% end %>
+<% if @gallery.video.present? %>
+    <div class="embed-responsive embed-responsive-16by9">
+      <%= video_tag [@gallery.video.url], controls: true, poster: @gallery.video.url(:thumb) %>
+    </div>
+<% end %>
 <p class="text-sm-center">
   <%= t("gallery.#{@gallery.id}.description", default: @gallery.description) %>
 </p>

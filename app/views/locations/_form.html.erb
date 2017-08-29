@@ -98,7 +98,7 @@
 
         function resetMarker(event, location_id) {
             event.preventDefault();
-            let id = event.currentTarget.dataset.id
+            let id = event.currentTarget.dataset.id;
             $.ajax({
                 url: `/locations/${id}`,
                 data: {

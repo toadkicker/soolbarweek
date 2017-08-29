@@ -22,11 +22,25 @@
     </div>
 
     <div class="form-group field">
-      <label><%= t('photo') %></label><br/>
+      <label><%= t('photo') %></label>
       <%= form.label :media, class: "form-control custom-file" do %>
           <%= form.file_field :media, id: :gallery_media, class: 'custom-file-input', placeholder: t('browsefile') %>
           <%= content_tag :span, '', class: "custom-file-control" %>
       <% end %>
+    </div>
+
+    <div class="form-group field">
+      <label><%= t('video') %></label>
+      <%= form.label :video, class: "form-control custom-file" do %>
+          <%= form.file_field :video, id: :gallery_video, class: 'custom-file-input', placeholder: t('browsefile') %>
+          <%= content_tag :span, '', class: "custom-file-control" %>
+      <% end %>
+    </div>
+
+    <div class="form-group field">
+      <%= form.label :tags %>
+      <%= form.text_field :tags, id: :gallery_media_tags, class: 'form-control' %>
+      <%= content_tag :small, t('whataregallerytags', default: "Gallery tags are a way to create albumns by allowing media to exist in multiple places.") %>
     </div>
 
     <div class="form-group field">
@@ -38,3 +52,10 @@
       <%= form.submit "Save", class: 'btn btn-primary' %>
     </div>
 <% end %>
+<script type="text/javascript" charset="utf-8">
+    (function ($) {
+        $(document).on('turbolinks:load', function (e) {
+            $('#gallery_media_tags').tagsInput();
+        })
+    })(jQuery)
+</script>

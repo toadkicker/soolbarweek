@@ -5,6 +5,7 @@ class GalleriesController < ApplicationController
   # GET /galleries
   # GET /galleries.json
   def index
+    @tags = Gallery.list_tags
     @galleries = Gallery.where(active: true).to_a
   end
 
@@ -70,6 +71,6 @@ class GalleriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gallery_params
-      params.require(:gallery).permit(:title, :description, :media, :active)
+      params.require(:gallery).permit(:title, :description, :media, :video, :active, :tags)
     end
 end

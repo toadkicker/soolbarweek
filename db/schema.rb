@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828045539) do
+ActiveRecord::Schema.define(version: 20170829072242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,12 @@ ActiveRecord::Schema.define(version: 20170828045539) do
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tags"
+    t.string "video_file_name"
+    t.string "video_content_type"
+    t.integer "video_file_size"
+    t.datetime "video_updated_at"
+    t.json "video_meta"
   end
 
   create_table "locations", force: :cascade do |t|
