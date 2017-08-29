@@ -23,7 +23,7 @@ class Gallery < ApplicationRecord
                     url: ':s3_domain_url',
                     path: '/gallery/:id/:style/:basename.:extension',
                     s3_region: ENV['AWS_REGION'],
-                    s3_credentials: proc {|a| a.instance.s3_credentials
+                    s3_credentials: proc {|a| a.instance.s3_credentials}
 
   validates_attachment :video,
                        content_type: {
