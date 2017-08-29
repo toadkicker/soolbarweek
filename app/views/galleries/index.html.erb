@@ -24,7 +24,7 @@
 <% @galleries.each_slice(3) do |slice| %>
     <%= content_tag :div, class: 'grid card-deck text-center' do %>
         <% slice.each do |gallery| %>
-            <div class="grid-item card card-outline-none <%= gallery.tags.split(',').join(' ') %>">
+            <div class="grid-item card card-outline-none <%= gallery.tags.split(',').join(' ') if gallery.tags.present? %>">
               <p>
                 <% if gallery.media.present? %>
                     <%= link_to image_tag(gallery.media.url(:medium)), gallery_path(gallery) %>
