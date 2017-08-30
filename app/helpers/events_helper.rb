@@ -4,7 +4,7 @@ module EventsHelper
       return content_tag :b, t('open_seating').upcase, class: 'badge badge-info'
     end
 
-    if max_seats >= 1
+    if max_seats > 0
       return content_tag :b, [max_seats.to_s, t('available').upcase].join(' '), class: 'badge badge-info'
     end
 
