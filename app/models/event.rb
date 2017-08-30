@@ -4,7 +4,7 @@ class Event < ApplicationRecord
 
   monetize :price_cents
 
-  validates_presence_of :title, :subtitle, :short_description, :description,
+  validates_presence_of :title, :short_description, :description,
                         :start_time, :end_time, :price, :profile, :location, :max_seats
 
   scope :by_day, -> { order(:start_time).group_by {|p| p.start_time.to_date } }
