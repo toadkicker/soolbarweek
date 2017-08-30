@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
     begin
       if params[:locale] != nil
         cookies.permanent[:locale] = params[:locale]
+        current_user.update(locale: params[:locale]) if user_signed_in?
       end
       I18n.locale = (user_signed_in? && current_user.try(:locale)) || cookies[:locale] || read_lang_header || "en-us"
     rescue I18n::InvalidLocale
