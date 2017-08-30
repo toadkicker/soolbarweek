@@ -88,6 +88,10 @@ GEM
     diff-lcs (1.3)
     docile (1.1.5)
     erubi (1.6.1)
+    exception_handler (0.7.7.0)
+      bundler
+      rails (>= 4.2.0)
+      responders
     execjs (2.7.0)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
@@ -300,6 +304,7 @@ DEPENDENCIES
   database_cleaner
   devise
   devise-i18n
+  exception_handler
   factory_girl_rails (~> 4.0)
   font-awesome-rails
   friendly_id (~> 5.1.0)

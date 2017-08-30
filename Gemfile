@@ -93,4 +93,6 @@ gem 'geocoder'
 gem 'tagsinput-rails'
 gem 'stripe'
 
+gem 'exception_handler'
+
 ruby "2.4.1"
