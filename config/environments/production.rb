@@ -56,7 +56,21 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
+  config.cache_store = :redis_store, "redis://#{ENV['REDIS_HOST']}/0/cache", { expires_in: 90.minutes, raise_errors: false }
+  config.session_store :redis_session_store, {
+    key: "_soolbarweek_session",
+    redis: {
+      expire_after: 120.minutes,
+      key_prefix: 'soolbarweek:session:',
+      url: "redis://#{ENV['REDIS_HOST']}/0/sessions",
+      raise_errors: false
+    }
+  }
 
+  config.action_dispatch.rack_cache = {
+    metastore: "redis://#{ENV['REDIS_HOST']}/1/metastore",
+    entitystore: "redis://#{ENV['REDIS_HOST']}/1/entitystore"
+  }
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "soolbarweek_#{Rails.env}"

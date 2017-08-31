@@ -64,6 +64,10 @@ end
 
 group :production do
   gem 'newrelic_rpm'
+  gem 'redis-rails'
+  gem 'redis-rack-cache'
+  gem 'redis-session-store'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -95,5 +99,6 @@ gem 'stripe'
 
 gem 'exception_handler'
 gem 'aws-healthcheck'
+
 
 ruby "2.4.1"
