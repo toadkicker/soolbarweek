@@ -56,10 +56,15 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
-  config.cache_store = :redis_store, "redis://#{ENV['REDIS_HOST']}/0/cache", { expires_in: 90.minutes, raise_errors: false }
+  config.cache_store = :redis_store, "redis://#{ENV['REDIS_HOST']}/0/cache", {
+    expires_in: 90.minutes,
+    raise_errors: false,
+    on_redis_down: ->(*a) { logger.error("Redis down! #{a.inspect}") }
+  }
   config.session_store :redis_session_store, {
     key: "_soolbarweek_session",
     redis: {
+      on_redis_down: ->(*a) { logger.error("Redis down! #{a.inspect}") },
       expire_after: 120.minutes,
       key_prefix: 'soolbarweek:session:',
       url: "redis://#{ENV['REDIS_HOST']}/0/sessions",
@@ -68,6 +73,7 @@ Rails.application.configure do
   }
 
   config.action_dispatch.rack_cache = {
+    on_redis_down: ->(*a) { logger.error("Redis down! #{a.inspect}") },
     metastore: "redis://#{ENV['REDIS_HOST']}/1/metastore",
     entitystore: "redis://#{ENV['REDIS_HOST']}/1/entitystore"
   }
