@@ -44,6 +44,8 @@ GEM
       execjs
     av (0.9.0)
       cocaine (~> 0.5.3)
+    aws-healthcheck (1.0.1)
+      rails (>= 3.0)
     aws-sdk (2.10.25)
       aws-sdk-resources (= 2.10.25)
     aws-sdk-core (2.10.25)
@@ -295,6 +297,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-healthcheck
   aws-sdk
   aws-sdk-rails
   bootstrap (= 4.0.0.alpha6)

@@ -94,5 +94,6 @@ gem 'tagsinput-rails'
 gem 'stripe'
 
 gem 'exception_handler'
+gem 'aws-healthcheck'
 
 ruby "2.4.1"
