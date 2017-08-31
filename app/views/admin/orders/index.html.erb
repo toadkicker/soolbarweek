@@ -17,7 +17,7 @@
   <tbody>
   <% @past_order_items.each do |poi| %>
       <tr>
-        <td><%= poi.event.title %></td>
+        <td><%= link_to poi.event.title, event_path(poi) %>&nbsp;<%= fa_icon('at') %>&nbsp;<%= l(poi.event.start_time, format: "%B %d %H:%M %p") %></td>
         <td><%= poi.quantity %></td>
         <td><%= humanized_money_with_symbol poi.total_price %></td>
         <td>
