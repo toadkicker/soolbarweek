@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :sponsors
   resources :profiles
   resources :events
-  #resources :charges, only: [:index, :new, :create]
+  resources :charges, only: [:index, :new, :create]
 
   get "/charges/receipt/:id", to: "charges#receipt", as: 'receipt_mailer'
 
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   get '/thank-you', to: 'pages#show', page: 'thankyou', as: 'thankyou'
   get '/transit', to: 'pages#show', page: 'transit', as: 'transit'
 
-  #resource :cart, only: [:show]
+  resource :cart, only: [:show]
   resources :order_items, only: %i[index create update destroy]
 
   root 'pages#show', page: 'index'

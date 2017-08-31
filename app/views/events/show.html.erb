@@ -15,6 +15,33 @@
   </p>
 </div>
 
+<div class="flex-row">
+  <% if user_signed_in? %>
+      <% if @event.max_seats > 0 %>
+          <%= form_for @order_item, remote: true, html: {class: 'form form-inline'} do |f| %>
+              <% if @event.price != 0 %>
+                  <%= f.hidden_field :event_id, value: @event.id %>
+
+                  <div class="form-group field">
+                    <%= f.number_field :quantity, value: 1, class: "form-control", min: 1, max: @event.max_seats %>
+                  </div>
+                  &nbsp;
+                  <div class="form-actions">
+                    <%= f.submit t('add_to_order'), class: 'btn btn-success' %>
+                  </div>
+              <% end %>
+          <% end %>
+      <% end %>
+  <% else %>
+      <%= t('create_account') %>
+      <br>
+      <%= link_to t('sign_up'), new_user_registration_path, class: 'btn btn-outline-primary' %>
+  <% end %>
+  <% if user_signed_in? %>
+      <%= event_status_tag(@event.max_seats) %>
+  <% end %>
+</div>
+
 <% if user_is_admin? %>
     <%= link_to 'Edit', edit_event_path(@event) %> |
 <% end %>
