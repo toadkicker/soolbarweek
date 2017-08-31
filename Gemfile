@@ -66,7 +66,7 @@ group :production do
   gem 'newrelic_rpm'
   gem 'redis-rails'
   gem 'redis-rack-cache'
-  gem 'redis-session-store'
+  gem 'redis-session-store', git: 'https://github.com/roidrage/redis-session-store.git'
 
 end
 
