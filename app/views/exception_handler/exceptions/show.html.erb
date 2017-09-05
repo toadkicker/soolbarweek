@@ -2,7 +2,7 @@
     <% if user_is_admin? %>
         <%= content_tag :span, @exception.description.html_safe %>
     <% else %>
-        <p>We're sorry but an error occurred and we could not continue processing your request. Our admin's have been
+        <p>We're sorry but an error occurred and we could not continue processing your request. Our admins have been
           notifed, but we welcome you to send us more information to help fix the problem. For
           now <%= link_to "go back", root_url %> to the home page and try again.</p>
         <br>
