@@ -1,0 +1,11 @@
+<%= content_tag :div, class: "exception", data: {status: @exception.status, response: @exception.response.to_s.humanize, rails: Rails.version}, onclick: ("location.href=\"#{root_url}\";" if @exception.status == "500" && Rails.application.routes.recognize_path("/")), title: ("Return Home" if @exception.status == "500" && Rails.application.routes.recognize_path("/")) do %>
+    <% if user_is_admin? %>
+        <%= content_tag :span, @exception.description.html_safe %>
+    <% else %>
+        <p>We're sorry but an error occurred and we could not continue processing your request. Our admin's have been
+          notifed, but we welcome you to send us more information to help fix the problem. For
+          now <%= link_to "go back", root_url %> to the home page and try again.</p>
+        <br>
+        <p><%= link_to "Go To Home", root_url, class: "btn btn-outline-primary" %></p>
+    <% end %>
+<% end %>

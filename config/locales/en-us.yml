@@ -337,3 +337,4 @@ en-us: &en
       short: "%d %b %I:%M %p"
     pm: pm
   hello: "Hello"
+  server_error: "Server Error"
