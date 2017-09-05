@@ -18,7 +18,7 @@
 
     <div class="form-group field">
       <%= form.label :description %>
-      <%= form.text_field :description, id: :gallery_description, class: 'form-control' %>
+      <%= form.text_field :description, id: :gallery_description, class: 'form-control html-ok' %>
     </div>
 
     <div class="form-group field">
@@ -40,7 +40,7 @@
     <div class="form-group field">
       <%= form.label :tags %>
       <%= form.text_field :tags, id: :gallery_media_tags, class: 'form-control' %>
-      <%= content_tag :small, t('whataregallerytags', default: "Gallery tags are a way to create albumns by allowing media to exist in multiple places.") %>
+      <%= content_tag :small, t('whataregallerytags', default: "Gallery tags are a way to create albumns by allowing media to exist in multiple places. Type a word and press return to create an album tag.") %>
     </div>
 
     <div class="form-group field">

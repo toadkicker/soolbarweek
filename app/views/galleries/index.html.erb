@@ -15,7 +15,9 @@
         <small><%= t('view', default: "View:") %></small>
         <%= content_tag :button, t('All'), class: "tag btn btn-success", data: {filter: '*'} %>
         <% @tags.each do |tag| %>
-            <%= content_tag :button, t(tag.to_s, default: tag), class: "tag btn", data: {filter: '.' + tag} %>
+            <% unless tag.empty? %>
+                <%= content_tag :button, t(tag), class: "tag btn", data: {filter: '.' + tag} %>
+            <% end %>
         <% end %>
       </div>
     </div>

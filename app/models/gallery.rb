@@ -30,6 +30,15 @@ class Gallery < ApplicationRecord
                          content_type: %w[video/quicktime video/mpeg video/quicktime video/mp4]
                        }
 
+  validates_attachment_presence :video, if: :media_or_video
+  validates_attachment_presence :media, if: :media_or_video
+
+  validates_presence_of :title, :description
+
+  def media_or_video
+    false unless media.present? || video.present?
+  end
+
   def s3_credentials
     {bucket: ENV['S3_SBW_UPLOADS'], access_key_id: ENV['S3_SBW_ACCESS_KEY'], secret_access_key: ENV['S3_SBW_SECRET_KEY']}
   end

@@ -30,7 +30,7 @@ class GalleriesController < ApplicationController
 
     respond_to do |format|
       if @gallery.save
-        format.html { redirect_to @gallery, notice: 'Gallery was successfully created.' }
+        format.html { redirect_to @gallery, notice: "#{@gallery.title} was successfully created." }
         format.json { render :show, status: :created, location: @gallery }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class GalleriesController < ApplicationController
   def update
     respond_to do |format|
       if @gallery.update(gallery_params)
-        format.html { redirect_to @gallery, notice: 'Gallery was successfully updated.' }
+        format.html { redirect_to @gallery, notice: "#{@gallery.title} was successfully updated." }
         format.json { render :show, status: :ok, location: @gallery }
       else
         format.html { render :edit }
@@ -56,9 +56,10 @@ class GalleriesController < ApplicationController
   # DELETE /galleries/1
   # DELETE /galleries/1.json
   def destroy
+    title = @gallery.title
     @gallery.destroy
     respond_to do |format|
-      format.html { redirect_to galleries_url, notice: 'Gallery was successfully destroyed.' }
+      format.html { redirect_to galleries_url, notice: "#{title} was successfully destroyed." }
       format.json { head :no_content }
     end
   end

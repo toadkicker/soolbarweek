@@ -668,5 +668,14 @@
     </div>
   </div>
 </footer>
+<% if user_is_admin? %>
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=nx39n4ko8c7qjvpkq8zm0f5vwv4rojxidbnuye2gc6nghsmo"></script>
+    <script>
+        tinymce.init({
+            branding: false,
+            selector: '.html-ok'
+        });
+    </script>
+<% end %>
 </body>
 </html>

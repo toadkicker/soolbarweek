@@ -24,11 +24,13 @@
     <div class="form-group field">
       <%= form.label :website %>
       <%= form.text_field :website, id: :sponsor_website, class: 'form-control' %>
+      <%= content_tag :small, "Please provide the full URL (http://somewhere.com or https://someother.com)" %>
     </div>
 
     <div class="form-group field">
       <%= form.label :order %>
       <%= form.number_field :ordinality, id: :sponsor_ordinality, class: 'form-control' %>
+      <%= content_tag :small, "This controls the sorted display of sponsors from lowest to highest." %>
     </div>
 
     <div class="form-group field">
