@@ -75,7 +75,7 @@
                           <% if user_is_admin? %>
                             <span>
                               <%= link_to t('edit'), edit_event_path(gs), class: 'btn btn-sm btn-outline-primary' %>
-                              <%= link_to t('destroy'), gs, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-outline-danger' %>
+                              <%= link_to gs.is_active ? t('deactivate') : t('activate'), gs, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-sm btn-outline-#{gs.is_active ? 'danger':'success'}" %>
                             </span>
                           <% end %>
                         </p>
