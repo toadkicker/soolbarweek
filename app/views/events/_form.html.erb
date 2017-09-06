@@ -76,6 +76,13 @@
       <%= form.number_field :max_seats, id: :event_max_seats, class: 'form-control' %>
     </div>
 
+    <div class="form-check field">
+      <%= form.label :is_active, class:'form-check-label' do %>
+          <%= form.check_box :is_active, id: :event_is_active, class: 'form-check-input' %>
+          <%= t('active') %>?
+      <% end %>
+    </div>
+
     <div class="actions">
       <%= form.submit class: 'btn btn-outline-primary' %>
     </div>

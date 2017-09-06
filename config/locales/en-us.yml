@@ -338,3 +338,4 @@ en-us: &en
     pm: pm
   hello: "Hello"
   server_error: "Server Error"
+  not_active: "not active"

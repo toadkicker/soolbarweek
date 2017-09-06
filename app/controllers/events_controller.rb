@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.by_day
+    user_is_admin? ? @events = Event.by_day : @events = Event.active.by_day
   end
 
   # GET /events/1
@@ -55,9 +55,9 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event.destroy
+    @event.update(is_active: !@event.is_active)
     respond_to do |format|
-      format.html {redirect_to events_url, notice: 'Event was successfully destroyed.'}
+      format.html {redirect_to events_url, notice: "Event is set to #{@event.is_active ? t('active') : t('not_active') }."}
       format.json {head :no_content}
     end
   end
@@ -74,6 +74,6 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event)
       .permit(:title, :subtitle, :short_description, :description, :start_time, :end_time, :filter_type, :video, :image,
-              :price, :profile_id, :location_id, :max_seats)
+              :price, :profile_id, :location_id, :max_seats, :is_active)
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170830081348) do
+ActiveRecord::Schema.define(version: 20170906045058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20170830081348) do
     t.bigint "profile_id"
     t.bigint "location_id"
     t.integer "max_seats", default: 0
+    t.boolean "is_active", default: true
     t.index ["location_id"], name: "index_events_on_location_id"
     t.index ["profile_id"], name: "index_events_on_profile_id"
   end
