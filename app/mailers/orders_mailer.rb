@@ -9,7 +9,7 @@ class OrdersMailer < ApplicationMailer
   def notify(user, order)
     @user = user
     @events = order.order_items.map {|item| Event.find(item.event_id)}
-    mail(to: "bobspirit-it@gmail.com", from: 'no-reply@soolbarweek.com', subject: "Admin Action: Sool Bar Week")
+    mail(to: "bobspirit.it@gmail.com", from: 'no-reply@soolbarweek.com', subject: "Admin Action: Sool Bar Week")
   end
 
 end
