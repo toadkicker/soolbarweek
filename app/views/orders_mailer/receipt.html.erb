@@ -13,7 +13,7 @@
 <body>
 <div class="container">
   <div class="text-center">
-    <img src="http://soolbarweek.com/logo2x.png" alt="Sool Bar Week Logo" height="200"/>
+    <%= image_tag asset_url("logo2x.png"), alt: "Sool Bar Week Logo", height: "200" %>
   </div>
   <p>
     <%= t('order.email.thank_you', default: "Thank you for your purchase!") %>
@@ -36,6 +36,8 @@
   <p>
     <%= t('order.email.message', default: "Please bring this email with you as proof of payment.") %>
   </p>
+
+  <p><%= t('order.email.info', default: 'You can always view your order history on <a href="https://soolbarweek.com/charges">our website</a>. Log in and click on your account in the top right, then click Order History.'.html_safe) %></p>
 
   <p>
     <%= t('thank_you', default: "Thank You") %>,<br>

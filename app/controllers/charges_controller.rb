@@ -7,7 +7,7 @@ class ChargesController < ApplicationController
   end
 
   def receipt
-    @processed_order = Order.where(id: params[:id], user: current_user).first
+    @processed_order = current_user.orders.find(params[:id])
     OrdersMailer.receipt(current_user, @processed_order).deliver_later
     flash[:success] = t('receipt_sent', default: "A receipt was sent to #{current_user.email}")
   end
@@ -32,10 +32,10 @@ class ChargesController < ApplicationController
 
     current_order.update(order_status_id: @order_status.id)
 
-    @processed_order = OrderItem.current_users_cart(current_user.id).first.order
+    @processed_order = current_user.orders.last
     OrdersMailer.receipt(current_user, @processed_order).deliver_later
     OrdersMailer.notify(current_user, @processed_order).deliver_later
-
+    flash[:success] = t('activerecord.errors.models.thank_you') + "! " + t('activerecord.errors.models.order_placed')
     redirect_to charges_path
   rescue Stripe::CardError => e
     flash[:error] = e.message
