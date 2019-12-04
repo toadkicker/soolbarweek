@@ -1,24 +1,32 @@
-# README
+# What is this?
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This was a website (now defunct) to support Sool Bar Week, an event coordinated through this application.
 
-Things you may want to cover:
+## Features
+It has custom content manager with language translations coming out of the database.
 
-* Ruby version
+It has a gallery component that supports uploads and displays them back on the page
 
-* System dependencies
+It has venue and event management
 
-* Configuration
+It has a bio page with an image and whatever description the administrator enters for that language
 
-* Database creation
+There is probably more it does, but that's just what I can remember.
 
-* Database initialization
+## Why did you open source this?
 
-* How to run the test suite
+The site is defunct and won't ever come back to life. However there is a lot of useful stuff in here like:
 
-* Services (job queues, cache servers, search engines, etc.)
+How to configure rails i18n to the database
 
-* Deployment instructions
+How to do uploads
 
-* ...
+How to build event management controllers
+
+How to do payments with Stripe in multiple languages/currencies
+
+More...
+
+Cheers!
+
+Todd
